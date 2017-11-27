@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
@@ -23,7 +24,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-public class LoginFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
+public class LoginFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>,View.OnClickListener{
 
     private LoginFragment.UserLoginTask mAuthTask = null; // object for class of UserLoginTask
     private EditText mEmailView;
@@ -42,7 +43,7 @@ public class LoginFragment extends Fragment implements LoaderManager.LoaderCallb
 
         View view=inflater.inflate(R.layout.fragment_login, container, false);
 
-        mSignUpVIew = (TextView)view.findViewById(R.id.sign_up_textview);
+
         mEmailView = (EditText) view.findViewById(R.id.email_id);
         mPsdView = (EditText) view.findViewById(R.id.password);
         mPsdView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -71,6 +72,20 @@ public class LoginFragment extends Fragment implements LoaderManager.LoaderCallb
 
         return view;
     }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView(view);
+    }
+
+    private void initView(View view){
+        mSignUpVIew = (TextView)view.findViewById(R.id.sign_up_textview);
+        mSignUpVIew.setOnClickListener(this);
+
+    }
+
+
 
     private void attemptLogin() {
         if (mAuthTask != null) {
@@ -182,6 +197,15 @@ public class LoginFragment extends Fragment implements LoaderManager.LoaderCallb
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
 
+    }
+
+    private void changeFragment(){
+        getFragmentManager().beginTransaction().replace(R.id.fragment,new SignUpFragment()).addToBackStack(null).commit();
+    }
+
+    @Override
+    public void onClick(View v) {
+        changeFragment();
     }
 
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
