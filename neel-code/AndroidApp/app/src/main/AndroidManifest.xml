@@ -19,6 +19,9 @@
             android:label="@string/title_activity_catalog"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Authentication">
+
+        </activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
