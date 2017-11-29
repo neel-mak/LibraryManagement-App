@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:padding="40dp"
     tools:context="com.librarymanagement.siddharth.snaplibrary.Confirmation_Fragment">
 
@@ -17,7 +18,7 @@
             android:text="Enter the verification code"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:textColor="#1b68e5"/>
+            android:textColor="#cccccc"/>
 
         <EditText
             android:layout_width="wrap_content"
@@ -27,11 +28,13 @@
             android:maxLength="4"/>
 
         <Button
+            android:id="@+id/verify"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Verify"
             android:textSize="15sp"
             android:textStyle="bold"
+            android:onClick="buttonClick"
             android:background="#ff8800"/>
 
     </LinearLayout>
