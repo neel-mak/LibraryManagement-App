@@ -2,22 +2,25 @@ package com.librarymanagement.siddharth.snaplibrary;
 
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.librarymanagement.siddharth.snaplibrary.helper.CallLogin;
 import com.librarymanagement.siddharth.snaplibrary.helper.CallRegister;
+import com.librarymanagement.siddharth.snaplibrary.helper.CallVerifyUser;
 import com.librarymanagement.siddharth.snaplibrary.helper.Constants;
 import com.librarymanagement.siddharth.snaplibrary.helper.ExceptionMessageHandler;
+import com.librarymanagement.siddharth.snaplibrary.helper.LogHelper;
 import com.librarymanagement.siddharth.snaplibrary.helper.RequestClass;
+import com.librarymanagement.siddharth.snaplibrary.helper.SharedData;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,110 +31,89 @@ import java.util.HashMap;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SignUpFragment extends Fragment  {
+public class ConfirmationFragment extends Fragment {
 
-    public static EditText signUpEmailAddress;
-    public EditText signUpPassword;
-    public EditText signUpSjsuId;
-    public Button signUpButton;
-    private static View mSignupProgressView;
-    private static View mSignupView;
+    public static EditText verifyNumber;
+    public Button verifyBtn;
+    private static View mVerifyProgressView;
+    private static View mVerifyView;
 
-    public SignUpFragment() {
+    public ConfirmationFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
+        View view = inflater.inflate(R.layout.fragment_confirmation_, container, false);
 
-        signUpEmailAddress = (EditText) view.findViewById(R.id.signUpEmailAddress);
-        signUpPassword = (EditText) view.findViewById(R.id.signUpPassword);
-        signUpSjsuId = (EditText) view.findViewById(R.id.signUpSjsuId);
+        verifyNumber = (EditText) view.findViewById(R.id.verify_number);
 
-        signUpButton = (Button) view.findViewById(R.id.btn_signup);
-        signUpButton.setOnClickListener(new View.OnClickListener() {
+        Button verifyButton = (Button)view.findViewById(R.id.verifyBtn);
+        verifyButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 try {
-                    attemptSignUp();
+                    attemptVerification();
                 } catch (Exception e) {
                     ExceptionMessageHandler.handleError(getActivity(), Constants.GENERIC_ERROR_MSG, e, null);
                 }
             }
         });
-
-        mSignupProgressView = view.findViewById(R.id.signup_progress);
-        mSignupView = view.findViewById(R.id.signup_submit);
+        mVerifyProgressView = view.findViewById(R.id.verify_progress);
+        mVerifyView = view.findViewById(R.id.verify_submit);
 
         return view;
     }
 
-    public void attemptSignUp() throws JSONException {
+    public void attemptVerification() throws JSONException {
 
         // Reset errors.
-        signUpEmailAddress.setError(null);
-        signUpPassword.setError(null);
-        signUpSjsuId.setError(null);
+        verifyNumber.setError(null);
 
         // Get values from UI.
-        String email = signUpEmailAddress.getText().toString();
-        String password = signUpPassword.getText().toString();
-        String sjsuId = signUpSjsuId.getText().toString();
+        String verifyCode = verifyNumber.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
 
         // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
-            signUpEmailAddress.setError(getString(R.string.error_field_required));
-            focusView = signUpEmailAddress;
+        if (TextUtils.isEmpty(verifyCode)) {
+            verifyNumber.setError(getString(R.string.error_field_required));
+            focusView = verifyNumber;
             cancel = true;
-        } else if (!Constants.VALID_EMAIL_ADDRESS_REGEX .matcher(email).find()) {
-            signUpEmailAddress.setError(getString(R.string.error_invalid_email));
-            focusView = signUpEmailAddress;
-            cancel = true;
-        }
-        // Check for a valid password, if the user entered one.
-        else if (TextUtils.isEmpty(password)) {
-            signUpPassword.setError(getString(R.string.error_field_required));
-            focusView = signUpPassword;
-            cancel = true;
-        }else if(TextUtils.isEmpty(sjsuId)){
-            signUpSjsuId.setError(getString(R.string.error_field_required));
-            focusView = signUpSjsuId;
-            cancel = true;
-        }else if(sjsuId.length() != 6){
-            signUpSjsuId.setError(getString(R.string.error_incorrect_sjsuid));
-            focusView = signUpSjsuId;
+        } else if (verifyNumber.length() != 5) {
+            verifyNumber.setError(getString(R.string.error_invalid_verification_number));
+            focusView = verifyNumber;
             cancel = true;
         }
 
         if(cancel){
             focusView.requestFocus();
-        }else{
+        }else {
             showProgress(true);
 
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("email", signUpEmailAddress.getText());
-            jsonObject.put("password", signUpPassword.getText());
-            jsonObject.put("universityId", signUpSjsuId.getText());
+            SharedData.readFromSharedInitial(this.getActivity().getApplicationContext());
+            String[] userDetails = SharedData.getUserDetails();
+            jsonObject.put("email", userDetails[1]);
+            jsonObject.put("verificationCode", verifyNumber.getText());
+
+            LogHelper.logMessage("Siddharth", "email:" + userDetails[1] + "  verificationCode:" + verifyNumber.getText());
 
             HashMap<String, Object> params = new HashMap<String, Object>();
             params.put(Constants.REQUEST_JSON, jsonObject);
-            params.put(Constants.ACTION, Constants.ACTION_REGISTER);
+            params.put(Constants.ACTION, Constants.ACTION_VERIFY_USER);
             params.put(Constants.ACTIVITY, this.getActivity());
             params.put(Constants.FRAGMENT, this);
             params.put(Constants.VIEW, this.getView());
             params.put(Constants.CONTEXT, this.getContext());
 
             RequestClass.startRequestQueue();
-            new CallRegister().processRegisterRequest(params);
+            new CallVerifyUser().processVerifyRequest(params);
         }
-
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
@@ -162,15 +144,9 @@ public class SignUpFragment extends Fragment  {
 //        } else {
         // The ViewPropertyAnimator APIs are not available, so simply show
         // and hide the relevant UI components.
-        mSignupProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-        mSignupView.setVisibility(show ? View.GONE : View.VISIBLE);
+        mVerifyProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+        mVerifyView.setVisibility(show ? View.GONE : View.VISIBLE);
 //        }
     }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-    }
-
 
 }

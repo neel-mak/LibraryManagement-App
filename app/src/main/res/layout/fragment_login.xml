@@ -42,6 +42,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/email_id"
                         android:textColor="#ffffff"
+                        android:maxLength="50"
                         android:inputType="textEmailAddress"
                         android:textSize="20sp"
                         android:drawableStart="@drawable/email"/>
@@ -60,6 +61,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/password"
                         android:textColor="#ffffff"
+                        android:maxLength="50"
                         android:inputType="textPassword"
                         android:textSize="20sp"
                         android:drawableStart="@drawable/ic_lock_white_24dp"/>
