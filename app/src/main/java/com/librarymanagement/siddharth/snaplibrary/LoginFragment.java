@@ -23,18 +23,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.librarymanagement.siddharth.snaplibrary.helper.CallLogin;
+import com.librarymanagement.siddharth.snaplibrary.helper.Constants;
+import com.librarymanagement.siddharth.snaplibrary.helper.ExceptionMessageHandler;
+import com.librarymanagement.siddharth.snaplibrary.helper.RequestClass;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class LoginFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>,View.OnClickListener{
 
-    private LoginFragment.UserLoginTask mAuthTask = null; // object for class of UserLoginTask
     private EditText mEmailView;
-    private EditText mPsdView;
-    private View mProgressView;
-    private View mLoginView;
+    public static EditText mPsdView;
+    private static View mProgressView;
+    private static View mLoginView;
     private TextView mSignUpVIew;
-
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,7 +58,11 @@ public class LoginFragment extends Fragment implements LoaderManager.LoaderCallb
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_NULL) {
-                    attemptLogin();
+                    try {
+                        attemptLogin();
+                    } catch (Exception e) {
+                        ExceptionMessageHandler.handleError(getContext(), Constants.GENERIC_ERROR_MSG, e, null);
+                    }
                     return true;
                 }
                 return false;
@@ -61,14 +73,16 @@ public class LoginFragment extends Fragment implements LoaderManager.LoaderCallb
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                try {
+                    attemptLogin();
+                } catch (Exception e) {
+                    ExceptionMessageHandler.handleError(getActivity(), Constants.GENERIC_ERROR_MSG, e, null);
+                }
             }
         });
 
         mProgressView = view.findViewById(R.id.login_progress);
         mLoginView = view.findViewById(R.id.login_submit);
-
-
 
         return view;
     }
@@ -87,10 +101,7 @@ public class LoginFragment extends Fragment implements LoaderManager.LoaderCallb
 
 
 
-    private void attemptLogin() {
-        if (mAuthTask != null) {
-            return;
-        }
+    private void attemptLogin() throws JSONException {
 
         // Reset errors.
         mEmailView.setError(null);
@@ -103,13 +114,6 @@ public class LoginFragment extends Fragment implements LoaderManager.LoaderCallb
         boolean cancel = false;
         View focusView = null;
 
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password_data) && !isPasswordValid(password_data)) {
-            mPsdView.setError(getString(R.string.error_invalid_password));
-            focusView = mPsdView;
-            cancel = true;
-        }
-
         // Check for a valid email address.
         if (TextUtils.isEmpty(email_data)) {
             mEmailView.setError(getString(R.string.error_field_required));
@@ -118,6 +122,17 @@ public class LoginFragment extends Fragment implements LoaderManager.LoaderCallb
         } else if (!isEmailValid(email_data)) {
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
+            cancel = true;
+        }
+        // Check for a valid password, if the user entered one.
+        else if (TextUtils.isEmpty(password_data)) {
+            mPsdView.setError(getString(R.string.error_field_required));
+            focusView = mPsdView;
+            cancel = true;
+        }
+        else if (!isPasswordValid(password_data)) {
+            mPsdView.setError(getString(R.string.error_invalid_password));
+            focusView = mPsdView;
             cancel = true;
         }
 
@@ -129,59 +144,71 @@ public class LoginFragment extends Fragment implements LoaderManager.LoaderCallb
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email_data, password_data);
-            mAuthTask.execute((Void) null);
+
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("email", mEmailView.getText());
+            jsonObject.put("password", mPsdView.getText());
+
+            HashMap<String, Object> params = new HashMap<String, Object>();
+            params.put(Constants.REQUEST_JSON, jsonObject);
+            params.put(Constants.ACTION, Constants.ACTION_UPDATE_LOGIN);
+            params.put(Constants.ACTIVITY, this.getActivity());
+            params.put(Constants.FRAGMENT, this);
+            params.put(Constants.VIEW, this.getView());
+            params.put(Constants.CONTEXT, this.getContext());
+
+            RequestClass.startRequestQueue();
+            new CallLogin().processLoginRequest(params);
+            //mAuthTask = new UserLoginTask(email_data, password_data);
+            //mAuthTask.execute((Void) null);
+
         }
 
     }
 
     private boolean isEmailValid(String email_data) {
-        if(email_data.length()<4 || !email_data.contains("@"))
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+
+        Matcher matcher = Constants.VALID_EMAIL_ADDRESS_REGEX .matcher(email_data);
+        return matcher.find();
     }
 
     private boolean isPasswordValid(String password) {
 
-        return password.length() > 4;
+        //return password.length() > 4;
+        return true;
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
-    private void showProgress(final boolean show) {
+    public static void showProgress(final boolean show) {
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
         // for very easy animations. If available, use these APIs to fade-in
         // the progress spinner.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
-
-            mLoginView.setVisibility(show ? View.GONE : View.VISIBLE);
-            mLoginView.animate().setDuration(shortAnimTime).alpha(
-                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    mLoginView.setVisibility(show ? View.GONE : View.VISIBLE);
-                }
-            });
-
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            mProgressView.animate().setDuration(shortAnimTime).alpha(
-                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-                }
-            });
-        } else {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+//            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+//
+//            mLoginView.setVisibility(show ? View.GONE : View.VISIBLE);
+//            mLoginView.animate().setDuration(shortAnimTime).alpha(
+//                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
+//                @Override
+//                public void onAnimationEnd(Animator animation) {
+//                    mLoginView.setVisibility(show ? View.GONE : View.VISIBLE);
+//                }
+//            });
+//
+//            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+//            mProgressView.animate().setDuration(shortAnimTime).alpha(
+//                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+//                @Override
+//                public void onAnimationEnd(Animator animation) {
+//                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+//                }
+//            });
+//        } else {
             // The ViewPropertyAnimator APIs are not available, so simply show
             // and hide the relevant UI components.
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginView.setVisibility(show ? View.GONE : View.VISIBLE);
-        }
+//        }
     }
 
     @Override
@@ -208,51 +235,5 @@ public class LoginFragment extends Fragment implements LoaderManager.LoaderCallb
         changeFragment();
     }
 
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-
-        private final String mEmail;
-        private final String mPassword;
-
-        UserLoginTask(String email, String password) {
-            mEmail = email;
-            mPassword = password;
-        }
-
-        @Override
-        protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
-
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
-            }
-
-            // TODO: register the new account here.
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(final Boolean success) {
-            mAuthTask = null;
-            showProgress(false);
-
-            if (success) {
-                Intent i;
-                i = new Intent(getContext(),CatalogActivity.class);
-                startActivity(i);
-            } else {
-                mPsdView.setError(getString(R.string.error_incorrect_password));
-                mPsdView.requestFocus();
-            }
-        }
-
-        @Override
-        protected void onCancelled() {
-            mAuthTask = null;
-            showProgress(false);
-        }
-    }
 
 }

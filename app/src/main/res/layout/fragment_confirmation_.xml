@@ -4,9 +4,18 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:padding="40dp"
-    tools:context="com.librarymanagement.siddharth.snaplibrary.Confirmation_Fragment">
+    tools:context="com.librarymanagement.siddharth.snaplibrary.ConfirmationFragment">
+
+    <ProgressBar
+        android:id="@+id/verify_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
 
     <LinearLayout
+        android:id="@+id/verify_submit"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -21,20 +30,20 @@
             android:textColor="#cccccc"/>
 
         <EditText
+            android:id="@+id/verify_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="XXXX"
-            android:maxLength="4"/>
+            android:hint="XXXXX"
+            android:maxLength="5"/>
 
         <Button
-            android:id="@+id/verify"
+            android:id="@+id/verifyBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Verify"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:onClick="buttonClick"
             android:background="#ff8800"/>
 
     </LinearLayout>
