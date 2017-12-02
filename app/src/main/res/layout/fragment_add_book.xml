@@ -9,6 +9,8 @@
         android:layout_height="match_parent"
         android:background="@drawable/background">
 
+
+
         <LinearLayout
             android:id="@+id/Author_layout"
             android:layout_width="match_parent"
@@ -163,11 +165,34 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/Keywords_layout"
+            android:id="@+id/Copies_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@+id/Location_layout"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/text_book_Copies"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Number of Copies"
+                android:textColor="#ffffff"
+                android:textAlignment="center"/>
+
+            <EditText
+                android:id="@+id/addFragment_book_copies"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Keywords_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/Copies_layout"
             android:padding="5dp">
 
             <TextView
@@ -181,6 +206,7 @@
             <EditText
                 android:id="@+id/addFragment_book_keywords"
                 android:layout_width="200dp"
+                android:inputType="number"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
