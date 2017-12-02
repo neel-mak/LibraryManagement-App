@@ -1,18 +1,14 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.librarymanagement.siddharth.snaplibrary.UpdateDeleteFragment">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    tools:context="com.librarymanagement.siddharth.snaplibrary.AddFragment">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/background">
-
+            
             <LinearLayout
                 android:id="@+id/Author_layout"
                 android:layout_width="match_parent"
@@ -28,12 +24,10 @@
                     android:textColor="#ffffff"
                     android:textAlignment="center"/>
 
-                <TextView
-                    android:id="@+id/update_Fragment_book_author"
+                <EditText
+                    android:id="@+id/addFragment_book_author"
                     android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="#ffffff"
-                    android:textAlignment="center"/>
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
@@ -53,12 +47,10 @@
                     android:textColor="#ffffff"
                     android:textAlignment="center"/>
 
-                <TextView
-                    android:id="@+id/Update_Fragment_book_title"
+                <EditText
+                    android:id="@+id/add_Fragment_book_title"
                     android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="#ffffff"
-                    android:textAlignment="center"/>
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout
@@ -77,12 +69,28 @@
                     android:textColor="#ffffff"
                     android:textAlignment="center"/>
 
-                <TextView
-                    android:id="@+id/update_Fragment_book_publisher"
+                <EditText
+                    android:id="@+id/add_Fragment_book_publisher"
                     android:layout_width="200dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ISBN_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/Publisher_layout"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/text_book_ISBN"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="Want to fetch details using ISBN Code?"
                     android:textColor="#ffffff"
-                    android:textAlignment="center"/>
+                    android:textAlignment="textEnd"
+                    android:textStyle="italic"/>
 
             </LinearLayout>
 
@@ -91,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_below="@+id/Publisher_layout"
+                android:layout_below="@+id/ISBN_layout"
                 android:padding="5dp">
 
                 <TextView
@@ -103,7 +111,7 @@
                     android:textAlignment="center"/>
 
                 <EditText
-                    android:id="@+id/update_Fragment_Call_Number"
+                    android:id="@+id/add_Fragment_Call_Number"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -124,12 +132,11 @@
                     android:textColor="#ffffff"
                     android:textAlignment="center"/>
 
-                <TextView
-                    android:id="@+id/update_Fragment_book_year"
+                <EditText
+                    android:id="@+id/add_Fragment_book_year"
                     android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="#ffffff"
-                    android:textAlignment="center"/>
+                    android:inputType="number"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
@@ -150,7 +157,7 @@
                     android:textAlignment="center"/>
 
                 <EditText
-                    android:id="@+id/update_Fragment_book_location"
+                    android:id="@+id/add_Fragment_book_location"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -172,7 +179,7 @@
                     android:textAlignment="center"/>
 
                 <EditText
-                    android:id="@+id/update_Fragment_book_copies"
+                    android:id="@+id/addFragment_book_copies"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content" />
 
@@ -195,7 +202,7 @@
                     android:textAlignment="center"/>
 
                 <EditText
-                    android:id="@+id/update_Fragment_book_keywords"
+                    android:id="@+id/addFragment_book_keywords"
                     android:layout_width="200dp"
                     android:inputType="number"
                     android:layout_height="wrap_content" />
@@ -217,44 +224,21 @@
                     android:textColor="#ffffff"
                     android:textAlignment="center"/>
 
-                <TextView
-                    android:id="@+id/Update_Fragment_book_status"
+                <EditText
+                    android:id="@+id/addFragment_book_status"
                     android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="#ffffff"
-                    android:textAlignment="center"/>
+                    android:layout_height="wrap_content" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
+
+            <Button
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@+id/Status_layout">
-
-                <Button
-                    android:id="@+id/update_fragment_update_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="UPDATE"
-                    android:textStyle="bold"
-                    android:background="#ff8800"
-                    android:layout_gravity="start"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginRight="70dp"
-                    android:layout_below="@id/Status_layout"/>
-
-                <Button
-                    android:id="@+id/update_fragment_delete_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="DELETE"
-                    android:textStyle="bold"
-                    android:background="#ff8800"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@id/Status_layout" />
-            </LinearLayout>
-
-
+                android:text="ADD"
+                android:textStyle="bold"
+                android:background="#ff8800"
+                android:layout_below="@id/Status_layout"
+                android:layout_centerInParent="true"/>
         </RelativeLayout>
 
-    </ScrollView>
-</FrameLayout>
+
+</ScrollView>
