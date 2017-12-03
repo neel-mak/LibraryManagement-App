@@ -36,7 +36,7 @@ public class ListFragment extends Fragment {
             );
             bookItemList.add(bookItem);
         }
-        adapter = new ListAdapter(bookItemList,getContext());
+        adapter = new ListAdapter(bookItemList);
         recyclerView.setAdapter(adapter);
 
 
