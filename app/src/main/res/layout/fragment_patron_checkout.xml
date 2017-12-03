@@ -243,7 +243,6 @@
                 android:layout_height="wrap_content"
                 android:text="ADD TO CHECKOUT"
                 android:textStyle="bold"
-                android:gravity="center_horizontal"
                 android:background="#ff8800"
                 android:layout_gravity="start"
                 android:layout_marginLeft="50dp"
