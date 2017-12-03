@@ -56,7 +56,7 @@ public class CallAddBook {
 
                             HashMap returnHashMap = new HashMap<String, String>();
 
-                            Boolean isSuccess = jsonObject.getBoolean("success");
+                            Boolean isSuccess = jsonObject.getBoolean("success") || jsonObject.getBoolean("sucess");
                             if(isSuccess){
                                 String message = jsonObject.getString("message");
                                 LogHelper.logMessage("Siddharth","\n message: " + message);
