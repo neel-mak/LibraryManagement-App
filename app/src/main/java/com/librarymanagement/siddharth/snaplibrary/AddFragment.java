@@ -223,6 +223,7 @@ public class AddFragment extends Fragment {
                 e.printStackTrace();
             }
 
+            LogHelper.logMessage("Bitmap", "width:" + captureBmp.getWidth() + " height: " +captureBmp.getHeight());
             addFragmentImageView.setImageBitmap(captureBmp);
 
             //String imgString = Base64.encodeToString(getBytesFromBitmap(captureBmp), Base64.NO_WRAP);
@@ -259,7 +260,7 @@ public class AddFragment extends Fragment {
     // convert from bitmap to byte array
     public byte[] getBytesFromBitmap(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 70, stream);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         return stream.toByteArray();
     }
 
