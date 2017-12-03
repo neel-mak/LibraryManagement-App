@@ -32,6 +32,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(ListAdapter.ViewHolder holder, int position) {
         BookItem bookItem = BookList.get(position);
+
         holder.Book_Status.setText(bookItem.getBook_Status());
         holder.Book_Title.setText(bookItem.getBook_Title());
         holder.Book_Publisher.setText(bookItem.getBook_Publisher());

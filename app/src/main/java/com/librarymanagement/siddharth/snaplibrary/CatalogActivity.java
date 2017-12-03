@@ -30,11 +30,8 @@ public class CatalogActivity extends AppCompatActivity {
         ListFragment listFragment=new ListFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.placeholder,listFragment);
+        fragmentTransaction.add(R.id.place_holder,listFragment);
         fragmentTransaction.commit();
-        /*FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.placeholder,listFragment);
-        fragmentTransaction.commit();*/
+
     }
 }
