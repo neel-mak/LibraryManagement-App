@@ -1,244 +1,303 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context="com.librarymanagement.siddharth.snaplibrary.AddFragment">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/background">
-            
-            <LinearLayout
-                android:id="@+id/Author_layout"
+    <ProgressBar
+        android:id="@+id/add_book_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/add_book_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="5dp">
+                android:layout_height="match_parent"
+                android:background="@drawable/background">
 
-                <TextView
-                    android:id="@+id/text_book_author"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:text="Author"
-                    android:textColor="#ffffff"
-                    android:textAlignment="center"/>
-
-                <EditText
-                    android:id="@+id/addFragment_book_author"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/Title_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@+id/Author_layout"
-                android:padding="5dp">
-
-                <TextView
-                    android:id="@+id/text_book_title"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:text="Title"
-                    android:textColor="#ffffff"
-                    android:textAlignment="center"/>
-
-                <EditText
-                    android:id="@+id/add_Fragment_book_title"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/Publisher_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@+id/Title_layout"
-                android:padding="5dp">
-
-                <TextView
-                    android:id="@+id/text_book_publisher"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:text="Publisher"
-                    android:textColor="#ffffff"
-                    android:textAlignment="center"/>
-
-                <EditText
-                    android:id="@+id/add_Fragment_book_publisher"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ISBN_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@+id/Publisher_layout"
-                android:padding="5dp">
-
-                <TextView
-                    android:id="@+id/text_book_ISBN"
+                <LinearLayout
+                    android:id="@+id/Author_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Want to fetch details using ISBN Code?"
-                    android:textColor="#ffffff"
-                    android:textAlignment="textEnd"
-                    android:textStyle="italic"/>
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/text_book_author"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Author"
+                        android:textColor="#ffffff"
+                        android:textAlignment="center"/>
 
-            <LinearLayout
-                android:id="@+id/Call_Number_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@+id/ISBN_layout"
-                android:padding="5dp">
+                    <EditText
+                        android:id="@+id/addFragment_book_author"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="author1"/>
 
-                <TextView
-                    android:id="@+id/text_book_call_number"
-                    android:layout_width="200dp"
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Title_layout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Call Number"
-                    android:textColor="#ffffff"
-                    android:textAlignment="center"/>
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/Author_layout"
+                    android:padding="5dp">
 
-                <EditText
-                    android:id="@+id/add_Fragment_Call_Number"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/text_book_title"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Title"
+                        android:textColor="#ffffff"
+                        android:textAlignment="center"/>
 
-            <LinearLayout
-                android:id="@+id/Year_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@+id/Call_Number_layout"
-                android:padding="5dp">
+                    <EditText
+                        android:id="@+id/add_Fragment_book_title"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="title1"/>
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/text_book_year"
-                    android:layout_width="200dp"
+                <LinearLayout
+                    android:id="@+id/Publisher_layout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Year"
-                    android:textColor="#ffffff"
-                    android:textAlignment="center"/>
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/Title_layout"
+                    android:padding="5dp">
 
-                <EditText
-                    android:id="@+id/add_Fragment_book_year"
-                    android:layout_width="200dp"
-                    android:inputType="number"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/text_book_publisher"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Publisher"
+                        android:textColor="#ffffff"
+                        android:textAlignment="center"/>
 
-            </LinearLayout>
+                    <EditText
+                        android:id="@+id/add_Fragment_book_publisher"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="publisher1"/>
+                </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/Location_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@+id/Year_layout"
-                android:padding="5dp">
-
-                <TextView
-                    android:id="@+id/text_book_location"
-                    android:layout_width="200dp"
+                <LinearLayout
+                    android:id="@+id/ISBN_layout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Location"
-                    android:textColor="#ffffff"
-                    android:textAlignment="center"/>
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/Publisher_layout"
+                    android:padding="5dp">
 
-                <EditText
-                    android:id="@+id/add_Fragment_book_location"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/addFragment_scan_barcode_btn"
+                        android:text="Scan ISBN barcode"
+                        android:textStyle="bold"
+                        android:background="#ff8800"
+                        android:layout_below="@id/ISBN_layout"
+                        android:layout_centerInParent="true"/>
 
-            <LinearLayout
-                android:id="@+id/Copies_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@+id/Location_layout"
-                android:padding="5dp">
+                    <TextView
+                        android:id="@+id/toBeDeleted"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="toBeDeleted"
+                        android:textColor="#ffffff"
+                        android:textAlignment="center"/>
 
-                <TextView
-                    android:id="@+id/text_book_Copies"
-                    android:layout_width="200dp"
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Call_Number_layout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Number of Copies"
-                    android:textColor="#ffffff"
-                    android:textAlignment="center"/>
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/ISBN_layout"
+                    android:padding="5dp">
 
-                <EditText
-                    android:id="@+id/addFragment_book_copies"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/text_book_call_number"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Call Number"
+                        android:textColor="#ffffff"
+                        android:textAlignment="center"/>
 
-            </LinearLayout>
+                    <EditText
+                        android:id="@+id/add_Fragment_Call_Number"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="CN101"/>
+                </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/Keywords_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@+id/Copies_layout"
-                android:padding="5dp">
-
-                <TextView
-                    android:id="@+id/text_book_keywords"
-                    android:layout_width="200dp"
+                <LinearLayout
+                    android:id="@+id/Year_layout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Keywords"
-                    android:textColor="#ffffff"
-                    android:textAlignment="center"/>
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/Call_Number_layout"
+                    android:padding="5dp">
 
-                <EditText
-                    android:id="@+id/addFragment_book_keywords"
-                    android:layout_width="200dp"
-                    android:inputType="number"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/text_book_year"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Year"
+                        android:textColor="#ffffff"
+                        android:textAlignment="center"/>
 
-            <LinearLayout
-                android:id="@+id/Status_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@+id/Keywords_layout"
-                android:padding="5dp">
+                    <EditText
+                        android:id="@+id/add_Fragment_book_year"
+                        android:layout_width="200dp"
+                        android:inputType="number"
+                        android:layout_height="wrap_content"
+                        android:text="1993"/>
 
-                <TextView
-                    android:id="@+id/text_book_status"
-                    android:layout_width="200dp"
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Location_layout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Status"
-                    android:textColor="#ffffff"
-                    android:textAlignment="center"/>
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/Year_layout"
+                    android:padding="5dp">
 
-                <EditText
-                    android:id="@+id/addFragment_book_status"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/text_book_location"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Location"
+                        android:textColor="#ffffff"
+                        android:textAlignment="center"/>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ADD"
-                android:textStyle="bold"
-                android:background="#ff8800"
-                android:layout_below="@id/Status_layout"
-                android:layout_centerInParent="true"/>
-        </RelativeLayout>
+                    <EditText
+                        android:id="@+id/add_Fragment_book_location"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="ABC123"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Copies_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/Location_layout"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/text_book_Copies"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Number of Copies"
+                        android:textColor="#ffffff"
+                        android:textAlignment="center"/>
+
+                    <EditText
+                        android:id="@+id/addFragment_book_copies"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="5"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Keywords_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/Copies_layout"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/text_book_keywords"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Keywords"
+                        android:textColor="#ffffff"
+                        android:textAlignment="center"/>
+
+                    <EditText
+                        android:id="@+id/addFragment_book_keywords"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="crime,suspense,red"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Status_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/Keywords_layout"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/text_book_status"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Status"
+                        android:textColor="#ffffff"
+                        android:textAlignment="center"/>
+
+                    <EditText
+                        android:id="@+id/addFragment_book_status"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="available"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:id="@+id/add_fragment_imageView"
+                    android:layout_below="@id/Status_layout"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/addFragment_upload_btn"
+                    android:text="Upload cover"
+                    android:textStyle="bold"
+                    android:background="#ff8800"
+                    android:layout_below="@id/add_fragment_imageView"
+                    android:layout_centerInParent="true"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/addFragment_remove_file_btn"
+                    android:text="Remove cover"
+                    android:textStyle="bold"
+                    android:background="#ff8800"
+                    android:layout_below="@id/addFragment_upload_btn"
+                    android:layout_centerInParent="true"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/addFragment_add_btn"
+                    android:text="Add Book"
+                    android:textStyle="bold"
+                    android:background="#ff8800"
+                    android:layout_below="@id/addFragment_remove_file_btn"
+                    android:layout_centerInParent="true"/>
+            </RelativeLayout>
 
 
-</ScrollView>
+    </ScrollView>
+</FrameLayout>

@@ -13,6 +13,7 @@ public class Constants {
     public static final String CALL_LOGIN_URL = "/user/login";
     public static final String CALL_REGISTER_URL = "/user/register";
     public static final String CALL_VERIFY_URL = "/user/verify";
+    public static final String CALL_ADD_BOOK_URL = "/book/add";
 
     //Update UI vars
     public static final String ACTION_UPDATE_LOGIN = "ACTION_UPDATE_LOGIN";
