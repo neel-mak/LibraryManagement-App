@@ -27,9 +27,11 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.librarymanagement.siddharth.snaplibrary.helper.CallAddBook;
+import com.librarymanagement.siddharth.snaplibrary.helper.CallISBNLookup;
 import com.librarymanagement.siddharth.snaplibrary.helper.CallVerifyUser;
 import com.librarymanagement.siddharth.snaplibrary.helper.Constants;
 import com.librarymanagement.siddharth.snaplibrary.helper.ExceptionMessageHandler;
+import com.librarymanagement.siddharth.snaplibrary.helper.FragmentIntentIntegrator;
 import com.librarymanagement.siddharth.snaplibrary.helper.LogHelper;
 import com.librarymanagement.siddharth.snaplibrary.helper.RequestClass;
 import com.librarymanagement.siddharth.snaplibrary.helper.SharedData;
@@ -178,7 +180,8 @@ public class AddFragment extends Fragment {
                     "                Manifest.permission.CAMERA)\n" +
                     "                != PackageManager.PERMISSION_GRANTED");
 
-            new IntentIntegrator(this.getActivity()).initiateScan();
+            FragmentIntentIntegrator fragmentIntentIntegrator = new FragmentIntentIntegrator(this);
+            fragmentIntentIntegrator.initiateScan();
 
             return;
         }
@@ -230,8 +233,26 @@ public class AddFragment extends Fragment {
         }else if(requestCode == IntentIntegrator.REQUEST_CODE && resultCode == RESULT_OK){
             IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
             LogHelper.logMessage("onActivityResult", result.getContents());
+            String isbnNumber = result.getContents();
             toBeDeleted.setText(result.getContents());
 
+            try {
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("isbn", isbnNumber);
+
+                HashMap<String, Object> params = new HashMap<String, Object>();
+                params.put(Constants.REQUEST_JSON, jsonObject);
+                params.put(Constants.ACTION, Constants.ACTION_LOOKUP_ISBN);
+                params.put(Constants.ACTIVITY, this.getActivity());
+                params.put(Constants.FRAGMENT, this);
+                params.put(Constants.VIEW, this.getView());
+                params.put(Constants.CONTEXT, this.getContext());
+
+                RequestClass.startRequestQueue();
+                new CallISBNLookup().processIsbnRequest(params);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -270,7 +291,8 @@ public class AddFragment extends Fragment {
 
                     LogHelper.logMessage("CAMERA_PERMISSION" , "Permission granted");
                     //open album to select image
-                    new IntentIntegrator(this.getActivity()).initiateScan();
+                    FragmentIntentIntegrator fragmentIntentIntegrator = new FragmentIntentIntegrator(this);
+                    fragmentIntentIntegrator.initiateScan();
 
                 } else {
                     LogHelper.logMessage("CAMERA_PERMISSION" , "Permission denied");
@@ -401,7 +423,7 @@ public class AddFragment extends Fragment {
             jsonObject.put("currentStatus", addFragmentBookStatusString);
             jsonObject.put("keywords", jsonArray);
             jsonObject.put("coverageImage", imageByteArray);//imageByteArray
-//            jsonObject.put("isbn", "");
+            jsonObject.put("isbn", toBeDeleted.getText());
 
             LogHelper.logMessage("Siddharth", "author:" + addFragmentBookAuthorString
                     + "  title:" + addFragmentBookTitleString

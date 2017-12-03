@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.librarymanagement.siddharth.snaplibrary">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
@@ -23,7 +24,9 @@
         <activity
             android:name=".CatalogActivity"
             android:label="@string/title_activity_catalog"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="fullSensor"
+            tools:replace="screenOrientation"/>
         <activity android:name=".Authentication">
 
         </activity>
