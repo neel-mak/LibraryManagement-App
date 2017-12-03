@@ -7,6 +7,9 @@
     android:fitsSystemWindows="true"
     tools:context="com.librarymanagement.siddharth.snaplibrary.CatalogActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
@@ -33,6 +36,7 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
+
     <include layout="@layout/fragment_list" />
 
     <android.support.design.widget.FloatingActionButton
@@ -43,6 +47,8 @@
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
         app:srcCompat="@android:drawable/ic_dialog_email" />
+
+
 
 </android.support.design.widget.CoordinatorLayout>
 
