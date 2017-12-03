@@ -13,11 +13,14 @@ public class Constants {
     public static final String CALL_LOGIN_URL = "/user/login";
     public static final String CALL_REGISTER_URL = "/user/register";
     public static final String CALL_VERIFY_URL = "/user/verify";
+    public static final String CALL_ADD_BOOK_URL = "/book/add";
+    public static final String CALL_ISBN_URL = "/book/lookupISBN";
 
     //Update UI vars
     public static final String ACTION_UPDATE_LOGIN = "ACTION_UPDATE_LOGIN";
     public static final String ACTION_REGISTER = "ACTION_REGISTER";
     public static final String ACTION_VERIFY_USER = "ACTION_VERIFY_USER";
+    public static final String ACTION_LOOKUP_ISBN = "ACTION_LOOKUP_ISBN";
 
     //error msgs
     public static final String GENERIC_ERROR_MSG = "Something went wrong. Please try again.";

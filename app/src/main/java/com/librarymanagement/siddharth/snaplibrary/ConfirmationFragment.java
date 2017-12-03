@@ -144,8 +144,10 @@ public class ConfirmationFragment extends Fragment {
 //        } else {
         // The ViewPropertyAnimator APIs are not available, so simply show
         // and hide the relevant UI components.
-        mVerifyProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-        mVerifyView.setVisibility(show ? View.GONE : View.VISIBLE);
+        if(mVerifyProgressView != null)
+            mVerifyProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+        if(mVerifyView != null)
+            mVerifyView.setVisibility(show ? View.GONE : View.VISIBLE);
 //        }
     }
 
