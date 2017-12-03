@@ -18,7 +18,7 @@
         <activity
             android:name=".CatalogActivity"
             android:label="@string/title_activity_catalog"
-            android:theme="@style/AppTheme.NoActionBar" />
+             />
         <activity android:name=".Authentication">
 
         </activity>

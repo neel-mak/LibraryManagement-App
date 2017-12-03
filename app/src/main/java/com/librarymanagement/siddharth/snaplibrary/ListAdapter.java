@@ -15,11 +15,11 @@ import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
     private List<BookItem> BookList;
-    private Context context;
 
-    public ListAdapter(List<BookItem> bookList, Context context) {
+
+    public ListAdapter(List<BookItem> bookList) {
         BookList = bookList;
-        this.context = context;
+
     }
 
     @Override
