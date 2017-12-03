@@ -16,18 +16,25 @@
     <ScrollView
         android:id="@+id/add_book_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/background">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:id="@+id/add_fragment_imageView"
+                    />
 
                 <LinearLayout
                     android:id="@+id/Author_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_below="@+id/add_fragment_imageView"
                     android:padding="5dp">
 
                     <TextView
@@ -261,12 +268,6 @@
                         android:text=""/>
                 </LinearLayout>
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:id="@+id/add_fragment_imageView"
-                    android:layout_below="@id/Status_layout"/>
-
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -274,7 +275,7 @@
                     android:text="Upload cover"
                     android:textStyle="bold"
                     android:background="#ff8800"
-                    android:layout_below="@id/add_fragment_imageView"
+                    android:layout_below="@+id/Status_layout"
                     android:layout_centerInParent="true"/>
 
                 <Button
