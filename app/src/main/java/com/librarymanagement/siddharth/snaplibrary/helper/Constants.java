@@ -33,6 +33,7 @@ public class Constants {
     public static final String ACTION_GET_BOOKS_FOR_PATRON = "ACTION_GET_BOOKS_FOR_PATRON";
 
     public static final String ACTION_LOAD_PATRON = "ACTION_LOAD_PATRON";
+    public static final String ACTION_CHECK_AVAILABILITY = "ACTION_CHECK_AVAILABILITY";
     //error msgs
     public static final String GENERIC_ERROR_MSG = "Something went wrong. Please try again.";
 

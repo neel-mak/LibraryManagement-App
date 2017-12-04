@@ -64,6 +64,7 @@ public class CallISearchForUpdate {
                             LogHelper.logMessage("Siddharth", String.valueOf(isSuccess));
                             if(isSuccess){
                                 JSONObject jsonObject1 = jsonObject.getJSONObject("data");
+                                returnHashMap.put("id",jsonObject1.getString("id"));
                                 returnHashMap.put("author", jsonObject1.getString("author"));
                                 returnHashMap.put("title", jsonObject1.getString("title"));
                                 returnHashMap.put("callNumber", jsonObject1.getString("callNumber"));
@@ -183,9 +184,11 @@ public class CallISearchForUpdate {
                 PatronCheckoutFragment.checkoutFragmentBookCopies.setText((String)returnHashMap.get("numAvailableCopies"));
                 PatronCheckoutFragment.checkoutFragmentBookStatus.setText((String)returnHashMap.get("currentStatus"));
                 PatronCheckoutFragment.checkoutFragmentBookKeywords.setText((String)returnHashMap.get("keywords"));
+                PatronCheckoutFragment.bookId = (String)returnHashMap.get("id");
 
-
-
+                break;
+            case Constants.ACTION_CHECK_AVAILABILITY:
+                LogHelper.logMessage("Apoorv", "Checking availability for patron");
         }
     }
 

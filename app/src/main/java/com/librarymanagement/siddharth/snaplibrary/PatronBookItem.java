@@ -40,4 +40,8 @@ public class PatronBookItem {
     public String getBook_Status() {
         return Book_Status;
     }
+
+    public String getDelimitedString () {
+        return Book_Id + "@" + Book_Title + "@" + Book_Author + "@" + Book_Publisher + "@" + Book_copies + "@" + Book_Status;
+    }
 }
