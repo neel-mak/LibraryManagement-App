@@ -23,6 +23,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:inputType="text"
+            android:id="@+id/list_fragment_search_text"
             android:maxLength="200"
             android:hint="Enter value"
             android:textColorHint="#ffffff"
@@ -39,23 +40,19 @@
             android:layout_height="25dp"
             android:background="@drawable/ic_add_circle_outline_white_18dp"/>
     </LinearLayout>
-    <ScrollView
+    <FrameLayout
+        android:id="@+id/place_holder"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <FrameLayout
-            android:id="@+id/place_holder"
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+        </android.support.v7.widget.RecyclerView>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </android.support.v7.widget.RecyclerView>
-
-        </FrameLayout>
-    </ScrollView>
+    </FrameLayout>
 </LinearLayout>
 

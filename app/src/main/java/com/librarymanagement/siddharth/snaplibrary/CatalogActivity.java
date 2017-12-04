@@ -15,6 +15,8 @@ import com.librarymanagement.siddharth.snaplibrary.helper.LogHelper;
 
 public class CatalogActivity extends AppCompatActivity {
 
+    public static int bookId = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
