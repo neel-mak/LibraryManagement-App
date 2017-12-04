@@ -16,6 +16,9 @@ public class Constants {
     public static final String CALL_ADD_BOOK_URL = "/book/add";
     public static final String CALL_ISBN_URL = "/book/lookupISBN";
     public static final String CALL_GET_BOOKS = "/book/all";
+    public static final String CALL_SEARCH_URL = "/book/search";
+    public static final String CALL_UPDATE_BOOK_URL = "/book/update";
+    public static final String CALL_DELETE_BOOK_URL = "/book/delete";
 
     //Update UI vars
     public static final String ACTION_UPDATE_LOGIN = "ACTION_UPDATE_LOGIN";
@@ -23,6 +26,9 @@ public class Constants {
     public static final String ACTION_VERIFY_USER = "ACTION_VERIFY_USER";
     public static final String ACTION_LOOKUP_ISBN = "ACTION_LOOKUP_ISBN";
     public static final String ACTION_GET_BOOKS = "ACTION_GET_BOOKS";
+    public static final String ACTION_LOAD_UPDATE = "ACTION_LOAD_UPDATE";
+    public static final String ACTION_UPDATE_BOOK = "ACTION_UPDATE_BOOK";
+    public static final String ACTION_DELETE_BOOK = "ACTION_DELETE_BOOK";
 
     //error msgs
     public static final String GENERIC_ERROR_MSG = "Something went wrong. Please try again.";

@@ -3,6 +3,7 @@ package com.librarymanagement.siddharth.snaplibrary.helper;
 import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
@@ -12,6 +13,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.librarymanagement.siddharth.snaplibrary.AddFragment;
+import com.librarymanagement.siddharth.snaplibrary.BookItem;
+import com.librarymanagement.siddharth.snaplibrary.ListAdapter;
 import com.librarymanagement.siddharth.snaplibrary.ListFragment;
 
 import org.json.JSONArray;
@@ -105,7 +108,7 @@ public class CallGetBooks {
         RequestClass.getRequestQueue().add(jsObjRequest);
     }
 
-    public void updateUI(Fragment fragment, Context context, String action, Activity activity, HashMap<String, Object> returnHashMap, HashMap<String,Object> extraparams){
+    public void updateUI(Fragment fragment, Context context, String action, Activity activity, HashMap<String, Object> returnHashMap, HashMap<String,Object> extraparams) throws JSONException {
 
         switch (action) {
             case Constants.ACTION_GET_BOOKS:
@@ -115,7 +118,21 @@ public class CallGetBooks {
 
                 LogHelper.logMessage("Apoorv",String.valueOf((JSONArray)returnHashMap.get("books")));
 
-                //TODO: Update Recycler view's model for data and it's length(getItemCount method), call recyclerview adapter's notifydataset change method to refresh the list on UI
+                for(int i=0;i<booksArr.length();i++)
+                {
+                    JSONObject jsonObject = booksArr.getJSONObject(i);
+
+                    BookItem bookItem = new BookItem(
+                            jsonObject.getString("title"),jsonObject.getString("author"),
+                            jsonObject.getString("publisher"),jsonObject.getString("numAvailableCopies"),jsonObject.getString("currentStatus")
+                    );
+                    ListFragment.bookItemList.add(bookItem);
+                }
+                ListAdapter listAdapter = new ListAdapter(ListFragment.bookItemList);
+                listAdapter.setItemCount(booksArr.length()-1);
+                ListFragment.adapter = listAdapter;
+                RecyclerView recyclerView = (RecyclerView)extraparams.get("recyclerView");
+                recyclerView.setAdapter(ListFragment.adapter);
 
         }
     }

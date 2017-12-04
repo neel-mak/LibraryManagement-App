@@ -21,6 +21,7 @@ public class CatalogActivity extends AppCompatActivity {
         setContentView(R.layout.activity_catalog);
 
         /*Siddharth Code */ /*Fragment fr = new AddFragment();
+        Fragment fr = new UpdateDeleteFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.catalog_fragment, fr).addToBackStack(null).commit();

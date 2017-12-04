@@ -27,8 +27,9 @@ import java.util.List;
  */
 
 public class ListFragment extends Fragment {
-    private RecyclerView.Adapter adapter;
-    private List<BookItem> bookItemList = new ArrayList<>();
+    public static RecyclerView.Adapter adapter;
+    public static List<BookItem> bookItemList = new ArrayList<>();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)  {
@@ -57,6 +58,7 @@ public class ListFragment extends Fragment {
              params.put(Constants.FRAGMENT, this);
              params.put(Constants.VIEW, this.getView());
              params.put(Constants.CONTEXT, this.getContext());
+             params.put("recyclerView",recyclerView);
 
              new CallGetBooks().proccessGetBooks(params);
          }
@@ -65,16 +67,16 @@ public class ListFragment extends Fragment {
             e.printStackTrace();
          }
 
-        for(int i=0;i<10;i++)
-        {
-            BookItem bookItem = new BookItem(
-                    "Transedence","APJ Abdul Kalam",
-                    "EDM","50","Available"
-            );
-            bookItemList.add(bookItem);
-        }
-        adapter = new ListAdapter(bookItemList);
-        recyclerView.setAdapter(adapter);
+//        for(int i=0;i<10;i++)
+//        {
+//            BookItem bookItem = new BookItem(
+//                    "Transedence","APJ Abdul Kalam",
+//                    "EDM","50","Available"
+//            );
+//            bookItemList.add(bookItem);
+//        }
+//        adapter = new ListAdapter(bookItemList);
+//        recyclerView.setAdapter(adapter);
 
         Button button = (Button)view.findViewById(R.id.list_fragment_add_btn);
         button.setOnClickListener(new View.OnClickListener() {

@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
     private List<BookItem> BookList;
-
+    public int listLength = 0;
 
     public ListAdapter(List<BookItem> bookList) {
         BookList = bookList;
@@ -42,7 +42,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return 10;
+        return listLength;
+    }
+
+    public void setItemCount(int newLength){
+        listLength = newLength;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

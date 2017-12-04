@@ -5,11 +5,11 @@ package com.librarymanagement.siddharth.snaplibrary;
  */
 
 public class BookItem {
-    private String Book_Title;
-    private String Book_Author;
-    private String Book_Publisher;
-    private String Book_copies;
-    private String Book_Status;
+    public String Book_Title;
+    public String Book_Author;
+    public String Book_Publisher;
+    public String Book_copies;
+    public String Book_Status;
 
     public BookItem(String book_Title, String book_Author, String book_Publisher, String book_copies, String book_Status) {
         Book_Title = book_Title;
