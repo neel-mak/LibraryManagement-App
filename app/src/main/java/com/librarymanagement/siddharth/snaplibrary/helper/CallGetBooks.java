@@ -40,13 +40,13 @@ public class CallGetBooks {
         final Context context;
         final String action;
         final View view;
-        final ListFragment fragment;
+        final Fragment fragment;
         final Activity activity;
 
         context = (Context) params.get(Constants.CONTEXT);
         action = (String) params.get(Constants.ACTION);
         view = (View) params.get(Constants.VIEW);
-        fragment = (ListFragment) params.get(Constants.FRAGMENT);
+        fragment = (Fragment) params.get(Constants.FRAGMENT);
         activity = (Activity) params.get(Constants.ACTIVITY);
 
         //Now making the request

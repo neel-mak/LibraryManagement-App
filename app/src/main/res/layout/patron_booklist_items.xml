@@ -43,15 +43,15 @@
                     android:text="APJ Abdul Kalam"
                     android:textStyle="italic"
                     android:layout_marginRight="30dp"
-                    android:layout_below="@+id/booklist_book_Title"/>
+                    android:layout_below="@+id/patron_booklist_book_Title"/>
 
                 <TextView
                     android:id="@+id/patron_booklist_book_publisher"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Publisher"
-                    android:layout_below="@+id/booklist_book_Title"
-                    android:layout_toRightOf="@+id/booklist_book_author"
+                    android:layout_below="@+id/patron_booklist_book_Title"
+                    android:layout_toRightOf="@+id/patron_booklist_book_author"
                     />
 
                 <TextView
@@ -59,15 +59,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Status : "
-                    android:layout_below="@+id/booklist_book_publisher"/>
+                    android:layout_below="@+id/patron_booklist_book_publisher"/>
 
                 <TextView
                     android:id="@+id/patron_booklist_book_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Available"
-                    android:layout_below="@+id/booklist_book_publisher"
-                    android:layout_toRightOf="@+id/booklist_book_text-status"
+                    android:layout_below="@+id/patron_booklist_book_publisher"
+                    android:layout_toRightOf="@+id/patron_booklist_book_text-status"
                     android:layout_marginRight="30dp"/>
 
                 <TextView
@@ -75,16 +75,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Copies : "
-                    android:layout_below="@+id/booklist_book_publisher"
-                    android:layout_toRightOf="@id/booklist_book_status"/>
+                    android:layout_below="@+id/patron_booklist_book_publisher"
+                    android:layout_toRightOf="@id/patron_booklist_book_status"/>
 
                 <TextView
                     android:id="@+id/patron_booklist_book_copies"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="50"
-                    android:layout_below="@+id/booklist_book_publisher"
-                    android:layout_toRightOf="@+id/booklist_book_text-copy"/>
+                    android:layout_below="@+id/patron_booklist_book_publisher"
+                    android:layout_toRightOf="@+id/patron_booklist_book_text-copy"/>
 
             </RelativeLayout>
         </LinearLayout>

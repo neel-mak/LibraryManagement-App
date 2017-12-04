@@ -148,8 +148,6 @@ public class PatronListFragment extends Fragment //implements AdapterView.OnItem
                     break;
             }
 
-
-
         }
         catch (Exception e) {
 

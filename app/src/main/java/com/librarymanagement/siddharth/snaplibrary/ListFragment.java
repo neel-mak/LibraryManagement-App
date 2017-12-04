@@ -203,9 +203,6 @@ public class ListFragment extends Fragment //implements AdapterView.OnItemSelect
                     new CallGetBooks().proccessGetBooks(params);
                     break;
             }
-
-
-
         }
         catch (Exception e) {
 
