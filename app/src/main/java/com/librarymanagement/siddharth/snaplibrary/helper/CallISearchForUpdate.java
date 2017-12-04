@@ -81,24 +81,25 @@ public class CallISearchForUpdate {
 
                                 }
                                 returnHashMap.put("keywords", keywords);
-                                JSONObject jsonObject2 = jsonObject1.getJSONObject("coverageImage");
-                                JSONArray jsonArray1 = jsonObject2.getJSONArray("data");
-                                byte[] coverageImageByteArray = new byte[jsonArray1.length()];
-                                for(int i=0; i<jsonArray1.length(); i++){
-                                    coverageImageByteArray[i] = (byte)jsonArray1.getInt(i);
-                                }
-                                returnHashMap.put("coverageImage", objectToBytArray(jsonArray1));
+                                if(jsonObject1.get("coverageImage")!=JSONObject.NULL) {
+                                    JSONObject jsonObject2 = jsonObject1.getJSONObject("coverageImage");
+                                    JSONArray jsonArray1 = jsonObject2.getJSONArray("data");
+                                    byte[] coverageImageByteArray = new byte[jsonArray1.length()];
+                                    for (int i = 0; i < jsonArray1.length(); i++) {
+                                        coverageImageByteArray[i] = (byte) jsonArray1.getInt(i);
+                                    }
+                                    returnHashMap.put("coverageImage", objectToBytArray(jsonArray1));
 
-                                int[] coverageImageIntArray = new int[jsonArray1.length()];
-                                for(int i=0; i<jsonArray1.length(); i++){
-                                    coverageImageIntArray[i] = (int)jsonArray1.getInt(i);
+                                    int[] coverageImageIntArray = new int[jsonArray1.length()];
+                                    for (int i = 0; i < jsonArray1.length(); i++) {
+                                        coverageImageIntArray[i] = (int) jsonArray1.getInt(i);
+                                    }
+                                    LogHelper.logMessage("coverageImageByteArray", "" + coverageImageByteArray.length);
+                                    Bitmap bitmap = Bitmap.createBitmap(coverageImageIntArray.length, coverageImageIntArray.length, Bitmap.Config.ARGB_8888);
+                                    bitmap.copyPixelsFromBuffer(makeBuffer(coverageImageIntArray, coverageImageIntArray.length));
+                                    UpdateDeleteFragment.updateFragmentImageView.setImageBitmap(bitmap);
+                                    UpdateDeleteFragment.updateFragmentImageView.invalidate();
                                 }
-                                LogHelper.logMessage("coverageImageByteArray" , "" +coverageImageByteArray.length);
-                                Bitmap bitmap = Bitmap.createBitmap(coverageImageIntArray.length, coverageImageIntArray.length, Bitmap.Config.ARGB_8888);
-                                bitmap.copyPixelsFromBuffer(makeBuffer(coverageImageIntArray, coverageImageIntArray.length));
-                                UpdateDeleteFragment.updateFragmentImageView.setImageBitmap(bitmap);
-                                UpdateDeleteFragment.updateFragmentImageView.invalidate();
-
                                 returnHashMap.put("createdBy", jsonObject1.getString("createdBy"));
                                 returnHashMap.put("updatedBy", jsonObject1.getString("updatedBy"));
                                 returnHashMap.put("numAvailableCopies", jsonObject1.getString("numAvailableCopies"));

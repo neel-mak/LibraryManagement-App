@@ -128,6 +128,7 @@ public class CallGetSearchedBooks {
                     JSONObject jsonObject = booksArr.getJSONObject(i);
 
                     BookItem bookItem = new BookItem(
+                            jsonObject.getString("id"),
                             jsonObject.getString("title"),jsonObject.getString("author"),
                             jsonObject.getString("publisher"),jsonObject.getString("numAvailableCopies"),jsonObject.getString("currentStatus")
                     );
