@@ -1,5 +1,7 @@
 package com.librarymanagement.siddharth.snaplibrary;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,7 +38,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(ListAdapter.ViewHolder holder, final int position) {
 
-        BookItem bookItem = BookList.get(position);
+        final BookItem bookItem = BookList.get(position);
         LogHelper.logMessage("Apoorv",bookItem.getBook_Title());
         holder.Book_Status.setText(bookItem.getBook_Status());
         holder.Book_Title.setText(bookItem.getBook_Title());
@@ -48,10 +50,18 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
             @Override
             public void onClick(View v) {
 //                if (mTwoPane) {
-                LogHelper.logMessage("Siddharth" , "");
+                LogHelper.logMessage("Apoorv" , "Received Click for"+bookItem.getBook_Title());
                     Bundle arguments = new Bundle();
-                    arguments.putInt("book_id_from_list", position);
+                    arguments.putInt("book_obj_position_in_list", position);
                     UpdateDeleteFragment updateDeleteFragment = new UpdateDeleteFragment();
+                    updateDeleteFragment.setArguments(arguments);
+                     CatalogActivity currentCatalogActivity = (CatalogActivity)v.getContext();
+                     android.support.v4.app.FragmentManager fm = currentCatalogActivity.getSupportFragmentManager();
+                     android.support.v4.app.FragmentTransaction transaction = fm.beginTransaction();
+                     transaction.replace(R.id.place_holder,updateDeleteFragment,"UPDATE_DELETE_FRAGMENT");
+                     transaction.commit();
+
+
 
 //                } else {
 //                    Context context = v.getContext();

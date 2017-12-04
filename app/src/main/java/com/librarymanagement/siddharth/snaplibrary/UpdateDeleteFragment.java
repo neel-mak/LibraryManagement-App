@@ -57,6 +57,7 @@ public class UpdateDeleteFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        LogHelper.logMessage("Apoorv","Came to update delete fragment"+getArguments().getInt("book_obj_position_in_list"));
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_update_delete, container, false);
 
@@ -99,9 +100,12 @@ public class UpdateDeleteFragment extends Fragment {
         });
 
         try {
+
+            int position =  getArguments().getInt("book_obj_position_in_list");
+            BookItem currentBook = ListFragment.bookItemList.get(position);
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("searchType", "byId");
-            jsonObject.put("searchParameters", new JSONObject().put("id", "29"));
+            jsonObject.put("searchParameters", new JSONObject().put("id", currentBook.Book_Id));
 
             HashMap<String, Object> params = new HashMap<String, Object>();
             params.put(Constants.REQUEST_JSON, jsonObject);
