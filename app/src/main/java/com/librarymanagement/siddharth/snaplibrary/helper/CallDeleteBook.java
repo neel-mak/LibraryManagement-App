@@ -11,6 +11,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.librarymanagement.siddharth.snaplibrary.ListFragment;
+import com.librarymanagement.siddharth.snaplibrary.R;
 import com.librarymanagement.siddharth.snaplibrary.UpdateDeleteFragment;
 
 import org.json.JSONException;
@@ -106,10 +108,10 @@ public class CallDeleteBook {
     public void updateUI(Fragment fragment, Context context, String action, Activity activity, HashMap<String, String> returnHashMap, HashMap<String,Object> extraparams){
 
         switch (action) {
-            case Constants.ACTION_VERIFY_USER:
+            case Constants.ACTION_DELETE_BOOK:
                 UpdateDeleteFragment.showProgress(false);
                 Toast.makeText(activity, "Book deleted.", Toast.LENGTH_SHORT).show();
-
+                fragment.getFragmentManager().beginTransaction().replace(R.id.place_holder,new ListFragment()).addToBackStack(null).commit();
 //                Intent intent=new Intent(fragment.getActivity(),CatalogActivity.class);
 //                fragment.startActivity(intent);
         }
