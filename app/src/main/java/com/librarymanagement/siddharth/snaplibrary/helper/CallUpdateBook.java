@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.icu.lang.UProperty;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -13,6 +15,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.librarymanagement.siddharth.snaplibrary.AddFragment;
+import com.librarymanagement.siddharth.snaplibrary.CatalogActivity;
+import com.librarymanagement.siddharth.snaplibrary.ListFragment;
+import com.librarymanagement.siddharth.snaplibrary.R;
 import com.librarymanagement.siddharth.snaplibrary.UpdateDeleteFragment;
 
 import org.json.JSONException;
@@ -57,6 +62,7 @@ public class CallUpdateBook {
 
                             Boolean isSuccess = jsonObject.getBoolean("success");
                             if(isSuccess){
+                                LogHelper.logMessage("Apoorv","is Success?");
                                 String message = jsonObject.getString("message");
                                 LogHelper.logMessage("Siddharth","\n message: " + message);
 
@@ -108,9 +114,12 @@ public class CallUpdateBook {
     public void updateUI(Fragment fragment, Context context, String action, Activity activity, HashMap<String, String> returnHashMap, HashMap<String,Object> extraparams){
 
         switch (action) {
-            case Constants.ACTION_VERIFY_USER:
+            case Constants.ACTION_UPDATE_BOOK:
                 UpdateDeleteFragment.showProgress(false);
+                LogHelper.logMessage("Apoorv","after isSuccess");
                 Toast.makeText(activity, "Book Updated.", Toast.LENGTH_SHORT).show();
+                fragment.getFragmentManager().beginTransaction().replace(R.id.place_holder,new ListFragment()).addToBackStack(null).commit();
+
 
 //                Intent intent=new Intent(fragment.getActivity(),CatalogActivity.class);
 //                fragment.startActivity(intent);

@@ -54,6 +54,9 @@ public class UpdateDeleteFragment extends Fragment {
     private static View mUpdateBookProgressView;
     private static View mUpdateBookView;
 
+    int position;
+    BookItem currentBook;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -101,8 +104,8 @@ public class UpdateDeleteFragment extends Fragment {
 
         try {
 
-            int position =  getArguments().getInt("book_obj_position_in_list");
-            BookItem currentBook = ListFragment.bookItemList.get(position);
+            position =  getArguments().getInt("book_obj_position_in_list");
+            currentBook = ListFragment.bookItemList.get(position);
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("searchType", "byId");
             jsonObject.put("searchParameters", new JSONObject().put("id", currentBook.Book_Id));
@@ -132,7 +135,7 @@ public class UpdateDeleteFragment extends Fragment {
 
         try{
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("id", "29");
+            jsonObject.put("id", currentBook.Book_Id);
 
             HashMap<String, Object> params = new HashMap<String, Object>();
             params.put(Constants.REQUEST_JSON, jsonObject);
@@ -212,7 +215,7 @@ public class UpdateDeleteFragment extends Fragment {
                 JSONObject jsonObject = new JSONObject();
                 SharedData.readFromSharedInitial(this.getActivity().getApplicationContext());
                 String[] userDetails = SharedData.getUserDetails();
-                jsonObject.put("id", "29");
+                jsonObject.put("id", currentBook.Book_Id);
                 jsonObject.put("author", updateFragmentBookAuthorString);
                 jsonObject.put("title", updateFragmentBookTitleString);
                 jsonObject.put("numOfCopies", updateFragmentBookCopiesString);
