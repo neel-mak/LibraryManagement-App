@@ -12,7 +12,7 @@
         android:layout_height="match_parent"/>
 
 
-    <include layout="@layout/fragment_list" />
+    <!--<include layout="@layout/fragment_list" />-->
 
 
 

@@ -54,7 +54,7 @@ public class PatronListAdapter extends RecyclerView.Adapter<PatronListAdapter.Vi
                      PatronActivity currentPatronActivity = (PatronActivity)v.getContext();
                      android.support.v4.app.FragmentManager fm = currentPatronActivity.getSupportFragmentManager();
                      android.support.v4.app.FragmentTransaction transaction = fm.beginTransaction();
-                     transaction.replace(R.id.patron_main_container,patronCheckoutFragment,"CHECKOUT_FRAGMENT");
+                     transaction.replace(R.id.patron_main_container,patronCheckoutFragment,"CHECKOUT_FRAGMENT").addToBackStack(null);
                      transaction.commit();
 
 

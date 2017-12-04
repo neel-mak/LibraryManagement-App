@@ -71,10 +71,10 @@ public class PatronSearchFragment extends Fragment //implements AdapterView.OnIt
             PatronListFragment patronListFragment = new PatronListFragment();
             patronListFragment.setArguments(arguments);
 
-            PatronActivity currentPatronActivity = (PatronActivity)this.getContext();
+            PatronActivity currentPatronActivity = (PatronActivity)this.getActivity();
             android.support.v4.app.FragmentManager fm = currentPatronActivity.getSupportFragmentManager();
             android.support.v4.app.FragmentTransaction transaction = fm.beginTransaction();
-            transaction.replace(R.id.patron_main_container,patronListFragment,"PATRON_LIST_FRAGMENT");
+            transaction.replace(R.id.patron_main_container,patronListFragment,"PATRON_LIST_FRAGMENT").addToBackStack(null);
             transaction.commit();
         }
         catch (Exception e) {
