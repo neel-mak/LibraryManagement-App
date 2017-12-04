@@ -30,6 +30,7 @@ public class Constants {
     public static final String ACTION_UPDATE_BOOK = "ACTION_UPDATE_BOOK";
     public static final String ACTION_DELETE_BOOK = "ACTION_DELETE_BOOK";
     public static final String ACTION_ADD_BOOK = "ACTION_ADD_BOOK";
+    public static final String ACTION_GET_BOOKS_FOR_PATRON = "ACTION_GET_BOOKS_FOR_PATRON";
 
     public static final String ACTION_LOAD_PATRON = "ACTION_LOAD_PATRON";
     //error msgs

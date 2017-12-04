@@ -40,7 +40,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
 
         }else if(userArray != null && userArray.length != 0 && "patron".equalsIgnoreCase(userArray[3]) && Boolean.parseBoolean(userArray[4])){
-            //intent for patron homepage
+
+            Intent i;
+            i = new Intent(getApplicationContext(),PatronActivity.class);
+            startActivity(i);
+
         }else {
             Fragment fr;
             fr = new LoginFragment();

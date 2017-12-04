@@ -27,6 +27,11 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation"/>
+
+        <activity
+            android:name=".PatronActivity"
+            android:label="@string/title_activity_patron"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Authentication">
 
         </activity>

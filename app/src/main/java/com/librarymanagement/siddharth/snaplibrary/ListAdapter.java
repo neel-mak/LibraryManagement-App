@@ -49,7 +49,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (mTwoPane) {
                 LogHelper.logMessage("Apoorv" , "Received Click for"+bookItem.getBook_Title());
                     Bundle arguments = new Bundle();
                     arguments.putInt("book_obj_position_in_list", position);
@@ -61,16 +60,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
                      transaction.replace(R.id.place_holder,updateDeleteFragment,"UPDATE_DELETE_FRAGMENT");
                      transaction.commit();
 
-
-
-//                } else {
-//                    Context context = v.getContext();
-//                    Intent intent = new Intent(context, CityDetailActivity.class);
-//                    intent.putExtra(CityDetailFragment.ARG_ITEM_ID, holder.mItem.id);
-//                    intent.putExtra("index", position);
-//
-//                    context.startActivity(intent);
-//                }
             }
         });
     }
