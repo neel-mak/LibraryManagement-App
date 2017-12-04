@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LibraryManagement-App.iml" filepath="$PROJECT_DIR$/LibraryManagement-App.iml" />
-      <module fileurl="file://C:\Users\NEEL\Desktop\PROJECT\LibraryManagement-App\LibraryManagement-App.iml" filepath="C:\Users\NEEL\Desktop\PROJECT\LibraryManagement-App\LibraryManagement-App.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\NEEL\Desktop\PROJECT\LibraryManagement-App\app\app.iml" filepath="C:\Users\NEEL\Desktop\PROJECT\LibraryManagement-App\app\app.iml" />
     </modules>
   </component>
 </project>
