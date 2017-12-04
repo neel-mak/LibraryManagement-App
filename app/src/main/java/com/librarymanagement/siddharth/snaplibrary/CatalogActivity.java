@@ -28,7 +28,7 @@ public class CatalogActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.catalog_fragment, fr).addToBackStack(null).commit();
         */
-        PatronCheckoutFragment listFragment=new PatronCheckoutFragment();
+        ListFragment listFragment=new ListFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.place_holder,listFragment);
