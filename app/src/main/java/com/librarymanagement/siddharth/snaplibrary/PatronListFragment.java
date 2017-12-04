@@ -41,8 +41,8 @@ public class PatronListFragment extends Fragment //implements AdapterView.OnItem
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)  {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_list, container, false);
-        recyclerView=(RecyclerView)view.findViewById(R.id.recyclerView);
+        View view= inflater.inflate(R.layout.fragment_patron_list, container, false);
+        recyclerView=(RecyclerView)view.findViewById(R.id.patron_recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
