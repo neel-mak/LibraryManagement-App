@@ -4,7 +4,7 @@ package com.librarymanagement.siddharth.snaplibrary;
  * Created by NEEL on 02-12-2017.
  */
 
-public class BookItem {
+public class PatronBookItem {
     public String Book_Id;
     public String Book_Title;
     public String Book_Author;
@@ -12,7 +12,7 @@ public class BookItem {
     public String Book_copies;
     public String Book_Status;
 
-    public BookItem(String book_id,String book_Title, String book_Author, String book_Publisher, String book_copies, String book_Status) {
+    public PatronBookItem(String book_id, String book_Title, String book_Author, String book_Publisher, String book_copies, String book_Status) {
         Book_Id = book_id;
         Book_Title = book_Title;
         Book_Author = book_Author;
@@ -39,5 +39,9 @@ public class BookItem {
 
     public String getBook_Status() {
         return Book_Status;
+    }
+
+    public String getDelimitedString () {
+        return Book_Id + "@" + Book_Title + "@" + Book_Author + "@" + Book_Publisher + "@" + Book_copies + "@" + Book_Status;
     }
 }

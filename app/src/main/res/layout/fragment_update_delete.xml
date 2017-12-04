@@ -13,11 +13,17 @@
             android:layout_height="match_parent"
             android:background="@drawable/background">
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/update_fragment_imageView"/>
+
             <LinearLayout
                 android:id="@+id/Author_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_below="@+id/update_fragment_imageView"
                 android:padding="5dp">
 
                 <TextView
@@ -42,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_below="@+id/Author_layout"
+                android:layout_below="@id/Author_layout"
                 android:padding="5dp">
 
                 <TextView
@@ -66,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_below="@+id/Title_layout"
+                android:layout_below="@id/Title_layout"
                 android:padding="5dp">
 
                 <TextView
@@ -91,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_below="@+id/Publisher_layout"
+                android:layout_below="@id/Publisher_layout"
                 android:padding="5dp">
 
                 <TextView
@@ -113,7 +119,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_below="@+id/Call_Number_layout"
+                android:layout_below="@id/Call_Number_layout"
                 android:padding="5dp">
 
                 <TextView
@@ -138,7 +144,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_below="@+id/Year_layout"
+                android:layout_below="@id/Year_layout"
                 android:padding="5dp">
 
                 <TextView
@@ -160,7 +166,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_below="@+id/Location_layout"
+                android:layout_below="@id/Location_layout"
                 android:padding="5dp">
 
                 <TextView
@@ -183,7 +189,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_below="@+id/Copies_layout"
+                android:layout_below="@id/Copies_layout"
                 android:padding="5dp">
 
                 <TextView
@@ -206,7 +212,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_below="@+id/Keywords_layout"
+                android:layout_below="@id/Keywords_layout"
                 android:padding="5dp">
 
                 <TextView
@@ -228,7 +234,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_below="@+id/Status_layout">
+                android:layout_below="@id/Status_layout">
 
                 <Button
                     android:id="@+id/update_fragment_update_btn"

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.librarymanagement.siddharth.snaplibrary.PatronActivity">
+    <LinearLayout
+        android:id="@+id/patron_search_id1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="200dp"
+            android:layout_height="match_parent">
+
+        </Spinner>
+        <EditText
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:id="@+id/patron_search_fragment_search_text"
+            android:maxLength="200"
+            android:hint="Enter value"
+            android:textColorHint="#ffffff" />
+        <Button
+            android:id="@+id/patron_search_fragment_search_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/ic_search_white_18dp"/>
+    </LinearLayout>
+</LinearLayout>
+

@@ -18,6 +18,7 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.librarymanagement.siddharth.snaplibrary.CatalogActivity;
 import com.librarymanagement.siddharth.snaplibrary.LoginFragment;
+import com.librarymanagement.siddharth.snaplibrary.MainActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -118,7 +119,7 @@ public class CallLogin {
                 LoginFragment.showProgress(false);
 
                 Intent i;
-                i = new Intent(context,CatalogActivity.class);
+                i = new Intent(context,MainActivity.class);
                 context.startActivity(i);
         }
     }

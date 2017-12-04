@@ -26,17 +26,30 @@
             android:name=".CatalogActivity"
             android:label="@string/title_activity_catalog"
             android:screenOrientation="fullSensor"
-            android:theme="@style/AppTheme.NoActionBar"
-            tools:replace="screenOrientation" />
-        <activity android:name=".Authentication" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            tools:replace="screenOrientation"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity
+            android:name=".PatronActivity"
+            android:label="@string/title_activity_patron"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Authentication">
+
         </activity>
-        <activity android:name=".PatronHomeActivity"></activity>
+
+        
+        <activity android:name=".MainActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".NavigationActivity"
+            android:label="@string/title_activity_navigation"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>

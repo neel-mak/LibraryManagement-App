@@ -71,7 +71,7 @@ public class AddFragment extends Fragment {
     private static View mAddBookView;
     public static ImageView addFragmentImageView;
 
-    public static TextView toBeDeleted;
+    public static EditText toBeDeleted;
 
     public byte[] imageByteArray;
 
@@ -98,7 +98,7 @@ public class AddFragment extends Fragment {
         addFragmentBookStatus = (EditText) view.findViewById(R.id.addFragment_book_status);
         addFragmentImageView = (ImageView) view.findViewById(R.id.add_fragment_imageView);
 
-        toBeDeleted = (TextView) view.findViewById(R.id.toBeDeleted);
+        toBeDeleted = (EditText) view.findViewById(R.id.toBeDeleted);
 
         Button addFragmentAddBtn = (Button)view.findViewById(R.id.addFragment_add_btn);
         addFragmentAddBtn.setOnClickListener(new View.OnClickListener() {
@@ -223,6 +223,7 @@ public class AddFragment extends Fragment {
                 e.printStackTrace();
             }
 
+            LogHelper.logMessage("Bitmap", "width:" + captureBmp.getWidth() + " height: " +captureBmp.getHeight());
             addFragmentImageView.setImageBitmap(captureBmp);
 
             //String imgString = Base64.encodeToString(getBytesFromBitmap(captureBmp), Base64.NO_WRAP);
@@ -259,7 +260,7 @@ public class AddFragment extends Fragment {
     // convert from bitmap to byte array
     public byte[] getBytesFromBitmap(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 70, stream);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         return stream.toByteArray();
     }
 
@@ -368,35 +369,38 @@ public class AddFragment extends Fragment {
             addFragmentBookTitle.setError(getString(R.string.error_field_required));
             focusView = addFragmentBookTitle;
             cancel = true;
-        } else if (TextUtils.isEmpty(addFragmentBookPublisherString)) {
-            addFragmentBookPublisher.setError(getString(R.string.error_field_required));
-            focusView = addFragmentBookPublisher;
-            cancel = true;
-        } else if (TextUtils.isEmpty(addFragmentCallNumberString)) {
-            addFragmentCallNumber.setError(getString(R.string.error_field_required));
-            focusView = addFragmentCallNumber;
-            cancel = true;
-        } else if (TextUtils.isEmpty(addFragmentBookYearString)) {
-            addFragmentBookYear.setError(getString(R.string.error_field_required));
-            focusView = addFragmentBookYear;
-            cancel = true;
-        } else if (TextUtils.isEmpty(addFragmentBookLocationString)) {
-            addFragmentBookLocation.setError(getString(R.string.error_field_required));
-            focusView = addFragmentBookLocation;
-            cancel = true;
-        } else if (TextUtils.isEmpty(addFragmentBookCopiesString)) {
+        }
+//        } else if (TextUtils.isEmpty(addFragmentBookPublisherString)) {
+//            addFragmentBookPublisher.setError(getString(R.string.error_field_required));
+//            focusView = addFragmentBookPublisher;
+//            cancel = true;
+//        } else if (TextUtils.isEmpty(addFragmentCallNumberString)) {
+//            addFragmentCallNumber.setError(getString(R.string.error_field_required));
+//            focusView = addFragmentCallNumber;
+//            cancel = true;
+//        } else if (TextUtils.isEmpty(addFragmentBookYearString)) {
+//            addFragmentBookYear.setError(getString(R.string.error_field_required));
+//            focusView = addFragmentBookYear;
+//            cancel = true;
+//        } else if (TextUtils.isEmpty(addFragmentBookLocationString)) {
+//            addFragmentBookLocation.setError(getString(R.string.error_field_required));
+//            focusView = addFragmentBookLocation;
+//            cancel = true;
+//        }
+        else if (TextUtils.isEmpty(addFragmentBookCopiesString)) {
             addFragmentBookCopies.setError(getString(R.string.error_field_required));
             focusView = addFragmentBookCopies;
             cancel = true;
-        } else if (TextUtils.isEmpty(addFragmentBookKeywordsString)) {
-            addFragmentBookKeywords.setError(getString(R.string.error_field_required));
-            focusView = addFragmentBookKeywords;
-            cancel = true;
-        } else if (TextUtils.isEmpty(addFragmentBookStatusString)) {
-            addFragmentBookStatus.setError(getString(R.string.error_field_required));
-            focusView = addFragmentBookStatus;
-            cancel = true;
         }
+//        else if (TextUtils.isEmpty(addFragmentBookKeywordsString)) {
+//            addFragmentBookKeywords.setError(getString(R.string.error_field_required));
+//            focusView = addFragmentBookKeywords;
+//            cancel = true;
+//        } else if (TextUtils.isEmpty(addFragmentBookStatusString)) {
+//            addFragmentBookStatus.setError(getString(R.string.error_field_required));
+//            focusView = addFragmentBookStatus;
+//            cancel = true;
+//        }
 
         if(cancel){
             focusView.requestFocus();
@@ -423,7 +427,11 @@ public class AddFragment extends Fragment {
             jsonObject.put("currentStatus", addFragmentBookStatusString);
             jsonObject.put("keywords", jsonArray);
             jsonObject.put("coverageImage", imageByteArray);//imageByteArray
-            jsonObject.put("isbn", toBeDeleted.getText());
+            JSONArray jsonArray1 = new JSONArray();
+            if(!"".equalsIgnoreCase("" + toBeDeleted.getText())){
+                jsonArray1.put(toBeDeleted.getText());
+            }
+            jsonObject.put("isbn", jsonArray1);
 
             LogHelper.logMessage("Siddharth", "author:" + addFragmentBookAuthorString
                     + "  title:" + addFragmentBookTitleString
@@ -435,11 +443,13 @@ public class AddFragment extends Fragment {
                     + "  locationInLibrary:" + addFragmentBookLocationString
                     + "  currentStatus:" + addFragmentBookStatusString
                     + "  keywords:" + keywordsArray
+                    + "  imageByteArray:" + imageByteArray
+                    + "  isbn:" + jsonArray1
             );
 
             HashMap<String, Object> params = new HashMap<String, Object>();
             params.put(Constants.REQUEST_JSON, jsonObject);
-            params.put(Constants.ACTION, Constants.ACTION_VERIFY_USER);
+            params.put(Constants.ACTION, Constants.ACTION_ADD_BOOK);
             params.put(Constants.ACTIVITY, this.getActivity());
             params.put(Constants.FRAGMENT, this);
             params.put(Constants.VIEW, this.getView());
@@ -480,8 +490,10 @@ public class AddFragment extends Fragment {
 //        } else {
         // The ViewPropertyAnimator APIs are not available, so simply show
         // and hide the relevant UI components.
-        mAddBookProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-        mAddBookView.setVisibility(show ? View.GONE : View.VISIBLE);
+        if(mAddBookProgressView != null)
+            mAddBookProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+        if(mAddBookView != null)
+            mAddBookView.setVisibility(show ? View.GONE : View.VISIBLE);
 //        }
     }
 
