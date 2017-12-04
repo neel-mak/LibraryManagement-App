@@ -117,6 +117,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string-array name="search_factors">
+        <!-- inform sid if you are changing values below -->
+        <item>All books</item>
         <item>Created By</item>
         <item>Updated By</item>
         <item>ISBN</item>

@@ -34,7 +34,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_below="@+id/add_fragment_imageView"
+                    android:layout_below="@id/add_fragment_imageView"
                     android:padding="5dp">
 
                     <TextView
@@ -58,7 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_below="@+id/Author_layout"
+                    android:layout_below="@id/Author_layout"
                     android:padding="5dp">
 
                     <TextView
@@ -81,7 +81,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_below="@+id/Title_layout"
+                    android:layout_below="@id/Title_layout"
                     android:padding="5dp">
 
                     <TextView
@@ -104,7 +104,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_below="@+id/Publisher_layout"
+                    android:layout_below="@id/Publisher_layout"
                     android:padding="5dp">
 
                     <Button
@@ -115,15 +115,15 @@
                         android:textStyle="bold"
                         android:background="#ff8800"
                         android:layout_below="@id/ISBN_layout"
+                        android:layout_marginRight="37dp"
                         android:layout_centerInParent="true"/>
 
-                    <TextView
+                    <EditText
                         android:id="@+id/toBeDeleted"
-                        android:layout_width="200dp"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text=""
-                        android:textColor="#ffffff"
-                        android:textAlignment="center"/>
+                        android:textColor="#ffffff"/>
 
                 </LinearLayout>
 
@@ -132,7 +132,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_below="@+id/ISBN_layout"
+                    android:layout_below="@id/ISBN_layout"
                     android:padding="5dp">
 
                     <TextView
@@ -155,7 +155,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_below="@+id/Call_Number_layout"
+                    android:layout_below="@id/Call_Number_layout"
                     android:padding="5dp">
 
                     <TextView
@@ -180,7 +180,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_below="@+id/Year_layout"
+                    android:layout_below="@id/Year_layout"
                     android:padding="5dp">
 
                     <TextView
@@ -203,7 +203,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_below="@+id/Location_layout"
+                    android:layout_below="@id/Location_layout"
                     android:padding="5dp">
 
                     <TextView
@@ -227,7 +227,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_below="@+id/Copies_layout"
+                    android:layout_below="@id/Copies_layout"
                     android:padding="5dp">
 
                     <TextView
@@ -250,7 +250,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_below="@+id/Keywords_layout"
+                    android:layout_below="@id/Keywords_layout"
                     android:padding="5dp">
 
                     <TextView
@@ -275,7 +275,7 @@
                     android:text="Upload cover"
                     android:textStyle="bold"
                     android:background="#ff8800"
-                    android:layout_below="@+id/Status_layout"
+                    android:layout_below="@id/Status_layout"
                     android:layout_centerInParent="true"/>
 
                 <Button

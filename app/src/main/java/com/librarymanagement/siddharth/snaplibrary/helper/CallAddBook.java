@@ -15,6 +15,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.librarymanagement.siddharth.snaplibrary.AddFragment;
 import com.librarymanagement.siddharth.snaplibrary.CatalogActivity;
 import com.librarymanagement.siddharth.snaplibrary.ConfirmationFragment;
+import com.librarymanagement.siddharth.snaplibrary.ListFragment;
+import com.librarymanagement.siddharth.snaplibrary.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,7 +58,7 @@ public class CallAddBook {
 
                             HashMap returnHashMap = new HashMap<String, String>();
 
-                            Boolean isSuccess = jsonObject.getBoolean("success") || jsonObject.getBoolean("sucess");
+                            Boolean isSuccess = jsonObject.getBoolean("success");// || jsonObject.getBoolean("sucess");
                             if(isSuccess){
                                 String message = jsonObject.getString("message");
                                 LogHelper.logMessage("Siddharth","\n message: " + message);
@@ -109,12 +111,11 @@ public class CallAddBook {
     public void updateUI(Fragment fragment, Context context, String action, Activity activity, HashMap<String, String> returnHashMap, HashMap<String,Object> extraparams){
 
         switch (action) {
-            case Constants.ACTION_VERIFY_USER:
+            case Constants.ACTION_ADD_BOOK:
                 AddFragment.showProgress(false);
                 Toast.makeText(activity, "New book added.", Toast.LENGTH_SHORT).show();
-
-//                Intent intent=new Intent(fragment.getActivity(),CatalogActivity.class);
-//                fragment.startActivity(intent);
+                Fragment fr = new ListFragment();
+                fragment.getFragmentManager().beginTransaction().replace(R.id.place_holder,fr).addToBackStack(null).commit();
         }
     }
 }
