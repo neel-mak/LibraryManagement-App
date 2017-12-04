@@ -57,7 +57,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
                      CatalogActivity currentCatalogActivity = (CatalogActivity)v.getContext();
                      android.support.v4.app.FragmentManager fm = currentCatalogActivity.getSupportFragmentManager();
                      android.support.v4.app.FragmentTransaction transaction = fm.beginTransaction();
-                     transaction.replace(R.id.place_holder,updateDeleteFragment,"UPDATE_DELETE_FRAGMENT");
+                     transaction.replace(R.id.place_holder,updateDeleteFragment,"UPDATE_DELETE_FRAGMENT").addToBackStack(null);
                      transaction.commit();
 
             }

@@ -22,16 +22,10 @@ public class CatalogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalog);
 
-        /*Siddharth Code */ /*Fragment fr = new AddFragment();
-        Fragment fr = new UpdateDeleteFragment();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.catalog_fragment, fr).addToBackStack(null).commit();
-        */
         ListFragment listFragment=new ListFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.place_holder,listFragment);
+        fragmentTransaction.replace(R.id.place_holder,listFragment).addToBackStack(null);
         fragmentTransaction.commit();
 
     }
