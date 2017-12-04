@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.librarymanagement.siddharth.snaplibrary.AddFragment;
+import com.librarymanagement.siddharth.snaplibrary.PatronCheckoutFragment;
 import com.librarymanagement.siddharth.snaplibrary.UpdateDeleteFragment;
 
 import org.json.JSONArray;
@@ -46,7 +47,7 @@ public class CallISearchForUpdate {
         context = (Context) params.get(Constants.CONTEXT);
         action = (String) params.get(Constants.ACTION);
         view = (View) params.get(Constants.VIEW);
-        fragment = (UpdateDeleteFragment) params.get(Constants.FRAGMENT);
+       // fragment = (PatronCheckoutFragment) params.get(Constants.FRAGMENT);
         activity = (Activity) params.get(Constants.ACTIVITY);
 
         //Now making the request
@@ -170,7 +171,18 @@ public class CallISearchForUpdate {
 //                UpdateDeleteFragment.updateFragmentImageView.setImageBitmap(bitmap);
 //                UpdateDeleteFragment.updateFragmentImageView.invalidate();
 
-
+                break;
+            case Constants.ACTION_LOAD_PATRON :
+                LogHelper.logMessage("Apoorv", "Loading checkout screen for patron");
+                PatronCheckoutFragment.checkoutFragmentBookAuthor.setText((String)returnHashMap.get("author"));
+                PatronCheckoutFragment.checkoutFragmentBookTitle.setText((String)returnHashMap.get("title"));
+                PatronCheckoutFragment.checkoutFragmentCallNumber.setText((String)returnHashMap.get("callNumber"));
+                PatronCheckoutFragment.checkoutFragmentBookPublisher.setText((String)returnHashMap.get("publisher"));
+                PatronCheckoutFragment.checkoutFragmentBookYear.setText((String)returnHashMap.get("yearOfPublication"));
+                PatronCheckoutFragment.checkoutFragmentBookLocation.setText((String)returnHashMap.get("locationInLibrary"));
+                PatronCheckoutFragment.checkoutFragmentBookCopies.setText((String)returnHashMap.get("numAvailableCopies"));
+                PatronCheckoutFragment.checkoutFragmentBookStatus.setText((String)returnHashMap.get("currentStatus"));
+                PatronCheckoutFragment.checkoutFragmentBookKeywords.setText((String)returnHashMap.get("keywords"));
 
 
 

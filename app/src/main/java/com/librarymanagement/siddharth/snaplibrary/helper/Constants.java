@@ -31,6 +31,7 @@ public class Constants {
     public static final String ACTION_DELETE_BOOK = "ACTION_DELETE_BOOK";
     public static final String ACTION_ADD_BOOK = "ACTION_ADD_BOOK";
 
+    public static final String ACTION_LOAD_PATRON = "ACTION_LOAD_PATRON";
     //error msgs
     public static final String GENERIC_ERROR_MSG = "Something went wrong. Please try again.";
 
