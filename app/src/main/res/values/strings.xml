@@ -24,7 +24,8 @@
     <string name="password">Password</string>
     <string name="title_activity_authenticate">Sign in</string>
     <string name="title_activity_log_in_">Sign in</string>
-
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string-array name="search_factors">
@@ -35,4 +36,8 @@
         <item>Title</item>
         <item>Keywords</item>
     </string-array>
+    <string name="title_activity_navigation">NavigationActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
