@@ -16,6 +16,10 @@ import com.librarymanagement.siddharth.snaplibrary.AddFragment;
 import com.librarymanagement.siddharth.snaplibrary.BookItem;
 import com.librarymanagement.siddharth.snaplibrary.ListAdapter;
 import com.librarymanagement.siddharth.snaplibrary.ListFragment;
+import com.librarymanagement.siddharth.snaplibrary.PatronActivity;
+import com.librarymanagement.siddharth.snaplibrary.PatronBookItem;
+import com.librarymanagement.siddharth.snaplibrary.PatronListAdapter;
+import com.librarymanagement.siddharth.snaplibrary.PatronListFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -140,6 +144,35 @@ public class CallGetSearchedBooks {
                 recyclerView.setAdapter(new ListAdapter(ListFragment.bookItemList));
                 LogHelper.logMessage("Apoorv","Length of adapter: "+ ListAdapter.listLength + "BookList length: " + recyclerView.getAdapter().getItemCount());
                 recyclerView.getAdapter().notifyDataSetChanged();
+                break;
+
+            case Constants.ACTION_GET_BOOKS_FOR_PATRON:
+                LogHelper.logMessage("siddharth", "Got books ...");
+
+                JSONArray booksArr1 = (JSONArray)returnHashMap.get("books");
+
+                LogHelper.logMessage("Siddharth",String.valueOf((JSONArray)returnHashMap.get("books")));
+
+                if(PatronListFragment.bookItemList != null)
+                    PatronListFragment.bookItemList.clear();
+                for(int i=0;i<booksArr1.length();i++)
+                {
+                    JSONObject jsonObject = booksArr1.getJSONObject(i);
+
+                    PatronBookItem bookItem = new PatronBookItem(
+                            jsonObject.getString("id"),
+                            jsonObject.getString("title"),jsonObject.getString("author"),
+                            jsonObject.getString("publisher"),jsonObject.getString("numAvailableCopies"),jsonObject.getString("currentStatus")
+                    );
+                    PatronListFragment.bookItemList.add(bookItem);
+                }
+                PatronListAdapter.listLength = booksArr1.length();
+                RecyclerView recyclerView1 = (RecyclerView)extraparams.get("recyclerView");
+                recyclerView1.setAdapter(new PatronListAdapter(PatronListFragment.bookItemList));
+                LogHelper.logMessage("Siddharth","Length of adapter: "+ PatronListAdapter.listLength + "BookList length: " + recyclerView1.getAdapter().getItemCount());
+                recyclerView1.getAdapter().notifyDataSetChanged();
+
+                break;
         }
     }
 }

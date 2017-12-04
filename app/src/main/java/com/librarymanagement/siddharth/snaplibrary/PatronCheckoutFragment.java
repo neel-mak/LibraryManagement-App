@@ -41,7 +41,7 @@ public class PatronCheckoutFragment extends Fragment {
     private static View mUpdateBookView;
 
     int position;
-    BookItem currentBook;
+    PatronBookItem currentBook;
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,11 +72,11 @@ public class PatronCheckoutFragment extends Fragment {
 
         try {
             //TODO: Replace with position and ID from actual list
-          //  position = 2; // getArguments().getInt("book_obj_position_in_list");
-           // currentBook = ListFragment.bookItemList.get(position);
+            position = getArguments().getInt("book_obj_position_in_list");
+            currentBook = PatronListFragment.bookItemList.get(position);
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("searchType", "byId");
-            jsonObject.put("searchParameters", new JSONObject().put("id", "30"));
+            jsonObject.put("searchParameters", new JSONObject().put("id", currentBook.Book_Id));
 
             HashMap<String, Object> params = new HashMap<String, Object>();
             params.put(Constants.REQUEST_JSON, jsonObject);

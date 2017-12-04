@@ -17,8 +17,8 @@ public class PatronActivity extends AppCompatActivity {
         PatronSearchFragment fragment=new PatronSearchFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.patron_main_container,fragment);
-        fragmentTransaction.commitNowAllowingStateLoss();
+        fragmentTransaction.replace(R.id.patron_main_container,fragment).addToBackStack(null);
+        fragmentTransaction.commit();
 
     }
 }
