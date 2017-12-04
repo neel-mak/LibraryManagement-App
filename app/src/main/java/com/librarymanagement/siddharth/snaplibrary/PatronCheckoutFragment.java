@@ -1,8 +1,11 @@
 package com.librarymanagement.siddharth.snaplibrary;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,11 +23,14 @@ import com.librarymanagement.siddharth.snaplibrary.helper.RequestClass;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class PatronCheckoutFragment extends Fragment {
-
+    public static String bookId;
     public static TextView checkoutFragmentBookAuthor;
     public static TextView checkoutFragmentBookTitle;
     public static TextView checkoutFragmentBookPublisher;
@@ -42,6 +48,8 @@ public class PatronCheckoutFragment extends Fragment {
 
     int position;
     PatronBookItem currentBook;
+    ArrayList<PatronBookItem> booksInCart = new ArrayList<PatronBookItem>();
+    public static Set<String> cartItemsSet;
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,7 +74,18 @@ public class PatronCheckoutFragment extends Fragment {
         checkoutFragmentAddtoCartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LogHelper.logMessage("Apoorv","Add to cart clicked");
+                LogHelper.logMessage("Apoorv","Add to cart clicked"+bookId);
+
+                if(bookId!=null) {
+                    try {
+                        addBookToCart(bookId);
+                    }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
             }
         });
 
@@ -97,5 +116,43 @@ public class PatronCheckoutFragment extends Fragment {
         
     }
 
+     void addBookToCart(String bookId) throws JSONException{
 
+         LogHelper.logMessage("Apoorv","current book"+currentBook.Book_Id+" and checking out"+bookId);
+         readBooksfromCart(this.getContext());
+         if(booksInCart.size()<=3) {
+             LogHelper.logMessage("Apoorv",currentBook.getDelimitedString());
+//             if(cartItemsSet == null) {
+//                 cartItemsSet = new HashSet<String> ();
+//             }
+             cartItemsSet.add (currentBook.getDelimitedString());
+             writeToSharedPreference(this.getContext());
+         }
+    }
+
+     void readBooksfromCart(Context c) {
+        SharedPreferences sharedPref = c.getSharedPreferences("cartDataSharedPreference",Context.MODE_PRIVATE);
+         cartItemsSet = sharedPref.getStringSet("cartItemsSet",new HashSet<String>());
+        if(cartItemsSet!=null) {
+            for (String bookString : cartItemsSet) {
+                String[] bookdetails = bookString.split("@");
+                PatronBookItem pbi = new PatronBookItem(bookdetails[0], bookdetails[1], bookdetails[2], bookdetails[3], bookdetails[4], bookdetails[5]);
+                booksInCart.add(pbi);
+                LogHelper.logMessage("Apoorv", "Book in Cart :" + pbi.Book_Id);
+            }
+        }
+        //done reading books, stored in booksInCart
+
+
+
+    }
+     void writeToSharedPreference(Context c) {
+
+
+        SharedPreferences sharedPref = c.getSharedPreferences("cartDataSharedPreference",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putStringSet("cartItemsSet",cartItemsSet);
+        editor.apply();
+         LogHelper.logMessage("Apoorv","Added number of Books in Cart :"+cartItemsSet.size());
+    }
 }
