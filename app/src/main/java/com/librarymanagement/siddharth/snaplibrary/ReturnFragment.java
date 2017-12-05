@@ -134,7 +134,60 @@ public class ReturnFragment extends Fragment {
             }
         });
 
+
         return view;
     }
 
+
+    public void onCheckedBoxClicked(View view){
+        boolean checked = ((CheckBox) view).isChecked();
+        switch (view.getId()){
+            case R.id.return_fragment_checkbox1:
+                if(checked){
+
+                }
+
+
+            case R.id.return_fragment_checkbox2:
+                if(checked){
+
+                }
+
+
+            case R.id.return_fragment_checkbox3:
+                if(checked){
+
+                }
+
+            case R.id.return_fragment_checkbox4:
+                if(checked){
+
+                }
+
+            case R.id.return_fragment_checkbox5:
+                if(checked){
+
+                }
+
+            case R.id.return_fragment_checkbox6:
+                if(checked){
+
+                }
+
+            case R.id.return_fragment_checkbox7:
+                if(checked){
+
+                }
+
+            case R.id.return_fragment_checkbox8:
+                if(checked){
+
+                }
+
+            case R.id.return_fragment_checkbox9:
+                if(checked){
+
+                }
+        }
+    }
 }
