@@ -148,7 +148,7 @@ public class ReturnFragment extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
+        getActivity().setTitle("Return Books");
         return view;
     }
 

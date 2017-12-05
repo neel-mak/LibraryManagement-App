@@ -13,11 +13,11 @@ import android.widget.TextView;
 public class SuccessFragment extends Fragment {
 
 
-    private ImageView[] images={};
-    private TextView[] authors={};
-    private TextView[] titles={};
-    private TextView[] dueDates={};
-    private TextView[] checkoutDates={};
+    private ImageView[] images= new ImageView[3];
+    private TextView[] authors= new TextView[3];
+    private TextView[] titles= new TextView[3];
+    private TextView[] dueDates= new TextView[3];
+    private TextView[] checkoutDates= new TextView[3];
 
 
     @Override
@@ -45,8 +45,7 @@ public class SuccessFragment extends Fragment {
         checkoutDates[0]=(TextView)view.findViewById(R.id.success_fragment_checkout_date1);
         checkoutDates[1]=(TextView)view.findViewById(R.id.success_fragment_checkout_date2);
         checkoutDates[2]=(TextView)view.findViewById(R.id.success_fragment_checkout_date3);
-
-
+        getActivity().setTitle("Checkout Details");
         return view;
     }
 
