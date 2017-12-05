@@ -3,6 +3,7 @@ package com.librarymanagement.siddharth.snaplibrary.helper;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Toast;
@@ -17,11 +18,16 @@ import com.librarymanagement.siddharth.snaplibrary.CartFragment;
 import com.librarymanagement.siddharth.snaplibrary.CatalogActivity;
 import com.librarymanagement.siddharth.snaplibrary.ConfirmationFragment;
 import com.librarymanagement.siddharth.snaplibrary.ListFragment;
+import com.librarymanagement.siddharth.snaplibrary.PatronBookItem;
 import com.librarymanagement.siddharth.snaplibrary.R;
+import com.librarymanagement.siddharth.snaplibrary.SuccessFragment;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -59,13 +65,13 @@ public class CallCheckoutCart {
                     public void onResponse(JSONObject jsonObject) {
                         try {
 
-                            HashMap returnHashMap = new HashMap<String, String>();
+                            HashMap returnHashMap = new HashMap<String, Object>();
 
                             Boolean isSuccess = jsonObject.getBoolean("success");// || jsonObject.getBoolean("sucess");
                             if (isSuccess) {
                                 String message = jsonObject.getString("message");
                                 LogHelper.logMessage("Apoorv", "\n message: " + message);
-
+                                returnHashMap.put("response",jsonObject.getJSONArray("data"));
                                 updateUI(fragment, context, action, activity, returnHashMap, params);
                             } else {
                                 HashMap<String, Object> extraParams = new HashMap<String, Object>();
@@ -108,7 +114,7 @@ public class CallCheckoutCart {
                         RequestClass.getRequestQueue().add(jsObjRequest);
                     }
 
-    public void updateUI(Fragment fragment, Context context, String action, Activity activity, HashMap<String, String> returnHashMap, HashMap<String,Object> extraparams){
+    public void updateUI(Fragment fragment, Context context, String action, Activity activity, HashMap<String, Object> returnHashMap, HashMap<String,Object> extraparams){
         LogHelper.logMessage("Apoorv","came to update ui");
         switch (action) {
             case Constants.ACTION_CHECKOUT_CART:
@@ -117,6 +123,36 @@ public class CallCheckoutCart {
 
                CartFragment thisFragment = (CartFragment)fragment;
                thisFragment.emptyCart();
+
+              JSONArray responseData = (JSONArray) returnHashMap.get("response");
+
+                ArrayList<PatronBookItem> checkoutBooks = new ArrayList<PatronBookItem>();
+                try {
+                    for (int i = 0; i < responseData.length(); i++) {
+
+
+                        PatronBookItem pbi = new PatronBookItem(
+                                responseData.getJSONObject(i).getString("bookId"),
+                                responseData.getJSONObject(i).getJSONObject("book").getString("title"),
+                                responseData.getJSONObject(i).getJSONObject("book").getString("author"),
+                                null,null,null,
+                                responseData.getJSONObject(i).getString("checkoutDate"),
+                                responseData.getJSONObject(i).getString("dueDate")
+                                );
+                        LogHelper.logMessage("Apoorv","Received book in response of checkout"+pbi.Book_Title);
+                        checkoutBooks.add(pbi);
+                    }
+
+                }
+                catch(Exception e) {
+                    e.printStackTrace();
+                }
+
+                Bundle responseBundle = new Bundle();
+                responseBundle.putSerializable("checkoutbooksserial",(Serializable)checkoutBooks);
+                SuccessFragment sfr = new SuccessFragment();
+                sfr.setArguments(responseBundle);
+                fragment.getFragmentManager().beginTransaction().replace(R.id.patron_main_container,sfr).addToBackStack(null).commit();
 
                // Fragment fr = new ListFragment();
                 //fragment.getFragmentManager().beginTransaction().replace(R.id.place_holder,fr).addToBackStack(null).commit();
