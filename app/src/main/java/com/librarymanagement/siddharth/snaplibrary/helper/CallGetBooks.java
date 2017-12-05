@@ -128,11 +128,21 @@ public class CallGetBooks {
                 {
                     JSONObject jsonObject = booksArr.getJSONObject(i);
 
-                    BookItem bookItem = new BookItem(
-                            jsonObject.getString("id"),
-                            jsonObject.getString("title"),jsonObject.getString("author"),
-                            jsonObject.getString("publisher"),jsonObject.getString("numAvailableCopies"),jsonObject.getString("currentStatus")
-                    );
+                    String id = jsonObject.getString("id");
+                    String title = jsonObject.getString("title");
+                    String author = jsonObject.getString("author");
+                    String publisher = jsonObject.getString("publisher");
+                    String numAvailableCopies = jsonObject.getString("numAvailableCopies");
+                    String currentStatus = jsonObject.getString("currentStatus");
+
+                    id = id == null || id == JSONObject.NULL || "null".equalsIgnoreCase(id) ? "" : id;
+                    title = title == null || title == JSONObject.NULL || "null".equalsIgnoreCase(title) ? "" : title;
+                    author = author == null || author == JSONObject.NULL || "null".equalsIgnoreCase(author) ? "" : author;
+                    publisher = publisher == null || publisher == JSONObject.NULL || "null".equalsIgnoreCase(publisher) ? "" : publisher;
+                    numAvailableCopies = numAvailableCopies == null || numAvailableCopies == JSONObject.NULL || "null".equalsIgnoreCase(numAvailableCopies) ? "" : numAvailableCopies;
+                    currentStatus = currentStatus == null || currentStatus == JSONObject.NULL || "null".equalsIgnoreCase(currentStatus) ? "" : currentStatus;
+
+                    BookItem bookItem = new BookItem(id,title,author,publisher,numAvailableCopies,currentStatus);
                     ListFragment.bookItemList.add(bookItem);
                 }
                 ListAdapter.listLength = booksArr.length();
@@ -154,11 +164,22 @@ public class CallGetBooks {
                 {
                     JSONObject jsonObject = booksArr1.getJSONObject(i);
 
-                    PatronBookItem bookItem = new PatronBookItem(
-                            jsonObject.getString("id"),
-                            jsonObject.getString("title"),jsonObject.getString("author"),
-                            jsonObject.getString("publisher"),jsonObject.getString("numAvailableCopies"),jsonObject.getString("currentStatus")
-                    );
+                    String id = jsonObject.getString("id");
+                    String title = jsonObject.getString("title");
+                    String author = jsonObject.getString("author");
+                    String publisher = jsonObject.getString("publisher");
+                    String numAvailableCopies = jsonObject.getString("numAvailableCopies");
+                    String currentStatus = jsonObject.getString("currentStatus");
+
+                    id = id == null || id == JSONObject.NULL || "null".equalsIgnoreCase(id) ? "" : id;
+                    title = title == null || title == JSONObject.NULL || "null".equalsIgnoreCase(title) ? "" : title;
+                    author = author == null || author == JSONObject.NULL || "null".equalsIgnoreCase(author) ? "" : author;
+                    publisher = publisher == null || publisher == JSONObject.NULL || "null".equalsIgnoreCase(publisher) ? "" : publisher;
+                    numAvailableCopies = numAvailableCopies == null || numAvailableCopies == JSONObject.NULL || "null".equalsIgnoreCase(numAvailableCopies) ? "" : numAvailableCopies;
+                    currentStatus = currentStatus == null || currentStatus == JSONObject.NULL || "null".equalsIgnoreCase(currentStatus) ? "" : currentStatus;
+
+                    PatronBookItem bookItem = new PatronBookItem(id,title,author,publisher,numAvailableCopies,currentStatus);
+
                     PatronListFragment.bookItemList.add(bookItem);
                 }
                 PatronListAdapter.listLength = booksArr1.length();

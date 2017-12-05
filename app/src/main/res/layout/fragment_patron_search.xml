@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- needs heading / title -->
+<!-- increase height of every component -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,12 +11,14 @@
     android:background="@drawable/background"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.librarymanagement.siddharth.snaplibrary.PatronActivity">
+
     <LinearLayout
         android:id="@+id/patron_search_id1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center">
+        android:layout_marginTop="@dimen/skip_space_for_header">
+
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="200dp"

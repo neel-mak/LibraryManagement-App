@@ -83,25 +83,25 @@ public class CallISearchForUpdate {
 
                                 }
                                 returnHashMap.put("keywords", keywords);
-                                if(jsonObject1.get("coverageImage")!=JSONObject.NULL) {
-                                    JSONObject jsonObject2 = jsonObject1.getJSONObject("coverageImage");
-                                    JSONArray jsonArray1 = jsonObject2.getJSONArray("data");
-                                    byte[] coverageImageByteArray = new byte[jsonArray1.length()];
-                                    for (int i = 0; i < jsonArray1.length(); i++) {
-                                        coverageImageByteArray[i] = (byte) jsonArray1.getInt(i);
-                                    }
-                                    returnHashMap.put("coverageImage", objectToBytArray(jsonArray1));
-
-                                    int[] coverageImageIntArray = new int[jsonArray1.length()];
-                                    for (int i = 0; i < jsonArray1.length(); i++) {
-                                        coverageImageIntArray[i] = (int) jsonArray1.getInt(i);
-                                    }
-                                    LogHelper.logMessage("coverageImageByteArray", "" + coverageImageByteArray.length);
-                                    Bitmap bitmap = Bitmap.createBitmap(coverageImageIntArray.length, coverageImageIntArray.length, Bitmap.Config.ARGB_8888);
-                                    bitmap.copyPixelsFromBuffer(makeBuffer(coverageImageIntArray, coverageImageIntArray.length));
-                                    UpdateDeleteFragment.updateFragmentImageView.setImageBitmap(bitmap);
-                                    UpdateDeleteFragment.updateFragmentImageView.invalidate();
-                                }
+//                                if(jsonObject1.get("coverageImage")!=JSONObject.NULL) {
+//                                    JSONObject jsonObject2 = jsonObject1.getJSONObject("coverageImage");
+//                                    JSONArray jsonArray1 = jsonObject2.getJSONArray("data");
+//                                    byte[] coverageImageByteArray = new byte[jsonArray1.length()];
+//                                    for (int i = 0; i < jsonArray1.length(); i++) {
+//                                        coverageImageByteArray[i] = (byte) jsonArray1.getInt(i);
+//                                    }
+//                                    returnHashMap.put("coverageImage", objectToBytArray(jsonArray1));
+//
+//                                    int[] coverageImageIntArray = new int[jsonArray1.length()];
+//                                    for (int i = 0; i < jsonArray1.length(); i++) {
+//                                        coverageImageIntArray[i] = (int) jsonArray1.getInt(i);
+//                                    }
+//                                    LogHelper.logMessage("coverageImageByteArray", "" + coverageImageByteArray.length);
+//                                    Bitmap bitmap = Bitmap.createBitmap(coverageImageIntArray.length, coverageImageIntArray.length, Bitmap.Config.ARGB_8888);
+//                                    bitmap.copyPixelsFromBuffer(makeBuffer(coverageImageIntArray, coverageImageIntArray.length));
+//                                    UpdateDeleteFragment.updateFragmentImageView.setImageBitmap(bitmap);
+//                                    UpdateDeleteFragment.updateFragmentImageView.invalidate();
+//                                }
                                 returnHashMap.put("createdBy", jsonObject1.getString("createdBy"));
                                 returnHashMap.put("updatedBy", jsonObject1.getString("updatedBy"));
                                 returnHashMap.put("numAvailableCopies", jsonObject1.getString("numAvailableCopies"));
@@ -156,15 +156,37 @@ public class CallISearchForUpdate {
                 //UpdateDeleteFragment.showProgress(false);
 
                 LogHelper.logMessage("CallSearchForUpdate", "updateUI");
-                UpdateDeleteFragment.updateFragmentBookAuthor.setText((String)returnHashMap.get("author"));
-                UpdateDeleteFragment.updateFragmentBookTitle.setText((String)returnHashMap.get("title"));
-                UpdateDeleteFragment.updateFragmentCallNumber.setText((String)returnHashMap.get("callNumber"));
-                UpdateDeleteFragment.updateFragmentBookPublisher.setText((String)returnHashMap.get("publisher"));
-                UpdateDeleteFragment.updateFragmentBookYear.setText((String)returnHashMap.get("yearOfPublication"));
-                UpdateDeleteFragment.updateFragmentBookLocation.setText((String)returnHashMap.get("locationInLibrary"));
-                UpdateDeleteFragment.updateFragmentBookCopies.setText((String)returnHashMap.get("numAvailableCopies"));
-                UpdateDeleteFragment.updateFragmentBookStatus.setText((String)returnHashMap.get("currentStatus"));
-                UpdateDeleteFragment.updateFragmentBookKeywords.setText((String)returnHashMap.get("keywords"));
+
+                String author = (String)returnHashMap.get("author");
+                String title = (String)returnHashMap.get("title");
+                String callNumber = (String)returnHashMap.get("callNumber");
+                String publisher = (String)returnHashMap.get("publisher");
+                String yearOfPublication = (String)returnHashMap.get("yearOfPublication");
+                String locationInLibrary = (String)returnHashMap.get("locationInLibrary");
+                String numAvailableCopies = (String)returnHashMap.get("numAvailableCopies");
+                String currentStatus = (String)returnHashMap.get("currentStatus");
+                String keywords = (String)returnHashMap.get("keywords");
+
+                callNumber = callNumber == null || callNumber == JSONObject.NULL || "null".equalsIgnoreCase(callNumber) ? "" : callNumber;
+                title = title == null || title == JSONObject.NULL || "null".equalsIgnoreCase(title) ? "" : title;
+                author = author == null || author == JSONObject.NULL || "null".equalsIgnoreCase(author) ? "" : author;
+                publisher = publisher == null || publisher == JSONObject.NULL || "null".equalsIgnoreCase(publisher) ? "" : publisher;
+                numAvailableCopies = numAvailableCopies == null || numAvailableCopies == JSONObject.NULL || "null".equalsIgnoreCase(numAvailableCopies) ? "" : numAvailableCopies;
+                currentStatus = currentStatus == null || currentStatus == JSONObject.NULL || "null".equalsIgnoreCase(currentStatus) ? "" : currentStatus;
+                yearOfPublication = yearOfPublication == null || yearOfPublication == JSONObject.NULL || "null".equalsIgnoreCase(yearOfPublication) ? "" : yearOfPublication;
+                locationInLibrary = locationInLibrary == null || locationInLibrary == JSONObject.NULL || "null".equalsIgnoreCase(locationInLibrary) ? "" : locationInLibrary;
+                keywords = keywords == null || keywords == JSONObject.NULL || "null".equalsIgnoreCase(keywords) ? "" : keywords;
+
+
+                UpdateDeleteFragment.updateFragmentBookAuthor.setText(author);
+                UpdateDeleteFragment.updateFragmentBookTitle.setText(title);
+                UpdateDeleteFragment.updateFragmentCallNumber.setText(callNumber);
+                UpdateDeleteFragment.updateFragmentBookPublisher.setText(publisher);
+                UpdateDeleteFragment.updateFragmentBookYear.setText(yearOfPublication);
+                UpdateDeleteFragment.updateFragmentBookLocation.setText(locationInLibrary);
+                UpdateDeleteFragment.updateFragmentBookCopies.setText(numAvailableCopies);
+                UpdateDeleteFragment.updateFragmentBookStatus.setText(currentStatus);
+                UpdateDeleteFragment.updateFragmentBookKeywords.setText(keywords);
 
 //                byte byteArray[] = (byte[])returnHashMap.get("coverageImage");
 //                LogHelper.logMessage("Siddharth", "" + byteArray.length);
@@ -175,15 +197,36 @@ public class CallISearchForUpdate {
                 break;
             case Constants.ACTION_LOAD_PATRON :
                 LogHelper.logMessage("Apoorv", "Loading checkout screen for patron");
-                PatronCheckoutFragment.checkoutFragmentBookAuthor.setText((String)returnHashMap.get("author"));
-                PatronCheckoutFragment.checkoutFragmentBookTitle.setText((String)returnHashMap.get("title"));
-                PatronCheckoutFragment.checkoutFragmentCallNumber.setText((String)returnHashMap.get("callNumber"));
-                PatronCheckoutFragment.checkoutFragmentBookPublisher.setText((String)returnHashMap.get("publisher"));
-                PatronCheckoutFragment.checkoutFragmentBookYear.setText((String)returnHashMap.get("yearOfPublication"));
-                PatronCheckoutFragment.checkoutFragmentBookLocation.setText((String)returnHashMap.get("locationInLibrary"));
-                PatronCheckoutFragment.checkoutFragmentBookCopies.setText((String)returnHashMap.get("numAvailableCopies"));
-                PatronCheckoutFragment.checkoutFragmentBookStatus.setText((String)returnHashMap.get("currentStatus"));
-                PatronCheckoutFragment.checkoutFragmentBookKeywords.setText((String)returnHashMap.get("keywords"));
+
+                String author1 = (String)returnHashMap.get("author");
+                String title1 = (String)returnHashMap.get("title");
+                String callNumber1 = (String)returnHashMap.get("callNumber");
+                String publisher1 = (String)returnHashMap.get("publisher");
+                String yearOfPublication1 = (String)returnHashMap.get("yearOfPublication");
+                String locationInLibrary1 = (String)returnHashMap.get("locationInLibrary");
+                String numAvailableCopies1 = (String)returnHashMap.get("numAvailableCopies");
+                String currentStatus1 = (String)returnHashMap.get("currentStatus");
+                String keywords1 = (String)returnHashMap.get("keywords");
+
+                callNumber1 = callNumber1 == null || callNumber1 == JSONObject.NULL || "null".equalsIgnoreCase(callNumber1) ? "" : callNumber1;
+                title1 = title1 == null || title1 == JSONObject.NULL || "null".equalsIgnoreCase(title1) ? "" : title1;
+                author1 = author1 == null || author1 == JSONObject.NULL || "null".equalsIgnoreCase(author1) ? "" : author1;
+                publisher1 = publisher1 == null || publisher1 == JSONObject.NULL || "null".equalsIgnoreCase(publisher1) ? "" : publisher1;
+                numAvailableCopies1 = numAvailableCopies1 == null || numAvailableCopies1 == JSONObject.NULL || "null".equalsIgnoreCase(numAvailableCopies1) ? "" : numAvailableCopies1;
+                currentStatus1 = currentStatus1 == null || currentStatus1 == JSONObject.NULL || "null".equalsIgnoreCase(currentStatus1) ? "" : currentStatus1;
+                yearOfPublication1 = yearOfPublication1 == null || yearOfPublication1 == JSONObject.NULL || "null".equalsIgnoreCase(yearOfPublication1) ? "" : yearOfPublication1;
+                locationInLibrary1 = locationInLibrary1 == null || locationInLibrary1 == JSONObject.NULL || "null".equalsIgnoreCase(locationInLibrary1) ? "" : locationInLibrary1;
+                keywords1 = keywords1 == null || keywords1 == JSONObject.NULL || "null".equalsIgnoreCase(keywords1) ? "" : keywords1;
+
+                PatronCheckoutFragment.checkoutFragmentBookAuthor.setText(author1);
+                PatronCheckoutFragment.checkoutFragmentBookTitle.setText(title1);
+                PatronCheckoutFragment.checkoutFragmentCallNumber.setText(callNumber1);
+                PatronCheckoutFragment.checkoutFragmentBookPublisher.setText(publisher1);
+                PatronCheckoutFragment.checkoutFragmentBookYear.setText(yearOfPublication1);
+                PatronCheckoutFragment.checkoutFragmentBookLocation.setText(locationInLibrary1);
+                PatronCheckoutFragment.checkoutFragmentBookCopies.setText(numAvailableCopies1);
+                PatronCheckoutFragment.checkoutFragmentBookStatus.setText(currentStatus1);
+                PatronCheckoutFragment.checkoutFragmentBookKeywords.setText(keywords1);
                 PatronCheckoutFragment.bookId = (String)returnHashMap.get("id");
 
                 break;

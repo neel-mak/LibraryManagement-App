@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.librarymanagement.siddharth.snaplibrary.helper.CallGetBooks;
 import com.librarymanagement.siddharth.snaplibrary.helper.CallGetSearchedBooks;
@@ -64,6 +65,7 @@ public class PatronSearchFragment extends Fragment //implements AdapterView.OnIt
 
     public void callSearch(){
         try {
+
             Bundle arguments = new Bundle();
             arguments.putString("spinner_value", spinner.getSelectedItem().toString());
             arguments.putString("search_text", searchParams.getText().toString());
