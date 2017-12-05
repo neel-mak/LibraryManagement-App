@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.librarymanagement.siddharth.snaplibrary.ReturnFragment">
+    tools:context="com.librarymanagement.siddharth.snaplibrary.ReturnFragment"
+    android:layout_marginTop="@dimen/skip_space_for_header">
 
     <ScrollView
         android:layout_width="match_parent"
