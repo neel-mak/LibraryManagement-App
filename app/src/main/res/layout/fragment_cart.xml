@@ -192,7 +192,7 @@
                     android:layout_below="@+id/cart_fragment_book_Title3"/>
 
                 <TextView
-                    android:id="@+id/cart_fragment_book_publisher"
+                    android:id="@+id/cart_fragment_book_publisher3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Publisher"
@@ -213,6 +213,13 @@
         android:text="Checkout"
         android:layout_gravity="center_horizontal"/>
 
+    <TextView
+        android:id="@+id/cart_fragment_empty_cart_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:text="No Items in cart"
+        android:visibility="gone"/>
 
 
 </LinearLayout>
