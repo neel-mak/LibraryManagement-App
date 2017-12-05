@@ -51,7 +51,7 @@ public class PatronListFragment extends Fragment //implements AdapterView.OnItem
 
         patron_no_books_found = (TextView) view.findViewById(R.id.patron_no_books_found);
         if(patron_no_books_found != null)
-            patron_no_books_found.setVisibility(View.INVISIBLE);
+            patron_no_books_found.setVisibility(View.GONE);
 
         //get parameters from search screen
         String searchCriteria = getArguments().getString("spinner_value");

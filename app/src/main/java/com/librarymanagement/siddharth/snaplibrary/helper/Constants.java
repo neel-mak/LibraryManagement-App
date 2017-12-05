@@ -21,6 +21,8 @@ public class Constants {
     public static final String CALL_DELETE_BOOK_URL = "/book/delete";
     public static final String CALL_CHECKED_OUT_BOOK_URL = "/book/myBooks";
     public static final String CALL_CHECKOUT_CART_URL = "/checkout";
+    public static final String CALL_RETURN_BOOKS_URL = "/return";
+
     //Update UI vars
     public static final String ACTION_UPDATE_LOGIN = "ACTION_UPDATE_LOGIN";
     public static final String ACTION_REGISTER = "ACTION_REGISTER";

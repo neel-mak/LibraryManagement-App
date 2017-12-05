@@ -3,8 +3,6 @@ package com.librarymanagement.siddharth.snaplibrary.helper;
 import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -13,9 +11,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.librarymanagement.siddharth.snaplibrary.BookItem;
-import com.librarymanagement.siddharth.snaplibrary.ListAdapter;
-import com.librarymanagement.siddharth.snaplibrary.ListFragment;
 import com.librarymanagement.siddharth.snaplibrary.PatronBookItem;
 import com.librarymanagement.siddharth.snaplibrary.ReturnFragment;
 
@@ -26,6 +21,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 import static com.librarymanagement.siddharth.snaplibrary.PatronListFragment.patron_no_books_found;
+import static com.librarymanagement.siddharth.snaplibrary.ReturnFragment.return_fragment_cardview0;
 
 
 public class CallGetCheckoutBooks {
@@ -57,7 +53,7 @@ public class CallGetCheckoutBooks {
 
                 Boolean isSuccess = jsonObject.getBoolean("success");
                 if (isSuccess) {
-                    if(jsonObject.get("data") != JSONObject.NULL) {
+                    if(jsonObject.get("data") != JSONObject.NULL && jsonObject.getJSONArray("data").length() != 0) {
                         String message = jsonObject.getString("message");
                         LogHelper.logMessage("Siddharth", "\n message: " + message);
                         LogHelper.logMessage("Siddharth", String.valueOf(jsonObject.getJSONArray("data").length()));
@@ -66,14 +62,29 @@ public class CallGetCheckoutBooks {
                         returnHashMap.put("books", jsonObject.getJSONArray("data"));
                         updateUI(fragment, context, action, activity, returnHashMap, params);
                     }else{
-                        Toast.makeText(activity, "No books found", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(activity, "No books checked out for return", Toast.LENGTH_SHORT).show();
+
+                        for(int j=0; j<9 ;j++){
+                            ReturnFragment.cardViews[j].setVisibility(View.GONE);
+                        }
+
                         if(patron_no_books_found != null) {
                             LogHelper.logMessage("Siddharth", "No books found");
                             patron_no_books_found.setText("No books found");
                             patron_no_books_found.setVisibility(View.VISIBLE);
                         }
+
+                        if(return_fragment_cardview0 != null) {
+                            LogHelper.logMessage("Siddharth", "No books checked out for return");
+                            return_fragment_cardview0.setVisibility(View.VISIBLE);
+                        }
+
                     }
                 } else {
+
+                    for(int j=0; j<9 ;j++){
+                        ReturnFragment.cardViews[j].setVisibility(View.GONE);
+                    }
 
                     HashMap<String, Object> extraParams = new HashMap<String, Object>();
                     extraParams.put("activity", activity);
@@ -81,6 +92,10 @@ public class CallGetCheckoutBooks {
                 }
 
             } catch (JSONException e) {
+
+                for(int j=0; j<9 ;j++){
+                    ReturnFragment.cardViews[j].setVisibility(View.GONE);
+                }
 
                 HashMap<String, Object> extraParams = new HashMap<String, Object>();
                 extraParams.put("activity", activity);
@@ -92,8 +107,11 @@ public class CallGetCheckoutBooks {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("Apoorv error");
                 String errorMessage = error.getMessage();
+
+                for(int j=0; j<9 ;j++){
+                    ReturnFragment.cardViews[j].setVisibility(View.GONE);
+                }
 
                 NetworkResponse networkResponse = error.networkResponse;
                 if (networkResponse != null && networkResponse.data != null) {
