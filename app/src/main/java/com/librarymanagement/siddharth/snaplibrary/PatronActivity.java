@@ -23,7 +23,8 @@ public class PatronActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patron);
 
-        PatronSearchFragment fragment=new PatronSearchFragment();
+        //PatronSearchFragment fragment=new PatronSearchFragment();
+        TestingAssistanceFragment fragment = new TestingAssistanceFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.patron_main_container,fragment).addToBackStack(null);
