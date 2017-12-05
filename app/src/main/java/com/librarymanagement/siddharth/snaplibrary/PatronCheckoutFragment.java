@@ -154,6 +154,8 @@ public class PatronCheckoutFragment extends Fragment {
 
 
     }
+
+
      void writeToSharedPreference(Context c) {
 
 
