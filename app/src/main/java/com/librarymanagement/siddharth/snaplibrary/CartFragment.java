@@ -145,7 +145,7 @@ public class CartFragment extends Fragment {
         if(cartItemsSet!=null) {
             for (String bookString : cartItemsSet) {
                 String[] bookdetails = bookString.split("@");
-                PatronBookItem pbi = new PatronBookItem(bookdetails[0], bookdetails[1], bookdetails[2], bookdetails[3], bookdetails[4], bookdetails[5]);
+                PatronBookItem pbi = new PatronBookItem(bookdetails[0], bookdetails[1], bookdetails[2], bookdetails[3], bookdetails[4], bookdetails[5], "","");
                 booksInCart.add(pbi);
                 LogHelper.logMessage("Apoorv", "Book in Cart :" + pbi.Book_Id);
             }
