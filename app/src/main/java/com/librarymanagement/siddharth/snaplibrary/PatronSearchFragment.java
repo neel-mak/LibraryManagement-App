@@ -59,7 +59,7 @@ public class PatronSearchFragment extends Fragment //implements AdapterView.OnIt
                 callSearch();
             }
         });
-
+        getActivity().setTitle("Search Books");
         return view;
     }
 

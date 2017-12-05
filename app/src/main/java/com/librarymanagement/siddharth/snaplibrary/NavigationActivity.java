@@ -65,7 +65,7 @@ public class NavigationActivity extends AppCompatActivity
             LogHelper.logMessage("nav_email", emailInDrawer.toString());
             emailInDrawer.setText(userDetails[1]);
         }
-        getMenuInflater().inflate(R.menu.navigation, menu);
+
         return true;
     }
 

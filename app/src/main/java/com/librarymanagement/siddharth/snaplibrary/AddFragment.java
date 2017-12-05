@@ -151,7 +151,7 @@ public class AddFragment extends Fragment {
         });
         mAddBookProgressView = view.findViewById(R.id.add_book_progress);
         mAddBookView = view.findViewById(R.id.add_book_scrollview);
-
+        getActivity().setTitle("Add Books for checkout");
         return view;
     }
 
