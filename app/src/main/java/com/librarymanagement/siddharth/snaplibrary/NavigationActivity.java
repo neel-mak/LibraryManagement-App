@@ -1,5 +1,7 @@
 package com.librarymanagement.siddharth.snaplibrary;
 
+import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,16 +14,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import com.librarymanagement.siddharth.snaplibrary.helper.LogHelper;
+import com.librarymanagement.siddharth.snaplibrary.helper.SharedData;
+
+import org.w3c.dom.Text;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     protected DrawerLayout drawer;
+    TextView emailInDrawer ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
       setSupportActionBar(toolbar);
+
 
 
 
@@ -47,7 +57,14 @@ public class NavigationActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu; this adds items to the action bar if it is present.SharedData.readFromSharedInitial(this);
+
+        emailInDrawer = (TextView) findViewById(R.id.nav_email);
+        String userDetails[] = SharedData.getUserDetails();
+        if(emailInDrawer != null) {
+            LogHelper.logMessage("nav_email", emailInDrawer.toString());
+            emailInDrawer.setText(userDetails[1]);
+        }
         getMenuInflater().inflate(R.menu.navigation, menu);
         return true;
     }
@@ -73,15 +90,33 @@ public class NavigationActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
+        switch (id){
+            case R.id.nav_home:
+                for (Fragment fr: getSupportFragmentManager ().getFragments()){
+                    getSupportFragmentManager().beginTransaction().remove(fr).commitNowAllowingStateLoss();
+                }
+                getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new PatronSearchFragment()).addToBackStack(null).commit();
+                break;
+            case R.id.nav_cart:
+                getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new CartFragment()).addToBackStack(null).commit();
+                break;
+            case R.id.nav_your_books:
+                getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new ReturnFragment()).addToBackStack(null).commit();
+                break;
+            case R.id.nav_test_screen:
+                getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new TestingAssistanceFragment()).addToBackStack(null).commit();
+                break;
+            case R.id.nav_signout:
+                for(Fragment fr : getSupportFragmentManager().getFragments()){
+                    getSupportFragmentManager().beginTransaction().remove(fr).commitNowAllowingStateLoss();
+                }
 
-        } else if (id == R.id.nav_cart) {
+                SharedData.clearUserData(this);
 
-        } else if (id == R.id.nav_setting) {
-
-
-        } else if (id == R.id.nav_signout) {
-
+                Intent i;
+                i = new Intent(this,MainActivity.class);
+                this.startActivity(i);
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
