@@ -24,26 +24,56 @@
                 android:background="@drawable/background">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_centerHorizontal="true"
                     android:id="@+id/add_fragment_imageView"
                     />
+
+                <LinearLayout
+                    android:id="@+id/add_fragment_LinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="30dp"
+                    android:layout_below="@id/add_fragment_imageView">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/addFragment_upload_btn"
+                        android:text="Upload cover"
+                        android:textStyle="bold"
+                        android:layout_marginRight="70dp"
+                        android:background="#ff8800"
+                        android:layout_gravity="start"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/addFragment_remove_file_btn"
+                        android:text="Remove cover"
+                        android:textStyle="bold"
+                        android:background="#ff8800"
+                        android:layout_below="@id/addFragment_upload_btn"
+                        />
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/Author_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_below="@id/add_fragment_imageView"
-                    android:padding="5dp">
+                    android:layout_below="@id/add_fragment_LinearLayout"
+                    android:layout_marginLeft="30dp">
 
                     <TextView
                         android:id="@+id/text_book_author"
-                        android:layout_width="200dp"
+                        android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Author"
                         android:textColor="#ffffff"
-                        android:textAlignment="center"/>
+                        android:textAlignment="viewStart"/>
 
                     <EditText
                         android:id="@+id/addFragment_book_author"
@@ -59,15 +89,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_below="@id/Author_layout"
-                    android:padding="5dp">
+                    android:layout_marginLeft="30dp">
 
                     <TextView
                         android:id="@+id/text_book_title"
-                        android:layout_width="200dp"
+                        android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Title"
                         android:textColor="#ffffff"
-                        android:textAlignment="center"/>
+                        android:textAlignment="viewStart"/>
 
                     <EditText
                         android:id="@+id/add_Fragment_book_title"
@@ -82,15 +112,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_below="@id/Title_layout"
-                    android:padding="5dp">
+                    android:layout_marginLeft="30dp">
 
                     <TextView
                         android:id="@+id/text_book_publisher"
-                        android:layout_width="200dp"
+                        android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Publisher"
                         android:textColor="#ffffff"
-                        android:textAlignment="center"/>
+                        android:textAlignment="viewStart"/>
 
                     <EditText
                         android:id="@+id/add_Fragment_book_publisher"
@@ -105,7 +135,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_below="@id/Publisher_layout"
-                    android:padding="5dp">
+                    android:layout_marginLeft="30dp">
 
                     <Button
                         android:layout_width="wrap_content"
@@ -115,12 +145,12 @@
                         android:textStyle="bold"
                         android:background="#ff8800"
                         android:layout_below="@id/ISBN_layout"
-                        android:layout_marginRight="37dp"
+                        android:layout_marginRight="18dp"
                         android:layout_centerInParent="true"/>
 
                     <EditText
                         android:id="@+id/toBeDeleted"
-                        android:layout_width="fill_parent"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:text=""
                         android:textColor="#ffffff"/>
@@ -133,15 +163,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_below="@id/ISBN_layout"
-                    android:padding="5dp">
+                    android:layout_marginLeft="30dp">
 
                     <TextView
                         android:id="@+id/text_book_call_number"
-                        android:layout_width="200dp"
+                        android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Call Number"
                         android:textColor="#ffffff"
-                        android:textAlignment="center"/>
+                        android:textAlignment="viewStart"/>
 
                     <EditText
                         android:id="@+id/add_Fragment_Call_Number"
@@ -156,15 +186,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_below="@id/Call_Number_layout"
-                    android:padding="5dp">
+                    android:layout_marginLeft="30dp">
 
                     <TextView
                         android:id="@+id/text_book_year"
-                        android:layout_width="200dp"
+                        android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Year"
                         android:textColor="#ffffff"
-                        android:textAlignment="center"/>
+                        android:textAlignment="viewStart"/>
 
                     <EditText
                         android:id="@+id/add_Fragment_book_year"
@@ -181,15 +211,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_below="@id/Year_layout"
-                    android:padding="5dp">
+                    android:layout_marginLeft="30dp">
 
                     <TextView
                         android:id="@+id/text_book_location"
-                        android:layout_width="200dp"
+                        android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Location"
                         android:textColor="#ffffff"
-                        android:textAlignment="center"/>
+                        android:textAlignment="viewStart"/>
 
                     <EditText
                         android:id="@+id/add_Fragment_book_location"
@@ -204,15 +234,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_below="@id/Location_layout"
-                    android:padding="5dp">
+                    android:layout_marginLeft="30dp">
 
                     <TextView
                         android:id="@+id/text_book_Copies"
-                        android:layout_width="200dp"
+                        android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Number of Copies"
                         android:textColor="#ffffff"
-                        android:textAlignment="center"/>
+                        android:textAlignment="viewStart"/>
 
                     <EditText
                         android:id="@+id/addFragment_book_copies"
@@ -228,15 +258,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_below="@id/Copies_layout"
-                    android:padding="5dp">
+                    android:layout_marginLeft="30dp">
 
                     <TextView
                         android:id="@+id/text_book_keywords"
-                        android:layout_width="200dp"
+                        android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Keywords"
                         android:textColor="#ffffff"
-                        android:textAlignment="center"/>
+                        android:textAlignment="viewStart"/>
 
                     <EditText
                         android:id="@+id/addFragment_book_keywords"
@@ -251,15 +281,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_below="@id/Keywords_layout"
-                    android:padding="5dp">
+                    android:layout_marginLeft="30dp">
 
                     <TextView
                         android:id="@+id/text_book_status"
-                        android:layout_width="200dp"
+                        android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Status"
                         android:textColor="#ffffff"
-                        android:textAlignment="center"/>
+                        android:textAlignment="viewStart"/>
 
                     <EditText
                         android:id="@+id/addFragment_book_status"
@@ -271,34 +301,14 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/addFragment_upload_btn"
-                    android:text="Upload cover"
-                    android:textStyle="bold"
-                    android:background="#ff8800"
-                    android:layout_below="@id/Status_layout"
-                    android:layout_centerInParent="true"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/addFragment_remove_file_btn"
-                    android:text="Remove cover"
-                    android:textStyle="bold"
-                    android:background="#ff8800"
-                    android:layout_below="@id/addFragment_upload_btn"
-                    android:layout_centerInParent="true"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/addFragment_add_btn"
                     android:text="Add Book"
                     android:textStyle="bold"
                     android:background="#ff8800"
-                    android:layout_below="@id/addFragment_remove_file_btn"
-                    android:layout_centerInParent="true"/>
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/Status_layout"
+                    />
+
             </RelativeLayout>
-
-
     </ScrollView>
 </FrameLayout>
