@@ -45,8 +45,7 @@ public class SuccessFragment extends Fragment {
         checkoutDates[0]=(TextView)view.findViewById(R.id.success_fragment_checkout_date1);
         checkoutDates[1]=(TextView)view.findViewById(R.id.success_fragment_checkout_date2);
         checkoutDates[2]=(TextView)view.findViewById(R.id.success_fragment_checkout_date3);
-
-
+        getActivity().setTitle("Checkout Details");
         return view;
     }
 

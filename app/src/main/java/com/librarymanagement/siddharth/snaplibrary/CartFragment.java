@@ -153,7 +153,7 @@ public class CartFragment extends Fragment {
             refreshCart();
 
         }
-
+        getActivity().setTitle("Checkout Books");
         return view;
     }
 

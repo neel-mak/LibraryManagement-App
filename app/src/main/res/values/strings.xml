@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">SNAPLibrary</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_login">Login</string>
     <string name="action_settings">Settings</string>
 
     <!-- Strings related to login -->
@@ -17,8 +17,8 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="title_activity_catalog">CatalogActivity</string>
-    <string name="title_activity_patron">PatronActivity</string>
+    <string name="title_activity_catalog">Home</string>
+    <string name="title_activity_patron">Search Books</string>
     <string name="title_activity_authentication">Sign in</string>
     <string name="email_id">Email ID</string>
     <string name="password">Password</string>
