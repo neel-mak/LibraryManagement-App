@@ -13,11 +13,21 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.librarymanagement.siddharth.snaplibrary.helper.CallAddBook;
+import com.librarymanagement.siddharth.snaplibrary.helper.CallCheckoutCart;
+import com.librarymanagement.siddharth.snaplibrary.helper.Constants;
+import com.librarymanagement.siddharth.snaplibrary.helper.ExceptionMessageHandler;
 import com.librarymanagement.siddharth.snaplibrary.helper.LogHelper;
+import com.librarymanagement.siddharth.snaplibrary.helper.RequestClass;
+import com.librarymanagement.siddharth.snaplibrary.helper.SharedData;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -113,6 +123,19 @@ public class CartFragment extends Fragment {
             }
         });
 
+        checkoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try {
+                    processCheckout();
+                } catch (Exception e)
+                {
+                    ExceptionMessageHandler.handleError(getContext(),e.toString(),e,null);
+                }
+            }
+        });
+
 
 
         //Read current cart from sharedPreferences
@@ -195,7 +218,6 @@ public class CartFragment extends Fragment {
         for (PatronBookItem pbi: booksInCart) {
             cartItemsSet.add(pbi.getDelimitedString());
         }
-
         SharedPreferences sharedPref = getContext().getSharedPreferences("cartDataSharedPreference",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putStringSet("cartItemsSet",cartItemsSet);
@@ -203,4 +225,38 @@ public class CartFragment extends Fragment {
         LogHelper.logMessage("Apoorv","Added number of Books in Cart :"+cartItemsSet.size());
     }
 
+    void processCheckout() throws JSONException {
+        String[] checkoutbookids =  new String[booksInCart.size()] ;
+        JSONArray bookArray = new JSONArray();
+        for (int i=0;i<booksInCart.size();i++) {
+            checkoutbookids[i] = booksInCart.get(i).Book_Id;
+            bookArray.put( booksInCart.get(i).Book_Id);
+        }
+
+        JSONObject jsonObject = new JSONObject();
+        SharedData.readFromSharedInitial(this.getActivity().getApplicationContext());
+        String[] userDetails = SharedData.getUserDetails();
+        jsonObject.put("email", userDetails[1]);
+        jsonObject.put("patronId", userDetails[0]);
+        jsonObject.put("bookIds", bookArray);
+
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put(Constants.REQUEST_JSON, jsonObject);
+        params.put(Constants.ACTION, Constants.ACTION_CHECKOUT_CART);
+        params.put(Constants.ACTIVITY, this.getActivity());
+        params.put(Constants.FRAGMENT, this);
+        params.put(Constants.VIEW, this.getView());
+        params.put(Constants.CONTEXT, this.getContext());
+
+        RequestClass.startRequestQueue();
+        new CallCheckoutCart().processCheckoutBooks(params);
+
+
+    }
+
+     public void emptyCart() {
+        booksInCart.clear();
+        commitCart();
+        refreshCart();
+    }
 }
