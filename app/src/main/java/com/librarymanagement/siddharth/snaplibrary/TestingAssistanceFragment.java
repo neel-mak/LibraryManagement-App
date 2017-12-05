@@ -58,8 +58,10 @@ public class TestingAssistanceFragment extends Fragment {
             }
         });
         updateText();
+        getActivity().setTitle("Testing Assistance");
         return view;
     }
+
 
     private void updateText(){
         int d,m,y,h,min,am_pm;
