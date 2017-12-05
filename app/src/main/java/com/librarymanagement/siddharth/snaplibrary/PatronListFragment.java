@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.librarymanagement.siddharth.snaplibrary.helper.CallGetBooks;
 import com.librarymanagement.siddharth.snaplibrary.helper.CallGetSearchedBooks;
@@ -35,6 +36,8 @@ public class PatronListFragment extends Fragment //implements AdapterView.OnItem
     public static RecyclerView.Adapter adapter;
     public static List<PatronBookItem> bookItemList = new ArrayList<>();
 
+    public static TextView patron_no_books_found;
+
     RecyclerView recyclerView;
 
     @Override
@@ -45,6 +48,10 @@ public class PatronListFragment extends Fragment //implements AdapterView.OnItem
         recyclerView=(RecyclerView)view.findViewById(R.id.patron_recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
+
+        patron_no_books_found = (TextView) view.findViewById(R.id.patron_no_books_found);
+        if(patron_no_books_found != null)
+            patron_no_books_found.setVisibility(View.INVISIBLE);
 
         //get parameters from search screen
         String searchCriteria = getArguments().getString("spinner_value");

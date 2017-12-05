@@ -1,3 +1,7 @@
+<!-- Needs title/heading -->
+<!-- Scrollview to be fixed -->
+<!-- Button can look better but keep the change consistent across app -->
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -5,6 +9,7 @@
     tools:context="com.librarymanagement.siddharth.snaplibrary.PatronCheckoutFragment">
 
     <RelativeLayout
+        android:layout_marginTop="@dimen/skip_space_for_header"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background">

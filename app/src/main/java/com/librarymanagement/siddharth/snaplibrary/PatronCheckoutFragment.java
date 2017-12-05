@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TextView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 import com.librarymanagement.siddharth.snaplibrary.helper.CallISearchForUpdate;
@@ -120,14 +121,20 @@ public class PatronCheckoutFragment extends Fragment {
 
          LogHelper.logMessage("Apoorv","current book"+currentBook.Book_Id+" and checking out"+bookId);
          readBooksfromCart(this.getContext());
-         if(booksInCart.size()<=3) {
+         if(cartItemsSet.contains(currentBook.getDelimitedString())){
+             Toast.makeText(getActivity(), "Book already in the cart" , Toast.LENGTH_SHORT).show();
+         }else if(booksInCart.size()<3) {
              LogHelper.logMessage("Apoorv",currentBook.getDelimitedString());
 //             if(cartItemsSet == null) {
 //                 cartItemsSet = new HashSet<String> ();
 //             }
              cartItemsSet.add (currentBook.getDelimitedString());
              writeToSharedPreference(this.getContext());
-             getFragmentManager().beginTransaction().replace(R.id.patron_main_container,new CartFragment()).addToBackStack(null).commit();
+             Toast.makeText(getActivity(), "Book added to cart" , Toast.LENGTH_SHORT).show();
+             getFragmentManager().popBackStackImmediate();
+             //getFragmentManager().beginTransaction().replace(R.id.patron_main_container,new CartFragment()).addToBackStack(null).commit();
+         }else{
+             Toast.makeText(getActivity(), "Cannot add more than 3 books in the cart" , Toast.LENGTH_SHORT).show();
          }
     }
 
