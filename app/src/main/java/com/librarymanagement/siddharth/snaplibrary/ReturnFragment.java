@@ -162,7 +162,7 @@ public class ReturnFragment extends Fragment {
             String userDetails[] = SharedData.getUserDetails();
             jsonObject.put("email", userDetails[1]);
             jsonObject.put("patronId", Integer.parseInt(userDetails[0]));
-            jsonObject.put("bookIds", [3,5]);
+            //jsonObject.put("bookIds", );
 
             HashMap<String, Object> params = new HashMap<String, Object>();
             params.put(Constants.REQUEST_JSON, jsonObject);
@@ -173,7 +173,7 @@ public class ReturnFragment extends Fragment {
             params.put(Constants.CONTEXT, this.getContext());
 
             RequestClass.startRequestQueue();
-            new CallReturnBooks().process(params);
+            //new CallReturnBooks().process(params);
         } catch (JSONException e) {
             e.printStackTrace();
         }
