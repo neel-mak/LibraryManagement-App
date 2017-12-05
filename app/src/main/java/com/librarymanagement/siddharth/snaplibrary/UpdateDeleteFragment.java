@@ -124,7 +124,7 @@ public class UpdateDeleteFragment extends Fragment {
         }catch (JSONException e){
             e.printStackTrace();
         }
-
+        getActivity().setTitle("Update or Delete Book");
         mUpdateBookProgressView = view.findViewById(R.id.add_book_progress);
         mUpdateBookView = view.findViewById(R.id.add_book_scrollview);
         return view;

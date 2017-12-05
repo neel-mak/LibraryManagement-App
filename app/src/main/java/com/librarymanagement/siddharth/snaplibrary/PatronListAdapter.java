@@ -40,7 +40,7 @@ public class PatronListAdapter extends RecyclerView.Adapter<PatronListAdapter.Vi
         holder.Book_Title.setText(patronBookItem.getBook_Title());
         holder.Book_Publisher.setText(patronBookItem.getBook_Publisher());
         holder.Book_Author.setText(patronBookItem.getBook_Author());
-        holder.Book_Copies.setText(patronBookItem.getBook_copies());
+
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +85,7 @@ public class PatronListAdapter extends RecyclerView.Adapter<PatronListAdapter.Vi
         public TextView Book_Title;
         public TextView Book_Author;
         public TextView Book_Publisher;
-        public TextView Book_Copies;
+
         public TextView Book_Status;
         public View mView;
 
@@ -97,7 +97,7 @@ public class PatronListAdapter extends RecyclerView.Adapter<PatronListAdapter.Vi
             Book_Author = (TextView)itemView.findViewById(R.id.patron_booklist_book_author);
             LogHelper.logMessage("ViewHolder", Book_Author.getText().toString());
 
-            Book_Copies = (TextView)itemView.findViewById(R.id.patron_booklist_book_copies);
+            //Book_Copies = (TextView)itemView.findViewById(R.id.patron_booklist_book_copies);
 
             Book_Publisher = (TextView)itemView.findViewById(R.id.patron_booklist_book_publisher);
             Book_Title = (TextView)itemView.findViewById(R.id.patron_booklist_book_Title);

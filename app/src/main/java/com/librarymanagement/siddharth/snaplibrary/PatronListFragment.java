@@ -160,6 +160,7 @@ public class PatronListFragment extends Fragment //implements AdapterView.OnItem
 
             e.printStackTrace();
         }
+        getActivity().setTitle("Book Details");
         return view;
     }
 }
