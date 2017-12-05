@@ -127,6 +127,7 @@ public class PatronCheckoutFragment extends Fragment {
 //             }
              cartItemsSet.add (currentBook.getDelimitedString());
              writeToSharedPreference(this.getContext());
+             getFragmentManager().beginTransaction().replace(R.id.patron_main_container,new CartFragment()).addToBackStack(null).commit();
          }
     }
 
