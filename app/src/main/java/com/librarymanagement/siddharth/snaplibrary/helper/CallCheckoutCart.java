@@ -18,6 +18,7 @@ import com.librarymanagement.siddharth.snaplibrary.CatalogActivity;
 import com.librarymanagement.siddharth.snaplibrary.ConfirmationFragment;
 import com.librarymanagement.siddharth.snaplibrary.ListFragment;
 import com.librarymanagement.siddharth.snaplibrary.R;
+import com.librarymanagement.siddharth.snaplibrary.SuccessFragment;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -117,6 +118,9 @@ public class CallCheckoutCart {
 
                CartFragment thisFragment = (CartFragment)fragment;
                thisFragment.emptyCart();
+
+                SuccessFragment sfr = new SuccessFragment();
+                fragment.getFragmentManager().beginTransaction().replace(R.id.patron_main_container,sfr).addToBackStack(null).commit();
 
                // Fragment fr = new ListFragment();
                 //fragment.getFragmentManager().beginTransaction().replace(R.id.place_holder,fr).addToBackStack(null).commit();
