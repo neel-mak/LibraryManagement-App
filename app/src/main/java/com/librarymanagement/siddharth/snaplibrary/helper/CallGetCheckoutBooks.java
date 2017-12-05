@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -16,8 +17,7 @@ import com.librarymanagement.siddharth.snaplibrary.BookItem;
 import com.librarymanagement.siddharth.snaplibrary.ListAdapter;
 import com.librarymanagement.siddharth.snaplibrary.ListFragment;
 import com.librarymanagement.siddharth.snaplibrary.PatronBookItem;
-import com.librarymanagement.siddharth.snaplibrary.PatronListAdapter;
-import com.librarymanagement.siddharth.snaplibrary.PatronListFragment;
+import com.librarymanagement.siddharth.snaplibrary.ReturnFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,10 +28,10 @@ import java.util.HashMap;
 import static com.librarymanagement.siddharth.snaplibrary.PatronListFragment.patron_no_books_found;
 
 
-public class CallGetSearchedBooks {
+public class CallGetCheckoutBooks {
 
-    public void proccess(final HashMap<String, Object> params) throws JSONException {
-        String urlString = Constants.AWS_URL + Constants.CALL_SEARCH_URL;
+    public void process(final HashMap<String, Object> params) throws JSONException {
+        String urlString = Constants.AWS_URL + Constants.CALL_CHECKED_OUT_BOOK_URL;
         LogHelper.logMessage("URL", urlString);
 
         final Context context;
@@ -45,14 +45,11 @@ public class CallGetSearchedBooks {
         requestJSON = (JSONObject) params.get(Constants.REQUEST_JSON);
         action = (String) params.get(Constants.ACTION);
         view = (View) params.get(Constants.VIEW);
-        //fragment = (ListFragment) params.get(Constants.FRAGMENT);
         fragment = (Fragment) params.get(Constants.FRAGMENT);
         activity = (Activity) params.get(Constants.ACTIVITY);
 
         //Now making the request
         JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.POST, urlString, requestJSON,new Response.Listener<JSONObject>() {
-
-
             @Override
             public void onResponse(JSONObject jsonObject) {
             try {
@@ -64,6 +61,8 @@ public class CallGetSearchedBooks {
                         String message = jsonObject.getString("message");
                         LogHelper.logMessage("Siddharth", "\n message: " + message);
                         LogHelper.logMessage("Siddharth", String.valueOf(jsonObject.getJSONArray("data").length()));
+
+
                         returnHashMap.put("books", jsonObject.getJSONArray("data"));
                         updateUI(fragment, context, action, activity, returnHashMap, params);
                     }else{
@@ -104,11 +103,9 @@ public class CallGetSearchedBooks {
                         errorMessage = jsonError.getString("message");
 
                     } catch (JSONException e) {
-                        //AddFragment.showProgress(false);
                         ExceptionMessageHandler.handleError(context, Constants.GENERIC_ERROR_MSG, null, null);
                     }
                 }
-                //ListFragment.showProgress(false);
 
                 error.printStackTrace();
                 HashMap<String, Object> hs = new HashMap<String, Object>();
@@ -123,81 +120,48 @@ public class CallGetSearchedBooks {
     public void updateUI(Fragment fragment, Context context, String action, Activity activity, HashMap<String, Object> returnHashMap, HashMap<String,Object> extraparams) throws JSONException {
 
         switch (action) {
-            case Constants.ACTION_GET_BOOKS:
+            case Constants.ACTION_GET_CHECKED_OUT_BOOKS:
 
                 //Toast.makeText(activity, "Got books ...", Toast.LENGTH_SHORT).show();
-                LogHelper.logMessage("siddharth", "Got books ...");
+                LogHelper.logMessage(Constants.ACTION_GET_CHECKED_OUT_BOOKS, "Got books ...");
                 JSONArray booksArr = (JSONArray)returnHashMap.get("books");
-
-                LogHelper.logMessage("Apoorv",String.valueOf((JSONArray)returnHashMap.get("books")));
-
-                if(ListFragment.bookItemList != null)
-                    ListFragment.bookItemList.clear();
-                for(int i=0;i<booksArr.length();i++)
-                {
-                    JSONObject jsonObject = booksArr.getJSONObject(i);
-
-                    String id = jsonObject.getString("id");
-                    String title = jsonObject.getString("title");
-                    String author = jsonObject.getString("author");
-                    String publisher = jsonObject.getString("publisher");
-                    String numAvailableCopies = jsonObject.getString("numAvailableCopies");
-                    String currentStatus = jsonObject.getString("currentStatus");
-
-                    id = id == null || id == JSONObject.NULL || "null".equalsIgnoreCase(id) ? "" : id;
-                    title = title == null || title == JSONObject.NULL || "null".equalsIgnoreCase(title) ? "" : title;
-                    author = author == null || author == JSONObject.NULL || "null".equalsIgnoreCase(author) ? "" : author;
-                    publisher = publisher == null || publisher == JSONObject.NULL || "null".equalsIgnoreCase(publisher) ? "" : publisher;
-                    numAvailableCopies = numAvailableCopies == null || numAvailableCopies == JSONObject.NULL || "null".equalsIgnoreCase(numAvailableCopies) ? "" : numAvailableCopies;
-                    currentStatus = currentStatus == null || currentStatus == JSONObject.NULL || "null".equalsIgnoreCase(currentStatus) ? "" : currentStatus;
-
-                    BookItem bookItem = new BookItem(id,title,author,publisher,numAvailableCopies,currentStatus);
-
-                    ListFragment.bookItemList.add(bookItem);
-                }
-                ListAdapter.listLength = booksArr.length();
-                RecyclerView recyclerView = (RecyclerView)extraparams.get("recyclerView");
-                recyclerView.setAdapter(new ListAdapter(ListFragment.bookItemList));
-                LogHelper.logMessage("Apoorv","Length of adapter: "+ ListAdapter.listLength + "BookList length: " + recyclerView.getAdapter().getItemCount());
-                recyclerView.getAdapter().notifyDataSetChanged();
-                break;
-
-            case Constants.ACTION_GET_BOOKS_FOR_PATRON:
-                LogHelper.logMessage("siddharth", "Got books ...");
-
-                JSONArray booksArr1 = (JSONArray)returnHashMap.get("books");
 
                 LogHelper.logMessage("Siddharth",String.valueOf((JSONArray)returnHashMap.get("books")));
 
-                if(PatronListFragment.bookItemList != null)
-                    PatronListFragment.bookItemList.clear();
-                for(int i=0;i<booksArr1.length();i++)
-                {
-                    JSONObject jsonObject = booksArr1.getJSONObject(i);
+                if(ReturnFragment.patronBookItems != null)
+                    ReturnFragment.patronBookItems.clear();
 
-                    String id = jsonObject.getString("id");
-                    String title = jsonObject.getString("title");
-                    String author = jsonObject.getString("author");
-                    String publisher = jsonObject.getString("publisher");
-                    String numAvailableCopies = jsonObject.getString("numAvailableCopies");
-                    String currentStatus = jsonObject.getString("currentStatus");
+                int i=0;
+                for(i=0;i<booksArr.length();i++)
+                {
+                    JSONObject jsonObject = booksArr.getJSONObject(i);
+
+                    JSONObject jsonObject1 = jsonObject.getJSONObject("book");
+                    String id = jsonObject1.getString("id");
+                    String title = jsonObject1.getString("title");
+                    String author = jsonObject1.getString("author");
+                    String checkoutDate = jsonObject.getString("checkoutDate");
+                    String dueDate = jsonObject.getString("dueDate");
 
                     id = id == null || id == JSONObject.NULL || "null".equalsIgnoreCase(id) ? "" : id;
                     title = title == null || title == JSONObject.NULL || "null".equalsIgnoreCase(title) ? "" : title;
                     author = author == null || author == JSONObject.NULL || "null".equalsIgnoreCase(author) ? "" : author;
-                    publisher = publisher == null || publisher == JSONObject.NULL || "null".equalsIgnoreCase(publisher) ? "" : publisher;
-                    numAvailableCopies = numAvailableCopies == null || numAvailableCopies == JSONObject.NULL || "null".equalsIgnoreCase(numAvailableCopies) ? "" : numAvailableCopies;
-                    currentStatus = currentStatus == null || currentStatus == JSONObject.NULL || "null".equalsIgnoreCase(currentStatus) ? "" : currentStatus;
+                    checkoutDate = checkoutDate == null || checkoutDate == JSONObject.NULL || "null".equalsIgnoreCase(checkoutDate) ? "" : checkoutDate;
+                    dueDate = dueDate == null || dueDate == JSONObject.NULL || "null".equalsIgnoreCase(dueDate) ? "" : dueDate;
 
-                    PatronBookItem bookItem = new PatronBookItem(id,title,author,publisher,numAvailableCopies,currentStatus, "","");
+                    PatronBookItem patronBookItem = new PatronBookItem(id,title,author,"","","", checkoutDate, dueDate);
 
-                    PatronListFragment.bookItemList.add(bookItem);
+                    ReturnFragment.patronBookItems.add(patronBookItem);
+                    ReturnFragment.checkBoxes[i].setChecked(false);
+                    ReturnFragment.titles[i].setText(title);
+                    ReturnFragment.authors[i].setText(author);
+                    ReturnFragment.checkOutDate[i].setText(checkoutDate);
+                    ReturnFragment.dueDate[i].setText(dueDate);
                 }
-                PatronListAdapter.listLength = booksArr1.length();
-                RecyclerView recyclerView1 = (RecyclerView)extraparams.get("recyclerView");
-                recyclerView1.setAdapter(new PatronListAdapter(PatronListFragment.bookItemList));
-                LogHelper.logMessage("Siddharth","Length of adapter: "+ PatronListAdapter.listLength + "BookList length: " + recyclerView1.getAdapter().getItemCount());
-                recyclerView1.getAdapter().notifyDataSetChanged();
+
+                for(int j=i; j<9 ;j++){
+                    ReturnFragment.cardViews[j].setVisibility(View.GONE);
+                }
 
                 break;
         }

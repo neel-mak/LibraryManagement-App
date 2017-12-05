@@ -33,14 +33,14 @@
                     android:id="@+id/patron_booklist_book_Title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Transedence"
+                    android:text=""
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/patron_booklist_book_author"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="APJ Abdul Kalam"
+                    android:text=""
                     android:textStyle="italic"
                     android:layout_marginRight="30dp"
                     android:layout_below="@+id/patron_booklist_book_Title"/>

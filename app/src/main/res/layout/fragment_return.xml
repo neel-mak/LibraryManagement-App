@@ -50,34 +50,31 @@
                             android:id="@+id/return_fragment_book_Title1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Transedence"
+                            android:text=""
                             android:textStyle="bold" />
-
-                        <Button
-                            android:id="@+id/return_fragment_cancel_btn1"
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_gravity="top"
-                            android:layout_alignParentRight="true"
-                            android:background="@drawable/ic_clear_black_18dp"
-                            />
 
                         <TextView
                             android:id="@+id/return_fragment_author1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="APJ Abdul Kalam"
+                            android:text=""
                             android:textStyle="italic"
-                            android:layout_marginBottom="20dp"
-                            android:layout_below="@+id/return_fragment_book_Title1"/>
+                            android:layout_marginBottom="10dp"
+                            android:layout_below="@id/return_fragment_book_Title1"/>
 
                         <TextView
-                            android:id="@+id/return_fragment_book_publisher1"
+                            android:id="@+id/return_fragment_checkout_date1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Publisher"
-                            android:layout_below="@+id/return_fragment_author1"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author1"
                             />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date1"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -119,34 +116,31 @@
                             android:id="@+id/return_fragment_book_Title2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Transedence"
+                            android:text=""
                             android:textStyle="bold" />
-
-                        <Button
-                            android:id="@+id/return_fragment_cancel_btn2"
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_gravity="top"
-                            android:layout_alignParentRight="true"
-                            android:background="@drawable/ic_clear_black_18dp"
-                            />
 
                         <TextView
                             android:id="@+id/return_fragment_author2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="APJ Abdul Kalam"
+                            android:text=""
                             android:textStyle="italic"
-                            android:layout_marginBottom="20dp"
-                            android:layout_below="@+id/return_fragment_book_Title2"/>
+                            android:layout_marginBottom="10dp"
+                            android:layout_below="@id/return_fragment_book_Title2"/>
 
                         <TextView
-                            android:id="@+id/return_fragment_book_publisher2"
+                            android:id="@+id/return_fragment_checkout_date2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Publisher"
-                            android:layout_below="@+id/return_fragment_author2"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author2"
                             />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date2"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -188,34 +182,31 @@
                             android:id="@+id/return_fragment_book_Title3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Transedence"
+                            android:text=""
                             android:textStyle="bold" />
-
-                        <Button
-                            android:id="@+id/return_fragment_cancel_btn3"
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_gravity="top"
-                            android:layout_alignParentRight="true"
-                            android:background="@drawable/ic_clear_black_18dp"
-                            />
 
                         <TextView
                             android:id="@+id/return_fragment_author3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="APJ Abdul Kalam"
+                            android:text=""
                             android:textStyle="italic"
-                            android:layout_marginBottom="20dp"
-                            android:layout_below="@+id/return_fragment_book_Title3"/>
+                            android:layout_marginBottom="10dp"
+                            android:layout_below="@id/return_fragment_book_Title3"/>
 
                         <TextView
-                            android:id="@+id/return_fragment_book_publisher3"
+                            android:id="@+id/return_fragment_checkout_date3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Publisher"
-                            android:layout_below="@+id/return_fragment_author3"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author3"
                             />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date3"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -257,34 +248,32 @@
                             android:id="@+id/return_fragment_book_Title4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Transedence"
+                            android:text=""
                             android:textStyle="bold" />
 
-                        <Button
-                            android:id="@+id/return_fragment_cancel_btn4"
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_gravity="top"
-                            android:layout_alignParentRight="true"
-                            android:background="@drawable/ic_clear_black_18dp"
-                            />
 
                         <TextView
                             android:id="@+id/return_fragment_author4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="APJ Abdul Kalam"
+                            android:text=""
                             android:textStyle="italic"
-                            android:layout_marginBottom="20dp"
-                            android:layout_below="@+id/return_fragment_book_Title4"/>
+                            android:layout_marginBottom="10dp"
+                            android:layout_below="@id/return_fragment_book_Title4"/>
 
                         <TextView
-                            android:id="@+id/return_fragment_book_publisher4"
+                            android:id="@+id/return_fragment_checkout_date4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Publisher"
-                            android:layout_below="@+id/return_fragment_author4"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author4"
                             />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date4"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -326,34 +315,31 @@
                             android:id="@+id/return_fragment_book_Title5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Transedence"
+                            android:text=""
                             android:textStyle="bold" />
-
-                        <Button
-                            android:id="@+id/return_fragment_cancel_btn5"
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_gravity="top"
-                            android:layout_alignParentRight="true"
-                            android:background="@drawable/ic_clear_black_18dp"
-                            />
 
                         <TextView
                             android:id="@+id/return_fragment_author5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="APJ Abdul Kalam"
+                            android:text=""
                             android:textStyle="italic"
                             android:layout_marginBottom="20dp"
-                            android:layout_below="@+id/return_fragment_book_Title5"/>
+                            android:layout_below="@id/return_fragment_book_Title5"/>
 
                         <TextView
-                            android:id="@+id/return_fragment_book_publisher5"
+                            android:id="@+id/return_fragment_checkout_date5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Publisher"
-                            android:layout_below="@+id/return_fragment_author5"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author5"
                             />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date5"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -395,34 +381,31 @@
                             android:id="@+id/return_fragment_book_Title6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Transedence"
+                            android:text=""
                             android:textStyle="bold" />
-
-                        <Button
-                            android:id="@+id/return_fragment_cancel_btn6"
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_gravity="top"
-                            android:layout_alignParentRight="true"
-                            android:background="@drawable/ic_clear_black_18dp"
-                            />
 
                         <TextView
                             android:id="@+id/return_fragment_author6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="APJ Abdul Kalam"
+                            android:text=""
                             android:textStyle="italic"
-                            android:layout_marginBottom="20dp"
-                            android:layout_below="@+id/return_fragment_book_Title6"/>
+                            android:layout_marginBottom="10dp"
+                            android:layout_below="@id/return_fragment_book_Title6"/>
 
                         <TextView
-                            android:id="@+id/return_fragment_book_publisher6"
+                            android:id="@+id/return_fragment_checkout_date6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Publisher"
-                            android:layout_below="@+id/return_fragment_author6"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author6"
                             />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date6"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -464,34 +447,31 @@
                             android:id="@+id/return_fragment_book_Title7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Transedence"
+                            android:text=""
                             android:textStyle="bold" />
-
-                        <Button
-                            android:id="@+id/return_fragment_cancel_btn7"
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_gravity="top"
-                            android:layout_alignParentRight="true"
-                            android:background="@drawable/ic_clear_black_18dp"
-                            />
 
                         <TextView
                             android:id="@+id/return_fragment_author7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="APJ Abdul Kalam"
+                            android:text=""
                             android:textStyle="italic"
                             android:layout_marginBottom="20dp"
-                            android:layout_below="@+id/return_fragment_book_Title7"/>
+                            android:layout_below="@id/return_fragment_book_Title7"/>
 
                         <TextView
-                            android:id="@+id/return_fragment_book_publisher7"
+                            android:id="@+id/return_fragment_checkout_date7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Publisher"
-                            android:layout_below="@+id/return_fragment_author7"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author7"
                             />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date7"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -533,34 +513,31 @@
                             android:id="@+id/return_fragment_book_Title8"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Transedence"
+                            android:text=""
                             android:textStyle="bold" />
-
-                        <Button
-                            android:id="@+id/return_fragment_cancel_btn8"
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_gravity="top"
-                            android:layout_alignParentRight="true"
-                            android:background="@drawable/ic_clear_black_18dp"
-                            />
 
                         <TextView
                             android:id="@+id/return_fragment_author8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="APJ Abdul Kalam"
+                            android:text=""
                             android:textStyle="italic"
                             android:layout_marginBottom="20dp"
-                            android:layout_below="@+id/return_fragment_book_Title8"/>
+                            android:layout_below="@id/return_fragment_book_Title8"/>
 
                         <TextView
-                            android:id="@+id/return_fragment_book_publisher8"
+                            android:id="@+id/return_fragment_checkout_date8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Publisher"
-                            android:layout_below="@+id/return_fragment_author8"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author8"
                             />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date8"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -602,34 +579,31 @@
                             android:id="@+id/return_fragment_book_Title9"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Transedence"
+                            android:text=""
                             android:textStyle="bold" />
-
-                        <Button
-                            android:id="@+id/return_fragment_cancel_btn9"
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_gravity="top"
-                            android:layout_alignParentRight="true"
-                            android:background="@drawable/ic_clear_black_18dp"
-                            />
 
                         <TextView
                             android:id="@+id/return_fragment_author9"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="APJ Abdul Kalam"
+                            android:text=""
                             android:textStyle="italic"
                             android:layout_marginBottom="20dp"
-                            android:layout_below="@+id/return_fragment_book_Title9"/>
+                            android:layout_below="@id/return_fragment_book_Title9"/>
 
                         <TextView
-                            android:id="@+id/return_fragment_book_publisher9"
+                            android:id="@+id/return_fragment_checkout_date9"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Publisher"
-                            android:layout_below="@+id/return_fragment_author9"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author9"
                             />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date9"/>
                     </RelativeLayout>
 
                 </LinearLayout>

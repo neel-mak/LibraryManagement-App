@@ -37,7 +37,7 @@
                     android:id="@+id/cart_fragment_book_Title1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Transedence"
+                    android:text=""
                     android:textStyle="bold" />
 
                 <Button
@@ -53,7 +53,7 @@
                     android:id="@+id/cart_fragment_author1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="APJ Abdul Kalam"
+                    android:text=""
                     android:textStyle="italic"
                     android:layout_marginBottom="20dp"
                     android:layout_below="@+id/cart_fragment_book_Title1"/>
@@ -103,7 +103,7 @@
                     android:id="@+id/cart_fragment_book_Title2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Transedence"
+                    android:text=""
                     android:textStyle="bold" />
 
                 <Button
@@ -119,7 +119,7 @@
                     android:id="@+id/cart_fragment_author2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="APJ Abdul Kalam"
+                    android:text=""
                     android:textStyle="italic"
                     android:layout_marginBottom="20dp"
                     android:layout_below="@+id/cart_fragment_book_Title2"/>
@@ -170,7 +170,7 @@
                     android:id="@+id/cart_fragment_book_Title3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Transedence"
+                    android:text=""
                     android:textStyle="bold" />
 
                 <Button
@@ -186,7 +186,7 @@
                     android:id="@+id/cart_fragment_author3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="APJ Abdul Kalam"
+                    android:text=""
                     android:textStyle="italic"
                     android:layout_marginBottom="20dp"
                     android:layout_below="@+id/cart_fragment_book_Title3"/>

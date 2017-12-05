@@ -14,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.librarymanagement.siddharth.snaplibrary.CatalogActivity;
 import com.librarymanagement.siddharth.snaplibrary.ConfirmationFragment;
+import com.librarymanagement.siddharth.snaplibrary.MainActivity;
 import com.librarymanagement.siddharth.snaplibrary.R;
 
 import org.json.JSONException;
@@ -117,7 +118,7 @@ public class CallVerifyUser {
                 ConfirmationFragment.showProgress(false);
                 Toast.makeText(activity, "Your account is verified.", Toast.LENGTH_SHORT).show();
 
-                Intent intent=new Intent(fragment.getActivity(),CatalogActivity.class);
+                Intent intent=new Intent(fragment.getActivity(),MainActivity.class);
                 fragment.startActivity(intent);
         }
     }

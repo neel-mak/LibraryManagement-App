@@ -11,37 +11,49 @@ public class PatronBookItem {
     public String Book_Publisher;
     public String Book_copies;
     public String Book_Status;
+    public String bookCheckedOutDate;
+    public String bookDueDate;
 
-    public PatronBookItem(String book_id, String book_Title, String book_Author, String book_Publisher, String book_copies, String book_Status) {
-        Book_Id = book_id;
-        Book_Title = book_Title;
-        Book_Author = book_Author;
-        Book_Publisher = book_Publisher;
-        Book_copies = book_copies;
-        Book_Status = book_Status;
+    public PatronBookItem(String book_id, String book_Title, String book_Author, String book_Publisher, String book_copies, String book_Status, String bookCheckedOutDate, String bookDueDate) {
+        this.Book_Id = book_id;
+        this.Book_Title = book_Title;
+        this.Book_Author = book_Author;
+        this.Book_Publisher = book_Publisher;
+        this.Book_copies = book_copies;
+        this.Book_Status = book_Status;
+        this.bookCheckedOutDate = bookCheckedOutDate;
+        this.bookDueDate = bookDueDate;
     }
 
     public String getBook_Title() {
-        return Book_Title;
+        return this.Book_Title;
     }
 
     public String getBook_Author() {
-        return Book_Author;
+        return this.Book_Author;
     }
 
     public String getBook_Publisher() {
-        return Book_Publisher;
+        return this.Book_Publisher;
     }
 
     public String getBook_copies() {
-        return Book_copies;
+        return this.Book_copies;
     }
 
     public String getBook_Status() {
-        return Book_Status;
+        return this.Book_Status;
+    }
+
+    public String getBookCheckedOutDate() {
+        return this.bookCheckedOutDate;
+    }
+
+    public String getBookDueDate() {
+        return this.bookDueDate;
     }
 
     public String getDelimitedString () {
-        return Book_Id + "@" + Book_Title + "@" + Book_Author + "@" + Book_Publisher + "@" + Book_copies + "@" + Book_Status;
+        return this.Book_Id + "@" + this.Book_Title + "@" + this.Book_Author + "@" + this.Book_Publisher + "@" + this.Book_copies + "@" + this.Book_Status;
     }
 }

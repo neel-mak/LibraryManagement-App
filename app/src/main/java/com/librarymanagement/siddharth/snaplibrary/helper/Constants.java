@@ -10,9 +10,6 @@ public class Constants {
 
     //URLs
     public static final String AWS_URL = "http://librarymanagement-backend.us-west-1.elasticbeanstalk.com";
-            //"http://localhost:8081";
-            //"http://21a07ab4.ngrok.io";
-            //"http://librarymanagement-backend.us-west-1.elasticbeanstalk.com";
     public static final String CALL_LOGIN_URL = "/user/login";
     public static final String CALL_REGISTER_URL = "/user/register";
     public static final String CALL_VERIFY_URL = "/user/verify";
@@ -22,6 +19,7 @@ public class Constants {
     public static final String CALL_SEARCH_URL = "/book/search";
     public static final String CALL_UPDATE_BOOK_URL = "/book/update";
     public static final String CALL_DELETE_BOOK_URL = "/book/delete";
+    public static final String CALL_CHECKED_OUT_BOOK_URL = "/book/myBooks";
     public static final String CALL_CHECKOUT_CART_URL = "/checkout";
     //Update UI vars
     public static final String ACTION_UPDATE_LOGIN = "ACTION_UPDATE_LOGIN";
@@ -34,6 +32,8 @@ public class Constants {
     public static final String ACTION_DELETE_BOOK = "ACTION_DELETE_BOOK";
     public static final String ACTION_ADD_BOOK = "ACTION_ADD_BOOK";
     public static final String ACTION_GET_BOOKS_FOR_PATRON = "ACTION_GET_BOOKS_FOR_PATRON";
+    public static final String ACTION_GET_CHECKED_OUT_BOOKS = "ACTION_GET_CHECKED_OUT_BOOKS";
+    public static final String ACTION_RETURN_BOOKS = "ACTION_RETURN_BOOKS";
     public static final String ACTION_CHECKOUT_CART = "ACTION_CHECKOUT_CART";
 
     public static final String ACTION_LOAD_PATRON = "ACTION_LOAD_PATRON";
