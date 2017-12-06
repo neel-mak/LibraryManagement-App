@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/b_img"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="40dp"
@@ -29,54 +29,55 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:textColorHint="#cccccc">
+                android:textColorHint="#37474f">
 
                 <EditText
                     android:id="@+id/signUpEmailAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#ffffff"
+                    android:textColor="#000"
                     android:hint="Email ID"
                     android:maxLength="50"
                     android:inputType="textEmailAddress"
                     android:textSize="20sp"
-                    android:drawableStart="@drawable/email"/>
+                    android:drawableStart="@drawable/ic_email_black_24dp"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textColorHint="#cccccc">
+                android:textColorHint="#37474f">
 
                 <EditText
                     android:id="@+id/signUpPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
-                    android:textColor="#ffffff"
+                    android:textColor="#000"
+                    android:textColorHint="#37474f"
                     android:inputType="textPassword"
                     android:maxLength="50"
                     android:textSize="20sp"
-                    android:drawableStart="@drawable/ic_lock_white_24dp"/>
+                    android:drawableStart="@drawable/ic_lock_black_24dp"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textColorHint="#cccccc">
+                android:textColorHint="#37474f">
 
                 <EditText
                     android:id="@+id/signUpSjsuId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="SJSU ID"
-                    android:textColor="#ffffff"
+                    android:textColor="#000"
                     android:inputType="number"
                     android:textSize="20sp"
                     android:maxLength="6"
-                    android:drawableStart="@drawable/ic_perm_identity_white_24dp"/>
+                    android:drawableStart="@drawable/ic_assignment_ind_black_24dp"/>
             </android.support.design.widget.TextInputLayout>
 
             <Button
@@ -84,8 +85,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sign UP"
+                android:textStyle="bold"
                 android:textSize="20sp"
-                android:textColor="#cccccc"
+                android:textColor="#263238"
                 android:background="#1b68e5"/>
         </LinearLayout>
     </ScrollView>
