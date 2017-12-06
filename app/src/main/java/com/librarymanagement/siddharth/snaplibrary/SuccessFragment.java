@@ -66,7 +66,7 @@ public class SuccessFragment extends Fragment {
         Bundle responseBundle = getArguments();
          checkedoutbooks =  (ArrayList<PatronBookItem>)responseBundle.getSerializable("checkoutbooksserial");
         LogHelper.logMessage("Apoorv","Received books in success fragment:"+checkedoutbooks.size());
-
+        getActivity().setTitle("Checkout Results");
         refreshView();
         return view;
     }

@@ -90,7 +90,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
             Book_Author = (TextView)itemView.findViewById(R.id.booklist_book_author);
             LogHelper.logMessage("ViewHolder", Book_Author.getText().toString());
 
-            //Book_Copies = (TextView)itemView.findViewById(R.id.booklist_book_copies);
+            Book_Copies = (TextView)itemView.findViewById(R.id.booklist_book_copies);
 
             Book_Publisher = (TextView)itemView.findViewById(R.id.booklist_book_publisher);
             Book_Title = (TextView)itemView.findViewById(R.id.booklist_book_Title);
