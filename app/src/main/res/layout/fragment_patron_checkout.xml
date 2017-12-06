@@ -2,7 +2,7 @@
 <!-- Scrollview to be fixed -->
 <!-- Button can look better but keep the change consistent across app -->
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
-            android:layout_below="@+id/checkout_Fragment_book_image"
+            android:layout_below="@id/checkout_Fragment_book_image"
             android:layout_marginLeft="30dp">
 
             <TextView
@@ -76,7 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/Title_layout"
+            android:layout_below="@id/Title_layout"
             android:layout_marginLeft="30dp">
 
             <TextView
@@ -101,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/Publisher_layout"
+            android:layout_below="@id/Publisher_layout"
             android:layout_marginLeft="30dp">
 
             <TextView
@@ -125,7 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/Call_Number_layout"
+            android:layout_below="@id/Call_Number_layout"
             android:layout_marginLeft="30dp">
 
             <TextView
@@ -150,7 +150,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/Year_layout"
+            android:layout_below="@id/Year_layout"
             android:layout_marginLeft="30dp">
 
             <TextView
@@ -174,7 +174,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/Location_layout"
+            android:layout_below="@id/Location_layout"
             android:layout_marginLeft="30dp">
 
             <TextView
@@ -199,7 +199,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/Copies_layout"
+            android:layout_below="@id/Copies_layout"
             android:layout_marginLeft="30dp">
 
             <TextView
@@ -256,4 +256,4 @@
 
     </RelativeLayout>
 
-</ScrollView>
+</FrameLayout>

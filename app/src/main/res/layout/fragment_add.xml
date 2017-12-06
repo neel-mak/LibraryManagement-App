@@ -21,15 +21,15 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/background">
+                android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/add_fragment_imageView"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_marginTop="10dp"
+                    android:visibility="visible"
                     android:layout_centerHorizontal="true"
-                    android:id="@+id/add_fragment_imageView"
                     />
 
                 <LinearLayout
@@ -37,7 +37,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="30dp"
                     android:layout_below="@id/add_fragment_imageView">
 
@@ -254,7 +253,6 @@
                         android:text=""/>
 
                 </LinearLayout>
-
                 <LinearLayout
                     android:id="@+id/Keywords_layout"
                     android:layout_width="match_parent"
@@ -277,7 +275,6 @@
                         android:layout_height="wrap_content"
                         android:hint="e.g. crime,suspense,red"/>
                 </LinearLayout>
-
                 <LinearLayout
                     android:id="@+id/Status_layout"
                     android:layout_width="match_parent"
@@ -300,18 +297,18 @@
                         android:layout_height="wrap_content"
                         android:text=""/>
                 </LinearLayout>
-
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/addFragment_add_btn"
                     android:text="Add Book"
                     android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
                     android:background="#ff8800"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/Status_layout"
                     />
-
             </RelativeLayout>
     </ScrollView>
 </FrameLayout>
