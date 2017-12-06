@@ -87,32 +87,32 @@ public class CallCheckoutCart {
                     }
                 },new Response.ErrorListener() {
 
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                String errorMessage = error.getMessage();
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        String errorMessage = error.getMessage();
 
-                                NetworkResponse networkResponse = error.networkResponse;
-                                if (networkResponse != null && networkResponse.data != null) {
-                                    try {
+                        NetworkResponse networkResponse = error.networkResponse;
+                        if (networkResponse != null && networkResponse.data != null) {
+                            try {
 
-                                        JSONObject jsonError = new JSONObject(new String(networkResponse.data));
-                                        errorMessage = jsonError.getString("message");
+                                JSONObject jsonError = new JSONObject(new String(networkResponse.data));
+                                errorMessage = jsonError.getString("message");
 
-                                    } catch (JSONException e) {
-                                        AddFragment.showProgress(false);
-                                        ExceptionMessageHandler.handleError(context, Constants.GENERIC_ERROR_MSG, null, null);
-                                    }
-                                }
-
-                                error.printStackTrace();
-                                HashMap<String, Object> hs = new HashMap<String, Object>();
-                                hs.put("activity", activity);
-                                ExceptionMessageHandler.handleError(context, errorMessage, error, hs);
-
+                            } catch (JSONException e) {
+                                AddFragment.showProgress(false);
+                                ExceptionMessageHandler.handleError(context, Constants.GENERIC_ERROR_MSG, null, null);
                             }
-                        });
-                        RequestClass.getRequestQueue().add(jsObjRequest);
+                        }
+
+                        error.printStackTrace();
+                        HashMap<String, Object> hs = new HashMap<String, Object>();
+                        hs.put("activity", activity);
+                        ExceptionMessageHandler.handleError(context, errorMessage, error, hs);
+
                     }
+                });
+        RequestClass.getRequestQueue().add(jsObjRequest);
+    }
 
     public void updateUI(Fragment fragment, Context context, String action, Activity activity, HashMap<String, Object> returnHashMap, HashMap<String,Object> extraparams){
         LogHelper.logMessage("Apoorv","came to update ui");
@@ -121,8 +121,8 @@ public class CallCheckoutCart {
                 LogHelper.logMessage("Apoorv","came to update ui");
                 Toast.makeText(activity, " Checkout Transaction Successful.", Toast.LENGTH_SHORT).show();
 
-               CartFragment thisFragment = (CartFragment)fragment;
-               thisFragment.emptyCart();
+                CartFragment thisFragment = (CartFragment)fragment;
+                thisFragment.emptyCart();
 
               JSONArray responseData = (JSONArray) returnHashMap.get("response");
 
@@ -158,5 +158,4 @@ public class CallCheckoutCart {
                 //fragment.getFragmentManager().beginTransaction().replace(R.id.place_holder,fr).addToBackStack(null).commit();
         }
     }
-    }
-
+}
