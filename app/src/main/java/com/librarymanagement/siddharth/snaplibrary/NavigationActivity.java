@@ -1,5 +1,6 @@
 package com.librarymanagement.siddharth.snaplibrary;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -30,10 +31,7 @@ public class NavigationActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-      setSupportActionBar(toolbar);
-
-
-
+        setSupportActionBar(toolbar);
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -59,11 +57,22 @@ public class NavigationActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.SharedData.readFromSharedInitial(this);
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
         emailInDrawer = (TextView) findViewById(R.id.nav_email);
         String userDetails[] = SharedData.getUserDetails();
         if(emailInDrawer != null) {
             LogHelper.logMessage("nav_email", emailInDrawer.toString());
             emailInDrawer.setText(userDetails[1]);
+        }
+
+        if("librarian".equalsIgnoreCase(userDetails[3])){
+            LogHelper.logMessage("onCreateOptionsMenu", "librarian detected");
+            navigationView.getMenu().removeItem(R.id.nav_cart);
+            navigationView.getMenu().removeItem(R.id.nav_your_books);
+
+        }else {
+            LogHelper.logMessage("onCreateOptionsMenu", "patron detected");
         }
 
         return true;
@@ -89,6 +98,7 @@ public class NavigationActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        String userDetails[] = SharedData.getUserDetails();
 
         switch (id){
             case R.id.nav_home:
@@ -96,7 +106,13 @@ public class NavigationActivity extends AppCompatActivity
                     getSupportFragmentManager().beginTransaction().remove(fr).commitNowAllowingStateLoss();
                 }
                 getSupportActionBar().setTitle("Home");
-                getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new PatronSearchFragment()).addToBackStack(null).commit();
+
+                if("patron".equalsIgnoreCase(userDetails[3])){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new PatronSearchFragment()).addToBackStack(null).commit();
+                }else {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.place_holder, new ListFragment()).addToBackStack(null).commit();
+                }
+
                 break;
             case R.id.nav_cart:
                 getSupportActionBar().setTitle("Checkout Books");
@@ -108,9 +124,16 @@ public class NavigationActivity extends AppCompatActivity
                 break;
             case R.id.nav_test_screen:
                 getSupportActionBar().setTitle("Testing Assistance");
-                getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new TestingAssistanceFragment()).addToBackStack(null).commit();
+
+                if("patron".equalsIgnoreCase(userDetails[3])){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new TestingAssistanceFragment()).addToBackStack(null).commit();
+                }else {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.place_holder, new TestingAssistanceFragment()).addToBackStack(null).commit();
+                }
+
                 break;
             case R.id.nav_signout:
+
                 for(Fragment fr : getSupportFragmentManager().getFragments()){
                     getSupportFragmentManager().beginTransaction().remove(fr).commitNowAllowingStateLoss();
                 }
