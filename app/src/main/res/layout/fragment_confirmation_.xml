@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="40dp"
+    android:background="@drawable/b_img"
     tools:context="com.librarymanagement.siddharth.snaplibrary.ConfirmationFragment">
 
     <ProgressBar
@@ -34,7 +35,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:hint="XXXXX"
-            android:textColor="#b3e5fc"
+            android:textColor="#000"
             android:maxLength="5"/>
 
         <Button

@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.librarymanagement.siddharth.snaplibrary.ReturnFragment"
-    android:layout_marginTop="@dimen/skip_space_for_header">
+    android:layout_marginTop="@dimen/skip_space_for_header"
+    android:background="#0277bd">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -630,6 +631,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Return"
+                android:textStyle="bold"
+                android:textColor="#1b68e5"
+                android:background="#ffffff"
                 android:layout_gravity="center"/>
         </LinearLayout>
     </ScrollView>

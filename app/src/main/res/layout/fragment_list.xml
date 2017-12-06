@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
+    android:background="#0277bd"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.librarymanagement.siddharth.snaplibrary.CatalogActivity"
     tools:showIn="@layout/activity_catalog">
@@ -27,19 +27,20 @@
             android:id="@+id/list_fragment_search_text"
             android:maxLength="200"
             android:hint="Enter value"
-            android:textColorHint="#ffffff"
+            android:textStyle="bold"
+            android:textColor="#000"
             />
         <Button
             android:id="@+id/list_fragment_search_btn"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:background="@drawable/ic_search_white_18dp"/>
+            android:background="@drawable/ic_search_black_18dp"/>
 
         <Button
             android:id="@+id/list_fragment_add_btn"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:background="@drawable/ic_add_circle_outline_white_18dp"/>
+            android:background="@drawable/ic_add_circle_outline_black_24dp"/>
     </LinearLayout>
     <FrameLayout
         android:id="@+id/place_holder1"
