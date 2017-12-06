@@ -13,6 +13,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_centerHorizontal="true"
+                android:visibility="gone"
                 android:id="@+id/update_fragment_imageView"/>
 
             <LinearLayout
@@ -20,6 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginTop="10dp"
                 android:layout_below="@+id/update_fragment_imageView"
                 android:layout_marginLeft="30dp">
 
