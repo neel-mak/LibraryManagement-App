@@ -2,7 +2,7 @@
 <!-- Scrollview to be fixed -->
 <!-- Button can look better but keep the change consistent across app -->
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,6 +18,8 @@
             android:id="@+id/checkout_Fragment_book_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
             android:layout_centerHorizontal="true"
             />
         <LinearLayout
@@ -25,16 +27,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/checkout_Fragment_book_image"
-            android:padding="5dp">
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/checkout_Fragment_book_image"
+            android:layout_marginLeft="30dp">
 
             <TextView
                 android:id="@+id/text_book_author"
-                android:layout_width="200dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:text="Author"
                 android:textColor="#ffffff"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 />
 
             <TextView
@@ -42,7 +45,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                />
 
         </LinearLayout>
 
@@ -52,22 +55,21 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@+id/Author_layout"
-            android:padding="5dp">
+            android:layout_marginLeft="30dp">
 
             <TextView
                 android:id="@+id/text_book_title"
-                android:layout_width="200dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:text="Title"
                 android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                android:textAlignment="viewStart"/>
 
             <TextView
                 android:id="@+id/checkout_Fragment_book_title"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                android:textColor="#ffffff" />
         </LinearLayout>
 
         <LinearLayout
@@ -75,23 +77,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/Title_layout"
-            android:padding="5dp">
+            android:layout_below="@id/Title_layout"
+            android:layout_marginLeft="30dp">
 
             <TextView
                 android:id="@+id/text_book_publisher"
-                android:layout_width="200dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:text="Publisher"
                 android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                android:textAlignment="viewStart"/>
 
             <TextView
                 android:id="@+id/checkout_Fragment_book_publisher"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                />
 
         </LinearLayout>
 
@@ -100,23 +102,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/Publisher_layout"
-            android:padding="5dp">
+            android:layout_below="@id/Publisher_layout"
+            android:layout_marginLeft="30dp">
 
             <TextView
                 android:id="@+id/text_book_call_number"
-                android:layout_width="200dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:text="Call Number"
                 android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                android:textAlignment="viewStart"/>
 
             <TextView
                 android:id="@+id/checkout_Fragment_Call_Number"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -124,23 +126,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/Call_Number_layout"
-            android:padding="5dp">
+            android:layout_below="@id/Call_Number_layout"
+            android:layout_marginLeft="30dp">
 
             <TextView
                 android:id="@+id/text_book_year"
-                android:layout_width="200dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:text="Year"
                 android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                android:textAlignment="viewStart"/>
 
             <TextView
                 android:id="@+id/checkout_Fragment_book_year"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                />
 
         </LinearLayout>
 
@@ -149,23 +151,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/Year_layout"
-            android:padding="5dp">
+            android:layout_below="@id/Year_layout"
+            android:layout_marginLeft="30dp">
 
             <TextView
                 android:id="@+id/text_book_location"
-                android:layout_width="200dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:text="Location"
                 android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                android:textAlignment="viewStart"/>
 
             <TextView
                 android:id="@+id/checkout_Fragment_book_location"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -173,23 +175,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/Location_layout"
-            android:padding="5dp">
+            android:layout_below="@id/Location_layout"
+            android:layout_marginLeft="30dp">
 
             <TextView
                 android:id="@+id/text_book_Copies"
-                android:layout_width="200dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:text="Number of Copies"
                 android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                android:textAlignment="viewStart"/>
 
             <TextView
                 android:id="@+id/checkout_Fragment_book_copies"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                />
 
         </LinearLayout>
 
@@ -198,16 +200,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/Copies_layout"
-            android:padding="5dp">
+            android:layout_below="@id/Copies_layout"
+            android:layout_marginLeft="30dp">
 
             <TextView
                 android:id="@+id/text_book_keywords"
-                android:layout_width="200dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:text="Keywords"
                 android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                android:textAlignment="viewStart"/>
 
             <TextView
                 android:id="@+id/checkout_Fragment_book_keywords"
@@ -215,7 +217,7 @@
                 android:inputType="number"
                 android:layout_height="wrap_content"
                 android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -224,22 +226,22 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@+id/Keywords_layout"
-            android:padding="5dp">
+            android:layout_marginLeft="30dp">
 
             <TextView
                 android:id="@+id/text_book_status"
-                android:layout_width="200dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:text="Status"
                 android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                android:textAlignment="viewStart"/>
 
             <TextView
                 android:id="@+id/checkout_Fragment_book_status"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:textColor="#ffffff"
-                android:textAlignment="center"/>
+                />
         </LinearLayout>
 
         <Button
@@ -250,10 +252,9 @@
             android:textStyle="bold"
             android:background="#ff8800"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="70dp"
+            android:layout_marginTop="30dp"
             android:layout_below="@id/Status_layout"/>
 
     </RelativeLayout>
 
-</ScrollView>
+</FrameLayout>

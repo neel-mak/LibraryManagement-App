@@ -12,7 +12,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/skip_space_for_header">
         <Spinner
             android:id="@+id/Search_spinner"
             android:layout_width="200dp"

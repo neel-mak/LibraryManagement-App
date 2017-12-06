@@ -62,10 +62,11 @@ public class SuccessFragment extends Fragment {
         checkoutDates[1]=(TextView)view.findViewById(R.id.success_fragment_checkout_date2);
         checkoutDates[2]=(TextView)view.findViewById(R.id.success_fragment_checkout_date3);
 
+
         Bundle responseBundle = getArguments();
          checkedoutbooks =  (ArrayList<PatronBookItem>)responseBundle.getSerializable("checkoutbooksserial");
         LogHelper.logMessage("Apoorv","Received books in success fragment:"+checkedoutbooks.size());
-
+        getActivity().setTitle("Checkout Results");
         refreshView();
         return view;
     }
