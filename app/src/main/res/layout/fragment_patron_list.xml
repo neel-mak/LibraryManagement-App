@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
+    android:background="#0277bd"
     tools:context="com.librarymanagement.siddharth.snaplibrary.PatronActivity">
 
     <FrameLayout
@@ -23,7 +23,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:textSize="30dp"/>
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="#000"/>
 
 
         <android.support.v7.widget.RecyclerView

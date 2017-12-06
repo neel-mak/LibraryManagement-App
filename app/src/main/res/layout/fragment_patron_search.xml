@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
+    android:background="@drawable/b_img"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.librarymanagement.siddharth.snaplibrary.PatronActivity">
 
@@ -23,6 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Search Books "
+            android:textStyle="bold"
+            android:textColor="#1b68e5"
             android:gravity="center_horizontal"
             android:textSize="50dp" />
 
@@ -49,13 +51,13 @@
                 android:hint="Enter value"
                 android:inputType="text"
                 android:maxLength="200"
-                android:textColorHint="#ffffff" />
+                android:textColorHint="#000" />
 
             <Button
                 android:id="@+id/patron_search_fragment_search_btn"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:background="@drawable/ic_search_white_18dp" />
+                android:background="@drawable/ic_search_black_18dp" />
         </LinearLayout>
     </RelativeLayout>
 
