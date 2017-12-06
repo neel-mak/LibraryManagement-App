@@ -12,13 +12,16 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.librarymanagement.siddharth.snaplibrary.helper.CallGetCheckoutBooks;
 import com.librarymanagement.siddharth.snaplibrary.helper.CallISBNLookup;
+import com.librarymanagement.siddharth.snaplibrary.helper.CallReturnBooks;
 import com.librarymanagement.siddharth.snaplibrary.helper.Constants;
 import com.librarymanagement.siddharth.snaplibrary.helper.RequestClass;
 import com.librarymanagement.siddharth.snaplibrary.helper.SharedData;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -42,11 +45,17 @@ public class ReturnFragment extends Fragment {
     public static TextView[] dueDate = new TextView[9];
     public static List<PatronBookItem> patronBookItems;
 
+    public static CardView return_fragment_cardview0;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_return, container, false);
+
+        return_fragment_cardview0 = (CardView) view.findViewById(R.id.return_fragment_cardview0);
+        if(return_fragment_cardview0 != null)
+            return_fragment_cardview0.setVisibility(View.GONE);
 
         cardViews[0] = (CardView)view.findViewById(R.id.return_fragment_cardview1);
         cardViews[1] = (CardView)view.findViewById(R.id.return_fragment_cardview2);
@@ -155,27 +164,41 @@ public class ReturnFragment extends Fragment {
     public void returnBooks(){
 
         //getting book ids of checked books
+        JSONArray jsonArray = new JSONArray();
+        for(int j=0; j<9 ;j++){
+            CheckBox c = checkBoxes[j];
+            if(c!= null && c.isChecked() && patronBookItems.get(j) != null){
+                jsonArray.put(Integer.parseInt(patronBookItems.get(j).Book_Id));
+            }
+        }
 
-        try {
-            JSONObject jsonObject = new JSONObject();
-            SharedData.readFromSharedInitial(this.getActivity());
-            String userDetails[] = SharedData.getUserDetails();
-            jsonObject.put("email", userDetails[1]);
-            jsonObject.put("patronId", Integer.parseInt(userDetails[0]));
-            //jsonObject.put("bookIds", );
+        if(patronBookItems == null || patronBookItems.isEmpty() || patronBookItems.size() == 0){
+            Toast.makeText(this.getActivity(), "No books checked out for return", Toast.LENGTH_SHORT).show();
+        }else if(jsonArray.length() == 0){
+            Toast.makeText(this.getActivity(), "No book selected", Toast.LENGTH_SHORT).show();
+        }else {
 
-            HashMap<String, Object> params = new HashMap<String, Object>();
-            params.put(Constants.REQUEST_JSON, jsonObject);
-            params.put(Constants.ACTION, Constants.ACTION_RETURN_BOOKS);
-            params.put(Constants.ACTIVITY, this.getActivity());
-            params.put(Constants.FRAGMENT, this);
-            params.put(Constants.VIEW, this.getView());
-            params.put(Constants.CONTEXT, this.getContext());
+            try {
+                JSONObject jsonObject = new JSONObject();
+                SharedData.readFromSharedInitial(this.getActivity());
+                String userDetails[] = SharedData.getUserDetails();
+                jsonObject.put("email", userDetails[1]);
+                jsonObject.put("patronId", Integer.parseInt(userDetails[0]));
+                jsonObject.put("bookIds", jsonArray);
 
-            RequestClass.startRequestQueue();
-            //new CallReturnBooks().process(params);
-        } catch (JSONException e) {
-            e.printStackTrace();
+                HashMap<String, Object> params = new HashMap<String, Object>();
+                params.put(Constants.REQUEST_JSON, jsonObject);
+                params.put(Constants.ACTION, Constants.ACTION_RETURN_BOOKS);
+                params.put(Constants.ACTIVITY, this.getActivity());
+                params.put(Constants.FRAGMENT, this);
+                params.put(Constants.VIEW, this.getView());
+                params.put(Constants.CONTEXT, this.getContext());
+
+                RequestClass.startRequestQueue();
+                new CallReturnBooks().process(params);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
     }
