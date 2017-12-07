@@ -108,9 +108,9 @@ public class NavigationActivity extends AppCompatActivity
                 getSupportActionBar().setTitle("Home");
 
                 if("patron".equalsIgnoreCase(userDetails[3])){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new PatronSearchFragment()).addToBackStack(null).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new PatronSearchFragment()).commit();
                 }else {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.place_holder, new ListFragment()).addToBackStack(null).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.place_holder, new ListFragment()).commit();
                 }
 
                 break;
