@@ -66,7 +66,6 @@ public class PatronCheckoutFragment extends Fragment {
         checkoutFragmentCallNumber = (TextView) view.findViewById(R.id.checkout_Fragment_Call_Number);
         checkoutFragmentBookYear = (TextView) view.findViewById(R.id.checkout_Fragment_book_year);
         checkoutFragmentBookLocation = (TextView) view.findViewById(R.id.checkout_Fragment_book_location);
-        checkoutFragmentBookCopies = (TextView) view.findViewById(R.id.checkout_Fragment_book_copies);
         checkoutFragmentBookKeywords = (TextView) view.findViewById(R.id.checkout_Fragment_book_keywords);
         checkoutFragmentBookStatus = (TextView) view.findViewById(R.id.checkout_Fragment_book_status);
 
@@ -91,7 +90,6 @@ public class PatronCheckoutFragment extends Fragment {
         });
 
         try {
-            //TODO: Replace with position and ID from actual list
             position = getArguments().getInt("book_obj_position_in_list");
             currentBook = PatronListFragment.bookItemList.get(position);
             JSONObject jsonObject = new JSONObject();

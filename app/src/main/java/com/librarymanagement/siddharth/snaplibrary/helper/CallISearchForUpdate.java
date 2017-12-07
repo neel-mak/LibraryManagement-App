@@ -224,7 +224,6 @@ public class CallISearchForUpdate {
                 PatronCheckoutFragment.checkoutFragmentBookPublisher.setText(publisher1);
                 PatronCheckoutFragment.checkoutFragmentBookYear.setText(yearOfPublication1);
                 PatronCheckoutFragment.checkoutFragmentBookLocation.setText(locationInLibrary1);
-                PatronCheckoutFragment.checkoutFragmentBookCopies.setText(numAvailableCopies1);
                 PatronCheckoutFragment.checkoutFragmentBookStatus.setText(currentStatus1);
                 PatronCheckoutFragment.checkoutFragmentBookKeywords.setText(keywords1);
                 PatronCheckoutFragment.bookId = (String)returnHashMap.get("id");
