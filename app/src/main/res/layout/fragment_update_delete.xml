@@ -8,7 +8,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/b_img_blur"
-            android:layout_marginTop="@dimen/skip_space_for_header">
+            android:layout_marginTop="@dimen/skip_space_for_header"
+            android:paddingRight="20dp">
 
             <ImageView
                 android:layout_width="150dp"
