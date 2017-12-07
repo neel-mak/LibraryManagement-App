@@ -227,7 +227,8 @@
         android:text="Cart is Empty!"
         android:textSize="35sp"
         android:id="@+id/cart_fragment_empty_cart_text"
-        android:gravity="center_horizontal"/>
+        android:gravity="center_horizontal"
+        android:visibility="gone"/>
 
 
 </LinearLayout>
