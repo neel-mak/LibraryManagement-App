@@ -17,6 +17,8 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.librarymanagement.siddharth.snaplibrary.helper.SharedData;
+
 import java.util.Calendar;
 
 import static java.util.Calendar.AM;
@@ -121,7 +123,14 @@ public class TestingAssistanceFragment extends Fragment {
     };
 
     private void changeFragment(){
-        getFragmentManager().beginTransaction().replace(R.id.patron_main_container,new PatronSearchFragment()).addToBackStack(null).commit();
+        String userDetails[] = SharedData.getUserDetails();
+
+        if("patron".equalsIgnoreCase(userDetails[3])){
+            getFragmentManager().beginTransaction().replace(R.id.patron_main_container,new PatronSearchFragment()).addToBackStack(null).commit();
+        }else {
+            getFragmentManager().beginTransaction().replace(R.id.place_holder,new ListFragment()).addToBackStack(null).commit();
+        }
+
     }
 
     @Override

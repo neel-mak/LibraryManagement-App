@@ -37,7 +37,7 @@
                     android:textSize="15sp"
                     android:textAlignment="viewStart"/>
 
-                <TextView
+                <EditText
                     android:id="@+id/update_Fragment_book_author"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
                     android:textSize="15sp"
                     android:textAlignment="viewStart"/>
 
-                <TextView
+                <EditText
                     android:id="@+id/Update_Fragment_book_title"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                     android:textColor="#000"
                     android:textAlignment="viewStart"/>
 
-                <TextView
+                <EditText
                     android:id="@+id/update_Fragment_book_publisher"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
@@ -153,7 +153,7 @@
                     android:textColor="#000"
                     android:textAlignment="viewStart"/>
 
-                <TextView
+                <EditText
                     android:id="@+id/update_Fragment_book_year"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
