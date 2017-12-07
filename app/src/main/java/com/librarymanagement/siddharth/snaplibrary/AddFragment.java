@@ -375,24 +375,25 @@ public class AddFragment extends Fragment {
             addFragmentBookTitle.setError(getString(R.string.error_field_required));
             focusView = addFragmentBookTitle;
             cancel = true;
+        } else if (TextUtils.isEmpty(addFragmentBookPublisherString)) {
+            addFragmentBookPublisher.setError(getString(R.string.error_field_required));
+            focusView = addFragmentBookPublisher;
+            cancel = true;
+        } else if (TextUtils.isEmpty(addFragmentCallNumberString)) {
+            addFragmentCallNumber.setError(getString(R.string.error_field_required));
+            focusView = addFragmentCallNumber;
+            cancel = true;
         }
-//        } else if (TextUtils.isEmpty(addFragmentBookPublisherString)) {
-//            addFragmentBookPublisher.setError(getString(R.string.error_field_required));
-//            focusView = addFragmentBookPublisher;
-//            cancel = true;
-//        } else if (TextUtils.isEmpty(addFragmentCallNumberString)) {
-//            addFragmentCallNumber.setError(getString(R.string.error_field_required));
-//            focusView = addFragmentCallNumber;
-//            cancel = true;
-//        } else if (TextUtils.isEmpty(addFragmentBookYearString)) {
+//        else if (TextUtils.isEmpty(addFragmentBookYearString)) {
 //            addFragmentBookYear.setError(getString(R.string.error_field_required));
 //            focusView = addFragmentBookYear;
 //            cancel = true;
-//        } else if (TextUtils.isEmpty(addFragmentBookLocationString)) {
-//            addFragmentBookLocation.setError(getString(R.string.error_field_required));
-//            focusView = addFragmentBookLocation;
-//            cancel = true;
 //        }
+          else if (TextUtils.isEmpty(addFragmentBookLocationString)) {
+            addFragmentBookLocation.setError(getString(R.string.error_field_required));
+            focusView = addFragmentBookLocation;
+            cancel = true;
+        }
         else if (TextUtils.isEmpty(addFragmentBookCopiesString)) {
             addFragmentBookCopies.setError(getString(R.string.error_field_required));
             focusView = addFragmentBookCopies;
