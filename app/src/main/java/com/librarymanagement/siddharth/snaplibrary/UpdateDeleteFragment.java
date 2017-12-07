@@ -43,11 +43,11 @@ import java.util.List;
 public class UpdateDeleteFragment extends Fragment {
 
 
-    public static TextView updateFragmentBookAuthor;
-    public static TextView updateFragmentBookTitle;
-    public static TextView updateFragmentBookPublisher;
+    public static EditText updateFragmentBookAuthor;
+    public static EditText updateFragmentBookTitle;
+    public static EditText updateFragmentBookPublisher;
     public static EditText updateFragmentCallNumber;
-    public static TextView updateFragmentBookYear;
+    public static EditText updateFragmentBookYear;
     public static EditText updateFragmentBookLocation;
     public static EditText updateFragmentBookCopies;
     public static EditText updateFragmentBookKeywords;
@@ -80,11 +80,11 @@ public class UpdateDeleteFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_update_delete, container, false);
 
-        updateFragmentBookAuthor = (TextView) view.findViewById(R.id.update_Fragment_book_author);
-        updateFragmentBookTitle = (TextView) view.findViewById(R.id.Update_Fragment_book_title);
-        updateFragmentBookPublisher = (TextView) view.findViewById(R.id.update_Fragment_book_publisher);
+        updateFragmentBookAuthor = (EditText) view.findViewById(R.id.update_Fragment_book_author);
+        updateFragmentBookTitle = (EditText) view.findViewById(R.id.Update_Fragment_book_title);
+        updateFragmentBookPublisher = (EditText) view.findViewById(R.id.update_Fragment_book_publisher);
         updateFragmentCallNumber = (EditText) view.findViewById(R.id.update_Fragment_Call_Number);
-        updateFragmentBookYear = (TextView) view.findViewById(R.id.update_Fragment_book_year);
+        updateFragmentBookYear = (EditText) view.findViewById(R.id.update_Fragment_book_year);
         updateFragmentBookLocation = (EditText) view.findViewById(R.id.update_Fragment_book_location);
         updateFragmentBookCopies = (EditText) view.findViewById(R.id.update_Fragment_book_copies);
         updateFragmentBookKeywords = (EditText) view.findViewById(R.id.update_Fragment_book_keywords);
@@ -144,6 +144,7 @@ public class UpdateDeleteFragment extends Fragment {
         getActivity().setTitle("Update or Delete Book");
         mUpdateBookProgressView = view.findViewById(R.id.add_book_progress);
         mUpdateBookView = view.findViewById(R.id.add_book_scrollview);
+        getActivity().setTitle("Update book");
         return view;
     }
 
@@ -201,7 +202,19 @@ public class UpdateDeleteFragment extends Fragment {
         View focusView = null;
 
         // Check for a valid email address.
-        if (TextUtils.isEmpty(updateFragmentCallNumberString)) {
+        if (TextUtils.isEmpty(updateFragmentBookAuthorString)) {
+            updateFragmentBookAuthor.setError(getString(R.string.error_field_required));
+            focusView = updateFragmentBookAuthor;
+            cancel = true;
+        } else if (TextUtils.isEmpty(updateFragmentBookTitleString)) {
+            updateFragmentBookTitle.setError(getString(R.string.error_field_required));
+            focusView = updateFragmentBookTitle;
+            cancel = true;
+        } else if (TextUtils.isEmpty(updateFragmentBookPublisherString)) {
+            updateFragmentBookPublisher.setError(getString(R.string.error_field_required));
+            focusView = updateFragmentBookPublisher;
+            cancel = true;
+        } else if (TextUtils.isEmpty(updateFragmentCallNumberString)) {
             updateFragmentCallNumber.setError(getString(R.string.error_field_required));
             focusView = updateFragmentCallNumber;
             cancel = true;
@@ -213,11 +226,12 @@ public class UpdateDeleteFragment extends Fragment {
             updateFragmentBookCopies.setError(getString(R.string.error_field_required));
             focusView = updateFragmentBookCopies;
             cancel = true;
-        } else if (TextUtils.isEmpty(updateFragmentBookKeywordsString)) {
-            updateFragmentBookKeywords.setError(getString(R.string.error_field_required));
-            focusView = updateFragmentBookKeywords;
-            cancel = true;
         }
+//        else if (TextUtils.isEmpty(updateFragmentBookKeywordsString)) {
+//            updateFragmentBookKeywords.setError(getString(R.string.error_field_required));
+//            focusView = updateFragmentBookKeywords;
+//            cancel = true;
+//        }
 
         if(cancel){
             focusView.requestFocus();

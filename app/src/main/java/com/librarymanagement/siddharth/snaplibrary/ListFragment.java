@@ -79,6 +79,7 @@ public class ListFragment extends Fragment //implements AdapterView.OnItemSelect
             }
         });
 
+        getActivity().setTitle("Home");
         //Get list from Server
         try {
 
