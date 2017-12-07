@@ -118,7 +118,7 @@ public class CallRegister {
         switch (action) {
             case Constants.ACTION_REGISTER:
                 SignUpFragment.showProgress(false);
-                fragment.getFragmentManager().beginTransaction().replace(R.id.fragment,new ConfirmationFragment()).addToBackStack(null).commit();
+                fragment.getFragmentManager().beginTransaction().replace(R.id.fragment,new ConfirmationFragment()).commit();
         }
     }
 }

@@ -30,11 +30,9 @@ public class CatalogActivity extends NavigationActivity {
         View contentView = inflater.inflate(R.layout.activity_catalog,null,false);
         drawer.addView(contentView,0);
         getSupportActionBar().setTitle("Home");
+
         ListFragment listFragment=new ListFragment();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.place_holder,listFragment).addToBackStack(null);
-        fragmentTransaction.commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.place_holder,listFragment).commit();
 
 
     }

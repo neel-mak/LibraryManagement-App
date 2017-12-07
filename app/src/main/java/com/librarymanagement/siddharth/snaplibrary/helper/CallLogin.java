@@ -118,6 +118,11 @@ public class CallLogin {
             case Constants.ACTION_UPDATE_LOGIN:
                 LoginFragment.showProgress(false);
 
+                if(activity!=null) {
+                    LogHelper.logMessage("Activity Back", "Activity" + activity.getLocalClassName() + " finished");
+                    activity.finish();
+                }
+
                 Intent i;
                 i = new Intent(context,MainActivity.class);
                 context.startActivity(i);
