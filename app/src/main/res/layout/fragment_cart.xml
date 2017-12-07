@@ -213,9 +213,9 @@
         android:layout_height="wrap_content"
         android:text="Checkout"
         android:textStyle="bold"
-        android:textColor="#1b68e5"
+        android:textColor="#fff"
         android:layout_marginTop="10dp"
-        android:background="#ffffff"
+        android:background="#311b92"
         android:layout_gravity="center_horizontal"/>
 
     <TextView

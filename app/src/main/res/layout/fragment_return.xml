@@ -632,8 +632,10 @@
                 android:layout_height="wrap_content"
                 android:text="Return"
                 android:textStyle="bold"
-                android:textColor="#1b68e5"
-                android:background="#ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="#fff"
+                android:background="#311b92"
                 android:layout_gravity="center"/>
         </LinearLayout>
     </ScrollView>
