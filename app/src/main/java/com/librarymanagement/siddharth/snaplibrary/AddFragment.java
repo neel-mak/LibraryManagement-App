@@ -181,6 +181,7 @@ public class AddFragment extends Fragment {
                     "                != PackageManager.PERMISSION_GRANTED");
 
             FragmentIntentIntegrator fragmentIntentIntegrator = new FragmentIntentIntegrator(this);
+            fragmentIntentIntegrator.setOrientation(90);
             fragmentIntentIntegrator.initiateScan();
 
             return;
@@ -293,6 +294,7 @@ public class AddFragment extends Fragment {
                     LogHelper.logMessage("CAMERA_PERMISSION" , "Permission granted");
                     //open album to select image
                     FragmentIntentIntegrator fragmentIntentIntegrator = new FragmentIntentIntegrator(this);
+                    fragmentIntentIntegrator.setOrientation(90);
                     fragmentIntentIntegrator.initiateScan();
 
                 } else {

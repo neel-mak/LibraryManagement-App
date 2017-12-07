@@ -116,19 +116,19 @@ public class NavigationActivity extends AppCompatActivity
                 break;
             case R.id.nav_cart:
                 getSupportActionBar().setTitle("Checkout Books");
-                getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new CartFragment()).addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new CartFragment()).commit();
                 break;
             case R.id.nav_your_books:
                 getSupportActionBar().setTitle("Checked out Books");
-                getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new ReturnFragment()).addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new ReturnFragment()).commit();
                 break;
             case R.id.nav_test_screen:
                 getSupportActionBar().setTitle("Testing Assistance");
 
                 if("patron".equalsIgnoreCase(userDetails[3])){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new TestingAssistanceFragment()).addToBackStack(null).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new TestingAssistanceFragment()).commit();
                 }else {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.place_holder, new TestingAssistanceFragment()).addToBackStack(null).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.place_holder, new TestingAssistanceFragment()).commit();
                 }
 
                 break;

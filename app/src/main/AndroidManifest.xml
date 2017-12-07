@@ -25,22 +25,23 @@
         <activity
             android:name=".CatalogActivity"
             android:label="@string/title_activity_catalog"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="portrait"
             tools:replace="screenOrientation"/>
 
         <activity
             android:name=".PatronActivity"
             android:label="@string/title_activity_patron"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
 
         </activity>
 
-        <activity android:name=".Authentication" >
+        <activity android:name=".Authentication" android:screenOrientation="portrait">
 
         </activity>
 
         
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

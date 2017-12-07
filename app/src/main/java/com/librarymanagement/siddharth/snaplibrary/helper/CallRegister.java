@@ -76,11 +76,15 @@ public class CallRegister {
                                 updateUI(fragment, context, action, activity, returnHashMap, params);
                             }else{
                                 SignUpFragment.showProgress(false);
-                                ExceptionMessageHandler.handleError(context, jsonObject.getString("message"), null, null);
+                                HashMap<String, Object> hs = new HashMap<String, Object>();
+                                hs.put("activity", activity);
+                                ExceptionMessageHandler.handleError(context, jsonObject.getString("message"), null, hs);
                             }
 
                         }catch (JSONException e){
-                          ExceptionMessageHandler.handleError(context, e.getMessage(), e, null);
+                            HashMap<String, Object> hs = new HashMap<String, Object>();
+                            hs.put("activity", activity);
+                          ExceptionMessageHandler.handleError(context, e.getMessage(), e, hs);
                         }
                     }
                 }, new Response.ErrorListener() {
