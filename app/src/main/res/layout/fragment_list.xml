@@ -10,21 +10,22 @@
     tools:context="com.librarymanagement.siddharth.snaplibrary.CatalogActivity"
     tools:showIn="@layout/activity_catalog">
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="@dimen/skip_space_for_header"
         android:focusableInTouchMode="true"
         android:focusable="true"
+        android:layout_gravity="center_horizontal"
         android:background="#0277bd">
         <Spinner
             android:id="@+id/Search_spinner"
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
         </Spinner>
         <EditText
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="text"
             android:id="@+id/list_fragment_search_text"
