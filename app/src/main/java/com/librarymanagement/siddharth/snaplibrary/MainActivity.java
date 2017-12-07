@@ -26,32 +26,26 @@ public class MainActivity extends AppCompatActivity {
         LogHelper.logMessage("MainActivity: onCreate()", "userArray: " + userArray);
 
         if(userArray != null && userArray.length != 0 && !Boolean.parseBoolean(userArray[4])){
-            Fragment fr;
-            fr = new ConfirmationFragment();
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragment, fr).addToBackStack(null);
-            fragmentTransaction.commit();
+            Fragment fr = new ConfirmationFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment, fr).commit();
 
         }else if(userArray != null && userArray.length != 0 && "librarian".equalsIgnoreCase(userArray[3]) && Boolean.parseBoolean(userArray[4])){
 
+            this.finish();
             Intent i;
             i = new Intent(getApplicationContext(),CatalogActivity.class);
             startActivity(i);
 
         }else if(userArray != null && userArray.length != 0 && "patron".equalsIgnoreCase(userArray[3]) && Boolean.parseBoolean(userArray[4])){
 
+            this.finish();
             Intent i;
             i = new Intent(getApplicationContext(),PatronActivity.class);
             startActivity(i);
 
         }else {
-            Fragment fr;
-            fr = new LoginFragment();
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragment, fr).addToBackStack(null);
-            fragmentTransaction.commit();
+            Fragment fr = new LoginFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment, fr).commit();
         }
     }
 

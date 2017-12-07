@@ -118,6 +118,10 @@ public class CallVerifyUser {
                 ConfirmationFragment.showProgress(false);
                 Toast.makeText(activity, "Your account is verified.", Toast.LENGTH_SHORT).show();
 
+                if(activity != null){
+                    LogHelper.logMessage("After verify", "Finsihed activity:"+activity.getLocalClassName());
+                    activity.finish();
+                }
                 Intent intent=new Intent(fragment.getActivity(),MainActivity.class);
                 fragment.startActivity(intent);
         }

@@ -20,10 +20,7 @@ public class PatronActivity extends NavigationActivity {
         drawer.addView(contentView,0);
 
         PatronSearchFragment fragment=new PatronSearchFragment();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.patron_main_container,fragment).addToBackStack(null);
-        fragmentTransaction.commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container,fragment).commit();
 
 
     }

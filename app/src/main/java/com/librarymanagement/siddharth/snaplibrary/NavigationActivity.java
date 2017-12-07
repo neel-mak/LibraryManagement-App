@@ -140,6 +140,7 @@ public class NavigationActivity extends AppCompatActivity
 
                 SharedData.clearUserData(this);
 
+                this.finish();
                 Intent i;
                 i = new Intent(this,MainActivity.class);
                 this.startActivity(i);
