@@ -15,6 +15,7 @@ import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,6 +75,7 @@ public class AddFragment extends Fragment {
     public static EditText toBeDeleted;
 
     public byte[] imageByteArray;
+    public String imageString;
 
 
     private static final int RESULT_SELECT_IMAGE = 1;
@@ -228,7 +230,8 @@ public class AddFragment extends Fragment {
             addFragmentImageView.setImageBitmap(captureBmp);
 
             //String imgString = Base64.encodeToString(getBytesFromBitmap(captureBmp), Base64.NO_WRAP);
-            imageByteArray = getBytesFromBitmap(captureBmp);
+            //imageByteArray = getBytesFromBitmap(captureBmp);
+            imageString = getBytesFromBitmap(captureBmp);
 
             Toast.makeText(getActivity().getApplicationContext(),"Cover uploaded",Toast.LENGTH_SHORT).show();
 
@@ -259,10 +262,11 @@ public class AddFragment extends Fragment {
     }
 
     // convert from bitmap to byte array
-    public byte[] getBytesFromBitmap(Bitmap bitmap) {
+    public String getBytesFromBitmap(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        return stream.toByteArray();
+        LogHelper.logMessage("Image", "" + stream.toByteArray().length);
+        return Base64.encodeToString(stream.toByteArray(), Base64.NO_WRAP);
     }
 
     @Override
@@ -428,7 +432,8 @@ public class AddFragment extends Fragment {
             jsonObject.put("locationInLibrary", addFragmentBookLocationString);
           //  jsonObject.put("currentStatus", addFragmentBookStatusString);
             jsonObject.put("keywords", jsonArray);
-            jsonObject.put("coverageImage", imageByteArray);//imageByteArray
+            //jsonObject.put("coverageImage", imageString);
+            jsonObject.put("coverageImage", imageString);
             JSONArray jsonArray1 = new JSONArray();
             if(!"".equalsIgnoreCase("" + toBeDeleted.getText())){
                 jsonArray1.put(toBeDeleted.getText());
@@ -445,7 +450,7 @@ public class AddFragment extends Fragment {
                     + "  locationInLibrary:" + addFragmentBookLocationString
                    // + "  currentStatus:" + addFragmentBookStatusString
                     + "  keywords:" + keywordsArray
-                    + "  imageByteArray:" + imageByteArray
+                    + "  imageByteArray:" + imageString
                     + "  isbn:" + jsonArray1
             );
 

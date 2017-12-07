@@ -165,6 +165,7 @@ public class CallISearchForUpdate {
                 String publisher = (String)returnHashMap.get("publisher");
                 String yearOfPublication = (String)returnHashMap.get("yearOfPublication");
                 String locationInLibrary = (String)returnHashMap.get("locationInLibrary");
+                String numOfCopies = (String)returnHashMap.get("numOfCopies");
                 String numAvailableCopies = (String)returnHashMap.get("numAvailableCopies");
                 String currentStatus = (String)returnHashMap.get("currentStatus");
                 String keywords = (String)returnHashMap.get("keywords");
@@ -173,8 +174,9 @@ public class CallISearchForUpdate {
                 title = title == null || title == JSONObject.NULL || "null".equalsIgnoreCase(title) ? "" : title;
                 author = author == null || author == JSONObject.NULL || "null".equalsIgnoreCase(author) ? "" : author;
                 publisher = publisher == null || publisher == JSONObject.NULL || "null".equalsIgnoreCase(publisher) ? "" : publisher;
-                numAvailableCopies = numAvailableCopies == null || numAvailableCopies == JSONObject.NULL || "null".equalsIgnoreCase(numAvailableCopies) ? "" : numAvailableCopies;
+                numOfCopies = numOfCopies == null || numOfCopies == JSONObject.NULL || "null".equalsIgnoreCase(numOfCopies) ? "" : numOfCopies;
                 currentStatus = currentStatus == null || currentStatus == JSONObject.NULL || "null".equalsIgnoreCase(currentStatus) ? "" : currentStatus;
+                numAvailableCopies = numAvailableCopies == null || numAvailableCopies == JSONObject.NULL || "null".equalsIgnoreCase(numAvailableCopies) ? "" : numAvailableCopies;
                 yearOfPublication = yearOfPublication == null || yearOfPublication == JSONObject.NULL || "null".equalsIgnoreCase(yearOfPublication) ? "" : yearOfPublication;
                 locationInLibrary = locationInLibrary == null || locationInLibrary == JSONObject.NULL || "null".equalsIgnoreCase(locationInLibrary) ? "" : locationInLibrary;
                 keywords = keywords == null || keywords == JSONObject.NULL || "null".equalsIgnoreCase(keywords) ? "" : keywords;
@@ -186,9 +188,10 @@ public class CallISearchForUpdate {
                 UpdateDeleteFragment.updateFragmentBookPublisher.setText(publisher);
                 UpdateDeleteFragment.updateFragmentBookYear.setText(yearOfPublication);
                 UpdateDeleteFragment.updateFragmentBookLocation.setText(locationInLibrary);
-                UpdateDeleteFragment.updateFragmentBookCopies.setText(numAvailableCopies);
+                UpdateDeleteFragment.updateFragmentBookCopies.setText(numOfCopies);
                 UpdateDeleteFragment.updateFragmentBookStatus.setText(currentStatus);
                 UpdateDeleteFragment.updateFragmentBookKeywords.setText(keywords);
+                //UpdateDeleteFragment.updateFragmentAvailableCopies.setText(numAvailableCopies);
 
 //                byte byteArray[] = (byte[])returnHashMap.get("coverageImage");
 //                LogHelper.logMessage("Siddharth", "" + byteArray.length);
@@ -206,7 +209,7 @@ public class CallISearchForUpdate {
                 String publisher1 = (String)returnHashMap.get("publisher");
                 String yearOfPublication1 = (String)returnHashMap.get("yearOfPublication");
                 String locationInLibrary1 = (String)returnHashMap.get("locationInLibrary");
-                String numAvailableCopies1 = (String)returnHashMap.get("numAvailableCopies");
+                String numOfCopies1 = (String)returnHashMap.get("numOfCopies");
                 String currentStatus1 = (String)returnHashMap.get("currentStatus");
                 String keywords1 = (String)returnHashMap.get("keywords");
 
@@ -214,7 +217,7 @@ public class CallISearchForUpdate {
                 title1 = title1 == null || title1 == JSONObject.NULL || "null".equalsIgnoreCase(title1) ? "" : title1;
                 author1 = author1 == null || author1 == JSONObject.NULL || "null".equalsIgnoreCase(author1) ? "" : author1;
                 publisher1 = publisher1 == null || publisher1 == JSONObject.NULL || "null".equalsIgnoreCase(publisher1) ? "" : publisher1;
-                numAvailableCopies1 = numAvailableCopies1 == null || numAvailableCopies1 == JSONObject.NULL || "null".equalsIgnoreCase(numAvailableCopies1) ? "" : numAvailableCopies1;
+                numOfCopies1 = numOfCopies1 == null || numOfCopies1 == JSONObject.NULL || "null".equalsIgnoreCase(numOfCopies1) ? "" : numOfCopies1;
                 currentStatus1 = currentStatus1 == null || currentStatus1 == JSONObject.NULL || "null".equalsIgnoreCase(currentStatus1) ? "" : currentStatus1;
                 yearOfPublication1 = yearOfPublication1 == null || yearOfPublication1 == JSONObject.NULL || "null".equalsIgnoreCase(yearOfPublication1) ? "" : yearOfPublication1;
                 locationInLibrary1 = locationInLibrary1 == null || locationInLibrary1 == JSONObject.NULL || "null".equalsIgnoreCase(locationInLibrary1) ? "" : locationInLibrary1;

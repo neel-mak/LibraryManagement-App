@@ -7,6 +7,9 @@ import android.widget.Toast;
 
 import org.json.JSONException;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class SharedData {
 
     //DO NOT DELETE this comment
@@ -94,6 +97,18 @@ public class SharedData {
         writetoSharedInitial(context);
 
         LogHelper.logMessage("clearUserData", "Out: userDataInStringFormat: " + userDataInStringFormat);
+    }
+
+    public static void clearCart(Context context){
+        LogHelper.logMessage("clearCart", "In: context: " + context);
+
+        SharedPreferences sharedPref = context.getSharedPreferences("cartDataSharedPreference",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putStringSet("cartItemsSet",null);
+        editor.apply();
+
+        LogHelper.logMessage("clearCart", "Out: cartItemsSet: " + sharedPref.getStringSet("cartItemsSet", new HashSet<String>()));
+
     }
 
 }
