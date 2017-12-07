@@ -1,5 +1,7 @@
 package com.librarymanagement.siddharth.snaplibrary;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -17,6 +20,7 @@ import android.widget.Spinner;
 import com.librarymanagement.siddharth.snaplibrary.helper.CallGetBooks;
 import com.librarymanagement.siddharth.snaplibrary.helper.CallGetSearchedBooks;
 import com.librarymanagement.siddharth.snaplibrary.helper.Constants;
+import com.librarymanagement.siddharth.snaplibrary.helper.LogHelper;
 import com.librarymanagement.siddharth.snaplibrary.helper.RequestClass;
 
 import org.json.JSONArray;
@@ -58,26 +62,6 @@ public class ListFragment extends Fragment //implements AdapterView.OnItemSelect
         adp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adp);
 
-         //Get list from Server
-         try {
-
-             RequestClass.startRequestQueue();
-             HashMap<String, Object> params = new HashMap<String, Object>();
-             params.put(Constants.REQUEST_JSON, null);
-             params.put(Constants.ACTION, Constants.ACTION_GET_BOOKS);
-             params.put(Constants.ACTIVITY, this.getActivity());
-             params.put(Constants.FRAGMENT, this);
-             params.put(Constants.VIEW, this.getView());
-             params.put(Constants.CONTEXT, this.getContext());
-             params.put("recyclerView",recyclerView);
-
-             new CallGetBooks().proccessGetBooks(params);
-         }
-         catch (Exception e) {
-
-            e.printStackTrace();
-         }
-
         searchParams = (EditText)  view.findViewById(R.id.list_fragment_search_text);
         searchBtn = (Button)view.findViewById(R.id.list_fragment_search_btn);
         searchBtn.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +78,26 @@ public class ListFragment extends Fragment //implements AdapterView.OnItemSelect
                 moveToAddBookScreen();
             }
         });
+
+        //Get list from Server
+        try {
+
+            RequestClass.startRequestQueue();
+            HashMap<String, Object> params = new HashMap<String, Object>();
+            params.put(Constants.REQUEST_JSON, null);
+            params.put(Constants.ACTION, Constants.ACTION_GET_BOOKS);
+            params.put(Constants.ACTIVITY, this.getActivity());
+            params.put(Constants.FRAGMENT, this);
+            params.put(Constants.VIEW, this.getView());
+            params.put(Constants.CONTEXT, this.getContext());
+            params.put("recyclerView",recyclerView);
+
+            new CallGetBooks().proccessGetBooks(params);
+        }
+        catch (Exception e) {
+
+            e.printStackTrace();
+        }
 
         return view;
     }
@@ -210,13 +214,13 @@ public class ListFragment extends Fragment //implements AdapterView.OnItemSelect
         }
     }
 
-//    @Override
-//    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-//        String parent.getItemAtPosition(pos);
-//    }
-//
-//    @Override
-//    public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//    }
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        if(activity != null && activity.getCurrentFocus() != null && activity.getCurrentFocus().getWindowToken() != null) {
+            final InputMethodManager inputManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), false ? InputMethodManager.SHOW_FORCED : InputMethodManager.HIDE_IMPLICIT_ONLY);
+        }
+    }
 }

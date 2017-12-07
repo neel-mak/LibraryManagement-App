@@ -11,7 +11,8 @@
         android:background="@drawable/b_img"
         android:gravity="center"
         android:padding="40dp"
-        android:backgroundTintMode="screen">
+        android:backgroundTintMode="screen"
+        android:focusableInTouchMode="true">
 
         <ProgressBar
             android:id="@+id/login_progress"
