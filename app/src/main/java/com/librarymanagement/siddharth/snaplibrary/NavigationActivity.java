@@ -139,6 +139,7 @@ public class NavigationActivity extends AppCompatActivity
                 }
 
                 SharedData.clearUserData(this);
+                SharedData.clearCart(this);
 
                 this.finish();
                 Intent i;
