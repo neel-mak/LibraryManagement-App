@@ -32,6 +32,7 @@ import com.librarymanagement.siddharth.snaplibrary.helper.SharedData;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,6 +52,7 @@ public class UpdateDeleteFragment extends Fragment {
     public static EditText updateFragmentBookCopies;
     public static EditText updateFragmentBookKeywords;
     public static TextView updateFragmentBookStatus;
+    public static TextView updateFragmentAvailableCopies;
     public static ImageView updateFragmentImageView;
 
     public Button updateFragmentUpdateBtn;
@@ -87,6 +89,7 @@ public class UpdateDeleteFragment extends Fragment {
         updateFragmentBookCopies = (EditText) view.findViewById(R.id.update_Fragment_book_copies);
         updateFragmentBookKeywords = (EditText) view.findViewById(R.id.update_Fragment_book_keywords);
         updateFragmentBookStatus = (TextView) view.findViewById(R.id.Update_Fragment_book_status);
+        updateFragmentAvailableCopies = (TextView) view.findViewById(R.id.Update_Fragment_books_available);
 
         updateFragmentImageView = (ImageView) view.findViewById(R.id.update_fragment_imageView);
 
@@ -180,6 +183,7 @@ public class UpdateDeleteFragment extends Fragment {
         updateFragmentBookCopies.setError(null);
         updateFragmentBookKeywords.setError(null);
         updateFragmentBookStatus.setError(null);
+        updateFragmentAvailableCopies.setError(null);
 
         // Get values from UI.
         String updateFragmentBookAuthorString = updateFragmentBookAuthor.getText().toString();
@@ -191,6 +195,7 @@ public class UpdateDeleteFragment extends Fragment {
         String updateFragmentBookCopiesString = updateFragmentBookCopies.getText().toString();
         String updateFragmentBookKeywordsString = updateFragmentBookKeywords.getText().toString();
         String updateFragmentBookStatusString = updateFragmentBookStatus.getText().toString();
+        String updateFragmentAvailableCopiesString = updateFragmentAvailableCopies.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -252,6 +257,7 @@ public class UpdateDeleteFragment extends Fragment {
                         + "  yearOfPublication:" + updateFragmentBookYearString
                         + "  locationInLibrary:" + updateFragmentBookLocationString
                         + "  currentStatus:" + updateFragmentBookStatusString
+                        + "  updateFragmentAvailableCopiesString" + updateFragmentAvailableCopiesString
                         + "  keywords:" + keywordsArray
                 );
 
