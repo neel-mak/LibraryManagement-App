@@ -112,7 +112,7 @@ public class PatronCheckoutFragment extends Fragment {
         }catch (JSONException e){
             e.printStackTrace();
         }
-
+     getActivity().setTitle("Add to cart");
     return view;
         
     }
