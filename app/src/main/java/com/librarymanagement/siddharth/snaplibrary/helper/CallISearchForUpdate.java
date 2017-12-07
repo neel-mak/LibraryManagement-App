@@ -191,7 +191,7 @@ public class CallISearchForUpdate {
                 UpdateDeleteFragment.updateFragmentBookCopies.setText(numOfCopies);
                 UpdateDeleteFragment.updateFragmentBookStatus.setText(currentStatus);
                 UpdateDeleteFragment.updateFragmentBookKeywords.setText(keywords);
-                //UpdateDeleteFragment.updateFragmentAvailableCopies.setText(numAvailableCopies);
+                UpdateDeleteFragment.updateFragmentAvailableCopies.setText(numAvailableCopies);
 
 //                byte byteArray[] = (byte[])returnHashMap.get("coverageImage");
 //                LogHelper.logMessage("Siddharth", "" + byteArray.length);
