@@ -58,7 +58,7 @@ public class ListFragment extends Fragment //implements AdapterView.OnItemSelect
         //Progress bar code
         spinner = (Spinner)view.findViewById(R.id.Search_spinner);
         ArrayAdapter<CharSequence> adp;
-        adp = ArrayAdapter.createFromResource(getContext(), R.array.search_factors,android.R.layout.simple_spinner_item);
+        adp = ArrayAdapter.createFromResource(getContext(), R.array.search_factors,R.layout.spinner_item_style);
         adp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adp);
 

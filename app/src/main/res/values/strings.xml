@@ -36,6 +36,12 @@
         <item>Title</item>
         <item>Keywords</item>
     </string-array>
+    <string-array name="search_factors_patron">
+        <item>All books</item>
+        <item>ISBN</item>
+        <item>Title</item>
+        <item>Keywords</item>
+    </string-array>
     <string name="title_activity_navigation">NavigationActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

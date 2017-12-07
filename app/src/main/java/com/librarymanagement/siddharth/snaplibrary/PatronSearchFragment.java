@@ -50,7 +50,7 @@ public class PatronSearchFragment extends Fragment //implements AdapterView.OnIt
         //Progress bar code
         spinner = (Spinner)view.findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adp;
-        adp = ArrayAdapter.createFromResource(getContext(), R.array.search_factors,android.R.layout.simple_spinner_item);
+        adp = ArrayAdapter.createFromResource(getContext(), R.array.search_factors_patron,android.R.layout.simple_spinner_item);
         adp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adp);
 

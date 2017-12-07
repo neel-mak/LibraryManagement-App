@@ -57,7 +57,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@+id/Author_layout"
-            android:layout_marginLeft="30dp">
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp">
 
             <TextView
                 android:id="@+id/text_book_title"
@@ -82,6 +83,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@id/Title_layout"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="30dp">
 
             <TextView
@@ -109,7 +111,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@id/Publisher_layout"
-            android:layout_marginLeft="30dp">
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp">
 
             <TextView
                 android:id="@+id/text_book_call_number"
@@ -135,7 +138,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@id/Call_Number_layout"
-            android:layout_marginLeft="30dp">
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp">
 
             <TextView
                 android:id="@+id/text_book_year"
@@ -162,7 +166,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@id/Year_layout"
-            android:layout_marginLeft="30dp">
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp">
 
             <TextView
                 android:id="@+id/text_book_location"
@@ -188,7 +193,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@id/Location_layout"
-            android:layout_marginLeft="30dp">
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp">
 
             <TextView
                 android:id="@+id/text_book_keywords"
@@ -215,7 +221,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@+id/Keywords_layout"
-            android:layout_marginLeft="30dp">
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp">
 
             <TextView
                 android:id="@+id/text_book_status"
