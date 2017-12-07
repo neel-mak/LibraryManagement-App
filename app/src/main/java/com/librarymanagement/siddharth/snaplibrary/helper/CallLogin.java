@@ -75,6 +75,8 @@ public class CallLogin {
 
                                 updateUI(context, action, activity, returnHashMap, params);
                             }else{
+                                HashMap<String, Object> hs = new HashMap<String, Object>();
+                                hs.put("activity", activity);
                                 ExceptionMessageHandler.handleError(context, jsonObject.getString("message"), null, null);
                             }
 
