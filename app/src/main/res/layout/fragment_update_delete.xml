@@ -196,6 +196,7 @@
                 <EditText
                     android:id="@+id/update_Fragment_book_copies"
                     android:layout_width="200dp"
+                    android:inputType="number"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
@@ -220,7 +221,6 @@
                 <EditText
                     android:id="@+id/update_Fragment_book_keywords"
                     android:layout_width="200dp"
-                    android:inputType="number"
                     android:layout_height="wrap_content" />
             </LinearLayout>
 

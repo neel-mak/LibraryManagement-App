@@ -1,5 +1,7 @@
 package com.librarymanagement.siddharth.snaplibrary;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -85,13 +88,13 @@ public class PatronSearchFragment extends Fragment //implements AdapterView.OnIt
         }
     }
 
-//    @Override
-//    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-//        String parent.getItemAtPosition(pos);
-//    }
-//
-//    @Override
-//    public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//    }
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        if(activity != null && activity.getCurrentFocus() != null && activity.getCurrentFocus().getWindowToken() != null) {
+            final InputMethodManager inputManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), false ? InputMethodManager.SHOW_FORCED : InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
 }

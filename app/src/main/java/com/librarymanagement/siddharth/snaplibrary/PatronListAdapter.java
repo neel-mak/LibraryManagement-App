@@ -103,8 +103,5 @@ public class PatronListAdapter extends RecyclerView.Adapter<PatronListAdapter.Vi
             Book_Title = (TextView)itemView.findViewById(R.id.patron_booklist_book_Title);
             Book_Status = (TextView)itemView.findViewById(R.id.patron_booklist_book_status);
         }
-
-
-
     }
 }

@@ -3,6 +3,8 @@ package com.librarymanagement.siddharth.snaplibrary;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -10,25 +12,23 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.librarymanagement.siddharth.snaplibrary.helper.CallAddBook;
 import com.librarymanagement.siddharth.snaplibrary.helper.CallISBNLookup;
-import com.librarymanagement.siddharth.snaplibrary.helper.CallVerifyUser;
 import com.librarymanagement.siddharth.snaplibrary.helper.Constants;
 import com.librarymanagement.siddharth.snaplibrary.helper.ExceptionMessageHandler;
 import com.librarymanagement.siddharth.snaplibrary.helper.FragmentIntentIntegrator;
@@ -495,6 +495,14 @@ public class AddFragment extends Fragment {
         if(mAddBookView != null)
             mAddBookView.setVisibility(show ? View.GONE : View.VISIBLE);
 //        }
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        final InputMethodManager inputManager = (InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), false ? InputMethodManager.SHOW_FORCED : InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
 }

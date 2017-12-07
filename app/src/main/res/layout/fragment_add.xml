@@ -277,6 +277,7 @@
                         android:layout_height="wrap_content"
                         android:text=""
                         android:textStyle="bold"
+                        android:inputType="number"
                         android:textColor="#000"/>
 
                 </LinearLayout>
