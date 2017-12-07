@@ -95,7 +95,7 @@ public class AddFragment extends Fragment {
         addFragmentBookLocation = (EditText) view.findViewById(R.id.add_Fragment_book_location);
         addFragmentBookCopies = (EditText) view.findViewById(R.id.addFragment_book_copies);
         addFragmentBookKeywords = (EditText) view.findViewById(R.id.addFragment_book_keywords);
-        addFragmentBookStatus = (EditText) view.findViewById(R.id.addFragment_book_status);
+        //addFragmentBookStatus = (EditText) view.findViewById(R.id.addFragment_book_status);
         addFragmentImageView = (ImageView) view.findViewById(R.id.add_fragment_imageView);
 
         toBeDeleted = (EditText) view.findViewById(R.id.toBeDeleted);
@@ -344,7 +344,7 @@ public class AddFragment extends Fragment {
         addFragmentBookLocation.setError(null);
         addFragmentBookCopies.setError(null);
         addFragmentBookKeywords.setError(null);
-        addFragmentBookStatus.setError(null);
+        //addFragmentBookStatus.setError(null);
 
         // Get values from UI.
         String addFragmentBookAuthorString = addFragmentBookAuthor.getText().toString();
@@ -355,7 +355,7 @@ public class AddFragment extends Fragment {
         String addFragmentBookLocationString = addFragmentBookLocation.getText().toString();
         String addFragmentBookCopiesString = addFragmentBookCopies.getText().toString();
         String addFragmentBookKeywordsString = addFragmentBookKeywords.getText().toString();
-        String addFragmentBookStatusString = addFragmentBookStatus.getText().toString();
+       // String addFragmentBookStatusString = addFragmentBookStatus.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -424,7 +424,7 @@ public class AddFragment extends Fragment {
             jsonObject.put("publisher", addFragmentBookPublisherString);
             jsonObject.put("yearOfPublication", addFragmentBookYearString);
             jsonObject.put("locationInLibrary", addFragmentBookLocationString);
-            jsonObject.put("currentStatus", addFragmentBookStatusString);
+          //  jsonObject.put("currentStatus", addFragmentBookStatusString);
             jsonObject.put("keywords", jsonArray);
             jsonObject.put("coverageImage", imageByteArray);//imageByteArray
             JSONArray jsonArray1 = new JSONArray();
@@ -441,7 +441,7 @@ public class AddFragment extends Fragment {
                     + "  publisher:" + addFragmentBookPublisherString
                     + "  yearOfPublication:" + addFragmentBookYearString
                     + "  locationInLibrary:" + addFragmentBookLocationString
-                    + "  currentStatus:" + addFragmentBookStatusString
+                   // + "  currentStatus:" + addFragmentBookStatusString
                     + "  keywords:" + keywordsArray
                     + "  imageByteArray:" + imageByteArray
                     + "  isbn:" + jsonArray1
