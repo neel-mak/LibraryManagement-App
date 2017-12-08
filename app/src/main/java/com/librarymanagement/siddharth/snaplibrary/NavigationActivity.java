@@ -105,7 +105,7 @@ public class NavigationActivity extends AppCompatActivity
                 for (Fragment fr: getSupportFragmentManager ().getFragments()){
                     getSupportFragmentManager().beginTransaction().remove(fr).commitNowAllowingStateLoss();
                 }
-                getSupportActionBar().setTitle("Home");
+                //getSupportActionBar().setTitle("Home");
 
                 if("patron".equalsIgnoreCase(userDetails[3])){
                     getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new PatronSearchFragment()).commit();
@@ -115,15 +115,15 @@ public class NavigationActivity extends AppCompatActivity
 
                 break;
             case R.id.nav_cart:
-                getSupportActionBar().setTitle("Checkout Books");
+                //getSupportActionBar().setTitle("Checkout Books");
                 getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new CartFragment()).commit();
                 break;
             case R.id.nav_your_books:
-                getSupportActionBar().setTitle("Checked out Books");
+                //getSupportActionBar().setTitle("Checked out Books");
                 getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new ReturnFragment()).commit();
                 break;
             case R.id.nav_test_screen:
-                getSupportActionBar().setTitle("Testing Assistance");
+                //getSupportActionBar().setTitle("Testing Assistance");
 
                 if("patron".equalsIgnoreCase(userDetails[3])){
                     getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new TestingAssistanceFragment()).commit();
