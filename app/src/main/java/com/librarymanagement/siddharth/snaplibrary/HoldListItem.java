@@ -10,7 +10,6 @@ public class HoldListItem {
     public String Hold_Book_Publisher;
     public String Hold_Book_expiratation_Date;
 
-
     public HoldListItem(String hold_Book_Title, String hold_Book_Author, String hold_Book_Publisher, String hold_Book_expiratation_Date) {
         Hold_Book_Title = hold_Book_Title;
         Hold_Book_Author = hold_Book_Author;

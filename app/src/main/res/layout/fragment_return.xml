@@ -93,7 +93,6 @@
                             android:layout_height="wrap_content"
                             android:text="Due Date :"
                             android:layout_below="@id/return_fragment_checkout_date1"/>
-
                         <Button
                             android:id="@+id/return_fragment_btn1"
                             android:layout_width="60dp"
@@ -169,7 +168,6 @@
                             android:layout_height="wrap_content"
                             android:text="Due Date :"
                             android:layout_below="@id/return_fragment_checkout_date2"/>
-
                         <Button
                             android:id="@+id/return_fragment_btn2"
                             android:layout_width="60dp"
@@ -245,7 +243,6 @@
                             android:layout_height="wrap_content"
                             android:text="Due Date :"
                             android:layout_below="@id/return_fragment_checkout_date3"/>
-
                         <Button
                             android:id="@+id/return_fragment_btn3"
                             android:layout_width="60dp"
@@ -322,7 +319,6 @@
                             android:layout_height="wrap_content"
                             android:text="Due Date :"
                             android:layout_below="@id/return_fragment_checkout_date4"/>
-
                         <Button
                             android:id="@+id/return_fragment_btn4"
                             android:layout_width="60dp"
@@ -398,7 +394,6 @@
                             android:layout_height="wrap_content"
                             android:text="Due Date :"
                             android:layout_below="@id/return_fragment_checkout_date5"/>
-
                         <Button
                             android:id="@+id/return_fragment_btn5"
                             android:layout_width="60dp"
