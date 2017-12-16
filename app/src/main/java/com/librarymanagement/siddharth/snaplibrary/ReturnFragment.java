@@ -36,6 +36,7 @@ import java.util.List;
 public class ReturnFragment extends Fragment {
 
     public static Button return_btn;
+    public static Button[] renew_btns = new Button[9];
 
     public static CardView[] cardViews = new CardView[9];
     public static CheckBox[] checkBoxes = new CheckBox[9];
@@ -129,6 +130,79 @@ public class ReturnFragment extends Fragment {
         dueDate[6] = (TextView)view.findViewById(R.id.return_fragment_due_date7);
         dueDate[7] = (TextView)view.findViewById(R.id.return_fragment_due_date8);
         dueDate[8] = (TextView)view.findViewById(R.id.return_fragment_due_date9);
+
+        renew_btns[0]= (Button)view.findViewById(R.id.return_fragment_btn1);
+        renew_btns[1]= (Button)view.findViewById(R.id.return_fragment_btn2);
+        renew_btns[2]= (Button)view.findViewById(R.id.return_fragment_btn3);
+        renew_btns[3]= (Button)view.findViewById(R.id.return_fragment_btn4);
+        renew_btns[4]= (Button)view.findViewById(R.id.return_fragment_btn5);
+        renew_btns[5]= (Button)view.findViewById(R.id.return_fragment_btn6);
+        renew_btns[6]= (Button)view.findViewById(R.id.return_fragment_btn7);
+        renew_btns[7]= (Button)view.findViewById(R.id.return_fragment_btn8);
+        renew_btns[8]= (Button)view.findViewById(R.id.return_fragment_btn9);
+
+        renew_btns[0].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        renew_btns[1].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        renew_btns[2].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        renew_btns[3].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        renew_btns[4].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        renew_btns[5].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        renew_btns[6].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        renew_btns[7].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        renew_btns[8].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return_btn = (Button)view.findViewById(R.id.return_fragment_return_btn);
         return_btn.setOnClickListener(new View.OnClickListener() {
