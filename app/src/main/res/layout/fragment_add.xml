@@ -87,6 +87,7 @@
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:text=""
+                        android:maxLength="60"
                         android:textStyle="bold"
                         android:textColor="#000"/>
 
@@ -114,6 +115,7 @@
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:text=""
+                        android:maxLength="60"
                         android:textStyle="bold"
                         android:textColor="#000"/>
                 </LinearLayout>
@@ -141,6 +143,7 @@
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:text=""
+                        android:maxLength="50"
                         android:textStyle="bold"
                         android:textColor="#000"/>
                 </LinearLayout>
@@ -198,6 +201,7 @@
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:text=""
+                        android:maxLength="15"
                         android:textStyle="bold"
                         android:textColor="#000"/>
                 </LinearLayout>
@@ -225,6 +229,7 @@
                         android:inputType="number"
                         android:layout_height="wrap_content"
                         android:text=""
+                        android:maxLength="4"
                         android:textStyle="bold"
                         android:textColor="#000"/>
 
@@ -252,6 +257,7 @@
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:text=""
+                        android:maxLength="50"
                         android:textStyle="bold"
                         android:textColor="#000"/>
                 </LinearLayout>
@@ -278,6 +284,7 @@
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:text=""
+                        android:maxLength="3"
                         android:textStyle="bold"
                         android:inputType="number"
                         android:textColor="#000"/>
@@ -305,6 +312,7 @@
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
+                        android:maxLength="60"
                         android:textColor="#000"
                         android:hint="e.g. crime,suspense,red"/>
                 </LinearLayout>

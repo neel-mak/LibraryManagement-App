@@ -70,6 +70,7 @@ public class NavigationActivity extends AppCompatActivity
             LogHelper.logMessage("onCreateOptionsMenu", "librarian detected");
             navigationView.getMenu().removeItem(R.id.nav_cart);
             navigationView.getMenu().removeItem(R.id.nav_your_books);
+            navigationView.getMenu().removeItem(R.id.nav_my_holds);
 
         }else {
             LogHelper.logMessage("onCreateOptionsMenu", "patron detected");
@@ -122,6 +123,11 @@ public class NavigationActivity extends AppCompatActivity
                 //getSupportActionBar().setTitle("Checked out Books");
                 getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new ReturnFragment()).commit();
                 break;
+
+            case R.id.nav_my_holds:
+                getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new HoldFragment()).commit();
+                break;
+
             case R.id.nav_test_screen:
                 //getSupportActionBar().setTitle("Testing Assistance");
 
