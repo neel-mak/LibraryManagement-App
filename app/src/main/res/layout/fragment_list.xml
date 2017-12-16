@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0277bd"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.librarymanagement.siddharth.snaplibrary.CatalogActivity"
+    tools:showIn="@layout/activity_catalog">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/skip_space_for_header"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:layout_gravity="center_horizontal"
+        android:background="#0277bd">
+        <Spinner
+            android:id="@+id/Search_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </Spinner>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:id="@+id/list_fragment_search_text"
+            android:maxLength="200"
+            android:hint="Enter value"
+            android:textColorHint="#fff"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            />
+        <Button
+            android:id="@+id/list_fragment_search_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/ic_search_white_18dp"/>
+
+        <Button
+            android:id="@+id/list_fragment_add_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/ic_add_circle_outline_white_18dp"/>
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/place_holder1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </FrameLayout>
+</LinearLayout>
+

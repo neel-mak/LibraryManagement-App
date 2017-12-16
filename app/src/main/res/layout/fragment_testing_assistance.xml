@@ -1,0 +1,82 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/b_img"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    tools:context="com.librarymanagement.siddharth.snaplibrary.TestingAssistanceFragment">
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/skip_space_for_header">
+        <TextView
+            android:text="Set Date"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="10dp"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/testing_date_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_date_range_black_24dp"
+            />
+
+        <TextView
+            android:text="Set Time"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"/>
+
+        <Button
+            android:id="@+id/testing_time_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/ic_alarm_black_24dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/Final_Date"
+        android:text=""
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:text=""
+        android:id="@+id/Final_Time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginTop="15dp"
+        android:textColor="#000"
+        android:layout_gravity="center"/>
+
+
+    <Button
+        android:id="@+id/testing_done_btn"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:textStyle="bold"
+        android:textColor="#b3e5fc"
+        android:background="#1b68e5"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

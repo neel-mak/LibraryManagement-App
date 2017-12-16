@@ -1,0 +1,53 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="40dp"
+    android:background="@drawable/b_img"
+    tools:context="com.librarymanagement.siddharth.snaplibrary.ConfirmationFragment">
+
+    <ProgressBar
+        android:id="@+id/verify_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/verify_submit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter the verification code"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#263238"/>
+
+        <EditText
+            android:id="@+id/verify_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="XXXXX"
+            android:textColor="#000"
+            android:maxLength="5"/>
+
+        <Button
+            android:id="@+id/verifyBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verify"
+            android:textColor="#eceff1"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="#1b68e5"/>
+
+    </LinearLayout>
+
+</FrameLayout>

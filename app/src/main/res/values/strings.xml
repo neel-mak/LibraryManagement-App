@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">SNAPLibrary</string>
+    <string name="title_activity_login">Login</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">Please provide a proper email address</string>
+    <string name="error_invalid_password">Password is too short</string>
+    <string name="error_incorrect_password">Please provide a valid password</string>
+    <string name="error_invalid_verification_number">Please provide a valid 5 digit verification code</string>
+    <string name="error_incorrect_sjsuid">Please provide a valid 6 digit id</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_catalog">Home</string>
+    <string name="title_activity_patron">Search Books</string>
+    <string name="title_activity_authentication">Sign in</string>
+    <string name="email_id">Email ID</string>
+    <string name="password">Password</string>
+    <string name="title_activity_authenticate">Sign in</string>
+    <string name="title_activity_log_in_">Sign in</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="search_factors">
+        <item>All books</item>
+        <item>Created By</item>
+        <item>Updated By</item>
+        <item>ISBN</item>
+        <item>Title</item>
+        <item>Keywords</item>
+    </string-array>
+    <string-array name="search_factors_patron">
+        <item>All books</item>
+        <item>ISBN</item>
+        <item>Title</item>
+        <item>Keywords</item>
+    </string-array>
+    <string name="title_activity_navigation">NavigationActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>

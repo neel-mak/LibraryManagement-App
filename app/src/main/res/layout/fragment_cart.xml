@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/skip_space_for_header"
+    android:background="#0277bd">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cart_fragment_cardview1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        android:elevation="4dp"
+        android:visibility="visible"
+        app:cardUseCompatPadding="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <ImageView
+                android:id="@+id/cart_fragment_book_image1"
+                android:layout_width="80dp"
+                android:layout_height="107dp"
+                android:padding="5dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/cart_fragment_book_Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/cart_fragment_cancel_btn1"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="top"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/ic_clear_black_18dp"
+                    />
+
+                <TextView
+                    android:id="@+id/cart_fragment_author1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="italic"
+                    android:layout_marginBottom="20dp"
+                    android:layout_below="@+id/cart_fragment_book_Title1"/>
+
+                <TextView
+                    android:id="@+id/cart_fragment_book_publisher1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Publisher"
+                    android:layout_below="@+id/cart_fragment_author1"
+
+                    />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cart_fragment_cardview2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        android:elevation="4dp"
+        android:visibility="visible"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <ImageView
+                android:id="@+id/cart_fragment_book_image2"
+                android:layout_width="80dp"
+                android:layout_height="107dp"
+                android:padding="5dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/cart_fragment_book_Title2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/cart_fragment_cancel_btn2"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="top"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/ic_clear_black_18dp"
+                    />
+
+                <TextView
+                    android:id="@+id/cart_fragment_author2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="italic"
+                    android:layout_marginBottom="20dp"
+                    android:layout_below="@+id/cart_fragment_book_Title2"/>
+
+                <TextView
+                    android:id="@+id/cart_fragment_book_publisher2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Publisher"
+                    android:layout_below="@+id/cart_fragment_author2"
+
+                    />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cart_fragment_cardview3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        android:elevation="4dp"
+        android:visibility="visible"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <ImageView
+                android:id="@+id/cart_fragment_book_image3"
+                android:layout_width="80dp"
+                android:layout_height="107dp"
+                android:padding="5dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/cart_fragment_book_Title3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/cart_fragment_cancel_btn3"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="top"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/ic_clear_black_18dp"
+                    />
+
+                <TextView
+                    android:id="@+id/cart_fragment_author3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="italic"
+                    android:layout_marginBottom="20dp"
+                    android:layout_below="@+id/cart_fragment_book_Title3"/>
+
+                <TextView
+                    android:id="@+id/cart_fragment_book_publisher3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Publisher"
+                    android:layout_below="@+id/cart_fragment_author3"
+
+                    />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/cart_fragment_checkout_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Checkout"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:layout_marginTop="10dp"
+        android:background="#311b92"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:layout_marginTop="250dp"
+        android:text="Cart is Empty!"
+        android:textSize="35sp"
+        android:id="@+id/cart_fragment_empty_cart_text"
+        android:gravity="center_horizontal"
+        android:visibility="gone"/>
+
+
+</LinearLayout>

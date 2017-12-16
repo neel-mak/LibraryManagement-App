@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+
+    <group android:checkableBehavior="single" >
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_cart"
+            android:icon="@drawable/ic_shopping_cart_black_24dp"
+            android:title="Cart" />
+        <item
+            android:id="@+id/nav_your_books"
+            android:icon="@drawable/ic_books_white_24dp"
+            android:title="My books" />
+        <item
+            android:id="@+id/nav_test_screen"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="Test screen" />
+        <item
+            android:id="@+id/nav_signout"
+            android:icon="@drawable/ic_power_settings_new_black_24dp"
+            android:title="Signout" />
+    </group>
+
+</menu>

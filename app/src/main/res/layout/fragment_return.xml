@@ -1,0 +1,642 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.librarymanagement.siddharth.snaplibrary.ReturnFragment"
+    android:layout_marginTop="@dimen/skip_space_for_header"
+    android:background="#0277bd">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/return_fragment_cardview0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="4dp"
+                android:elevation="4dp"
+                app:cardUseCompatPadding="true">
+                <TextView
+                    android:id="@+id/patron_no_return_books_found"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No books checked out for return"
+                    android:textAlignment="center"
+                    android:textSize="25dp"/>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/return_fragment_cardview1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="4dp"
+                android:elevation="4dp"
+                android:visibility="visible"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/return_fragment_checkbox1"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+
+                        android:layout_gravity="start"/>
+
+                    <ImageView
+                        android:id="@+id/return_fragment_book_image1"
+                        android:layout_width="80dp"
+                        android:layout_height="107dp"
+                        android:padding="5dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/return_fragment_book_Title1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/return_fragment_author1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="italic"
+                            android:layout_marginBottom="10dp"
+                            android:layout_below="@id/return_fragment_book_Title1"/>
+
+                        <TextView
+                            android:id="@+id/return_fragment_checkout_date1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author1"
+                            />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date1"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/return_fragment_cardview2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="4dp"
+                android:elevation="4dp"
+                android:visibility="visible"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/return_fragment_checkbox2"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="start"/>
+
+                    <ImageView
+                        android:id="@+id/return_fragment_book_image2"
+                        android:layout_width="80dp"
+                        android:layout_height="107dp"
+                        android:padding="5dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/return_fragment_book_Title2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/return_fragment_author2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="italic"
+                            android:layout_marginBottom="10dp"
+                            android:layout_below="@id/return_fragment_book_Title2"/>
+
+                        <TextView
+                            android:id="@+id/return_fragment_checkout_date2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author2"
+                            />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date2"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/return_fragment_cardview3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="4dp"
+                android:elevation="4dp"
+                android:visibility="visible"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/return_fragment_checkbox3"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="start"/>
+
+                    <ImageView
+                        android:id="@+id/return_fragment_book_image3"
+                        android:layout_width="80dp"
+                        android:layout_height="107dp"
+                        android:padding="5dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/return_fragment_book_Title3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/return_fragment_author3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="italic"
+                            android:layout_marginBottom="10dp"
+                            android:layout_below="@id/return_fragment_book_Title3"/>
+
+                        <TextView
+                            android:id="@+id/return_fragment_checkout_date3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author3"
+                            />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date3"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/return_fragment_cardview4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="4dp"
+                android:elevation="4dp"
+                android:visibility="visible"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/return_fragment_checkbox4"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="start"/>
+
+                    <ImageView
+                        android:id="@+id/return_fragment_book_image4"
+                        android:layout_width="80dp"
+                        android:layout_height="107dp"
+                        android:padding="5dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/return_fragment_book_Title4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/return_fragment_author4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="italic"
+                            android:layout_marginBottom="10dp"
+                            android:layout_below="@id/return_fragment_book_Title4"/>
+
+                        <TextView
+                            android:id="@+id/return_fragment_checkout_date4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author4"
+                            />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date4"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/return_fragment_cardview5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="4dp"
+                android:elevation="4dp"
+                android:visibility="visible"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/return_fragment_checkbox5"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="start"/>
+
+                    <ImageView
+                        android:id="@+id/return_fragment_book_image5"
+                        android:layout_width="80dp"
+                        android:layout_height="107dp"
+                        android:padding="5dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/return_fragment_book_Title5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/return_fragment_author5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="italic"
+                            android:layout_marginBottom="20dp"
+                            android:layout_below="@id/return_fragment_book_Title5"/>
+
+                        <TextView
+                            android:id="@+id/return_fragment_checkout_date5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author5"
+                            />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date5"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/return_fragment_cardview6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="4dp"
+                android:elevation="4dp"
+                android:visibility="visible"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/return_fragment_checkbox6"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="start"/>
+
+                    <ImageView
+                        android:id="@+id/return_fragment_book_image6"
+                        android:layout_width="80dp"
+                        android:layout_height="107dp"
+                        android:padding="5dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/return_fragment_book_Title6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/return_fragment_author6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="italic"
+                            android:layout_marginBottom="10dp"
+                            android:layout_below="@id/return_fragment_book_Title6"/>
+
+                        <TextView
+                            android:id="@+id/return_fragment_checkout_date6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author6"
+                            />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date6"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/return_fragment_cardview7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="4dp"
+                android:elevation="4dp"
+                android:visibility="visible"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/return_fragment_checkbox7"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="start"/>
+
+                    <ImageView
+                        android:id="@+id/return_fragment_book_image7"
+                        android:layout_width="80dp"
+                        android:layout_height="107dp"
+                        android:padding="5dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/return_fragment_book_Title7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/return_fragment_author7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="italic"
+                            android:layout_marginBottom="20dp"
+                            android:layout_below="@id/return_fragment_book_Title7"/>
+
+                        <TextView
+                            android:id="@+id/return_fragment_checkout_date7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author7"
+                            />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date7"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/return_fragment_cardview8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="4dp"
+                android:elevation="4dp"
+                android:visibility="visible"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/return_fragment_checkbox8"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="start"/>
+
+                    <ImageView
+                        android:id="@+id/return_fragment_book_image8"
+                        android:layout_width="80dp"
+                        android:layout_height="107dp"
+                        android:padding="5dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/return_fragment_book_Title8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/return_fragment_author8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="italic"
+                            android:layout_marginBottom="20dp"
+                            android:layout_below="@id/return_fragment_book_Title8"/>
+
+                        <TextView
+                            android:id="@+id/return_fragment_checkout_date8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author8"
+                            />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date8"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/return_fragment_cardview9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="4dp"
+                android:elevation="4dp"
+                android:visibility="visible"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/return_fragment_checkbox9"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="start"/>
+
+                    <ImageView
+                        android:id="@+id/return_fragment_book_image9"
+                        android:layout_width="80dp"
+                        android:layout_height="107dp"
+                        android:padding="5dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/return_fragment_book_Title9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/return_fragment_author9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textStyle="italic"
+                            android:layout_marginBottom="20dp"
+                            android:layout_below="@id/return_fragment_book_Title9"/>
+
+                        <TextView
+                            android:id="@+id/return_fragment_checkout_date9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Checkout Date :"
+                            android:layout_below="@id/return_fragment_author9"
+                            />
+                        <TextView
+                            android:id="@+id/return_fragment_due_date9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Due Date :"
+                            android:layout_below="@id/return_fragment_checkout_date9"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <Button
+                android:id="@+id/return_fragment_return_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Return"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="#fff"
+                android:background="#311b92"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

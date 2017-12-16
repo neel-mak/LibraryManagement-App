@@ -1,0 +1,261 @@
+<!-- Needs title/heading -->
+<!-- Scrollview to be fixed -->
+<!-- Button can look better but keep the change consistent across app -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/b_img"
+    tools:context="com.librarymanagement.siddharth.snaplibrary.PatronCheckoutFragment">
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/skip_space_for_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="20dp">
+
+        <ImageView
+            android:id="@+id/checkout_Fragment_book_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            />
+        <LinearLayout
+            android:id="@+id/Author_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+
+            android:layout_below="@id/checkout_Fragment_book_image"
+            android:layout_marginLeft="30dp">
+
+            <TextView
+                android:id="@+id/text_book_author"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Author"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textAlignment="viewStart"
+                />
+
+            <TextView
+                android:id="@+id/checkout_Fragment_book_author"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/Author_layout"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/text_book_title"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textAlignment="viewStart"/>
+
+            <TextView
+                android:id="@+id/checkout_Fragment_book_title"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Publisher_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/Title_layout"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp">
+
+            <TextView
+                android:id="@+id/text_book_publisher"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Publisher"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textAlignment="viewStart"/>
+
+            <TextView
+                android:id="@+id/checkout_Fragment_book_publisher"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Call_Number_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/Publisher_layout"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/text_book_call_number"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Call Number"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textAlignment="viewStart"/>
+
+            <TextView
+                android:id="@+id/checkout_Fragment_Call_Number"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Year_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/Call_Number_layout"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/text_book_year"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Year"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textAlignment="viewStart"/>
+
+            <TextView
+                android:id="@+id/checkout_Fragment_book_year"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Location_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/Year_layout"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/text_book_location"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textAlignment="viewStart"/>
+
+            <TextView
+                android:id="@+id/checkout_Fragment_book_location"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Keywords_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/Location_layout"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/text_book_keywords"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Keywords"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textAlignment="viewStart"/>
+
+            <TextView
+                android:id="@+id/checkout_Fragment_book_keywords"
+                android:layout_width="180dp"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Status_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/Keywords_layout"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/text_book_status"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textAlignment="viewStart"/>
+
+            <TextView
+                android:id="@+id/checkout_Fragment_book_status"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000"
+                />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/checkout_fragment_checkout_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADD TO CART"
+            android:textStyle="bold"
+            android:textColor="#b3e5fc"
+            android:background="#1b68e5"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/Status_layout"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

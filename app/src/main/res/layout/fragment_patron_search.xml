@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- needs heading / title -->
+<!-- increase height of every component -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/b_img"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.librarymanagement.siddharth.snaplibrary.PatronActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/skip_space_for_header">
+
+        <TextView
+            android:id="@+id/patron_search_textView"
+            android:layout_above="@id/patron_search_id1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Search Books "
+            android:textStyle="bold"
+            android:textColor="#1b68e5"
+            android:gravity="center_horizontal"
+            android:textSize="50dp" />
+
+        <LinearLayout
+            android:id="@+id/patron_search_id1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content">
+
+            </Spinner>
+
+            <EditText
+                android:id="@+id/patron_search_fragment_search_text"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:hint="Enter value"
+                android:inputType="text"
+                android:maxLength="200"
+                android:textColorHint="#000" />
+
+            <Button
+                android:id="@+id/patron_search_fragment_search_btn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_search_black_18dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
+
