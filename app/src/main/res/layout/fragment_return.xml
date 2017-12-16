@@ -93,6 +93,16 @@
                             android:layout_height="wrap_content"
                             android:text="Due Date :"
                             android:layout_below="@id/return_fragment_checkout_date1"/>
+
+                        <Button
+                            android:id="@+id/return_fragment_btn1"
+                            android:layout_width="60dp"
+                            android:layout_height="20dp"
+                            android:text="Renew"
+                            android:textColor="#fff"
+                            android:background="#311b92"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -159,6 +169,16 @@
                             android:layout_height="wrap_content"
                             android:text="Due Date :"
                             android:layout_below="@id/return_fragment_checkout_date2"/>
+
+                        <Button
+                            android:id="@+id/return_fragment_btn2"
+                            android:layout_width="60dp"
+                            android:layout_height="20dp"
+                            android:text="Renew"
+                            android:textColor="#fff"
+                            android:background="#311b92"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -225,6 +245,16 @@
                             android:layout_height="wrap_content"
                             android:text="Due Date :"
                             android:layout_below="@id/return_fragment_checkout_date3"/>
+
+                        <Button
+                            android:id="@+id/return_fragment_btn3"
+                            android:layout_width="60dp"
+                            android:layout_height="20dp"
+                            android:text="Renew"
+                            android:textColor="#fff"
+                            android:background="#311b92"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -292,6 +322,16 @@
                             android:layout_height="wrap_content"
                             android:text="Due Date :"
                             android:layout_below="@id/return_fragment_checkout_date4"/>
+
+                        <Button
+                            android:id="@+id/return_fragment_btn4"
+                            android:layout_width="60dp"
+                            android:layout_height="20dp"
+                            android:text="Renew"
+                            android:textColor="#fff"
+                            android:background="#311b92"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -358,6 +398,16 @@
                             android:layout_height="wrap_content"
                             android:text="Due Date :"
                             android:layout_below="@id/return_fragment_checkout_date5"/>
+
+                        <Button
+                            android:id="@+id/return_fragment_btn5"
+                            android:layout_width="60dp"
+                            android:layout_height="20dp"
+                            android:text="Renew"
+                            android:textColor="#fff"
+                            android:background="#311b92"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -424,6 +474,15 @@
                             android:layout_height="wrap_content"
                             android:text="Due Date :"
                             android:layout_below="@id/return_fragment_checkout_date6"/>
+                        <Button
+                            android:id="@+id/return_fragment_btn6"
+                            android:layout_width="60dp"
+                            android:layout_height="20dp"
+                            android:text="Renew"
+                            android:textColor="#fff"
+                            android:background="#311b92"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -490,6 +549,15 @@
                             android:layout_height="wrap_content"
                             android:text="Due Date :"
                             android:layout_below="@id/return_fragment_checkout_date7"/>
+                        <Button
+                            android:id="@+id/return_fragment_btn7"
+                            android:layout_width="60dp"
+                            android:layout_height="20dp"
+                            android:text="Renew"
+                            android:textColor="#fff"
+                            android:background="#311b92"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -556,6 +624,15 @@
                             android:layout_height="wrap_content"
                             android:text="Due Date :"
                             android:layout_below="@id/return_fragment_checkout_date8"/>
+                        <Button
+                            android:id="@+id/return_fragment_btn8"
+                            android:layout_width="60dp"
+                            android:layout_height="20dp"
+                            android:text="Renew"
+                            android:textColor="#fff"
+                            android:background="#311b92"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -622,6 +699,15 @@
                             android:layout_height="wrap_content"
                             android:text="Due Date :"
                             android:layout_below="@id/return_fragment_checkout_date9"/>
+                        <Button
+                            android:id="@+id/return_fragment_btn9"
+                            android:layout_width="60dp"
+                            android:layout_height="20dp"
+                            android:text="Renew"
+                            android:textColor="#fff"
+                            android:background="#311b92"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"/>
                     </RelativeLayout>
 
                 </LinearLayout>
