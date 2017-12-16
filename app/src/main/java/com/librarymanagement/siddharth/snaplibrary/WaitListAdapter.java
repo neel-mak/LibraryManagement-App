@@ -14,10 +14,10 @@ import java.util.List;
 
 public class WaitListAdapter extends RecyclerView.Adapter<WaitListAdapter.ViewHolder> {
 
-    private List<WaitListItem> waitListItemList;
+    private List<PatronBookItem> waitListItemList;
     public static int listLength = 0;
 
-    public WaitListAdapter(List<WaitListItem> waitListItemList) {
+    public WaitListAdapter(List<PatronBookItem> waitListItemList) {
         this.waitListItemList = waitListItemList;
     }
 
@@ -29,11 +29,11 @@ public class WaitListAdapter extends RecyclerView.Adapter<WaitListAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final WaitListItem waitListItem = waitListItemList.get(position);
-        holder.WaitList_Book_Author.setText(waitListItem.getWaitList_Book_Author());
-        holder.WaitList_Book_Title.setText(waitListItem.getWaitList_Book_Title());
-        holder.WaitList_Book_Publisher.setText(waitListItem.getWaitList_Book_Publisher());
-        holder.WaitList_Order.setText(waitListItem.getWaitList_Order());
+        final PatronBookItem waitListItem = waitListItemList.get(position);
+        holder.WaitList_Book_Author.setText(waitListItem.getBook_Author());
+        holder.WaitList_Book_Title.setText(waitListItem.getBook_Title());
+        holder.WaitList_Book_Publisher.setText(waitListItem.getBook_Publisher());
+        //holder.WaitList_Order.setText(waitListItem.getWaitList_Order());
 
     }
 
@@ -48,7 +48,7 @@ public class WaitListAdapter extends RecyclerView.Adapter<WaitListAdapter.ViewHo
         public TextView WaitList_Book_Title;
         public TextView WaitList_Book_Author;
         public TextView WaitList_Book_Publisher;
-        public TextView WaitList_Order;
+        //public TextView WaitList_Order;
 
 
         public ViewHolder(View itemView) {
@@ -56,7 +56,7 @@ public class WaitListAdapter extends RecyclerView.Adapter<WaitListAdapter.ViewHo
             WaitList_Book_Author = (TextView)itemView.findViewById(R.id.waitlist_book_author);
             WaitList_Book_Title = (TextView)itemView.findViewById(R.id.waitlist_book_Title);
             WaitList_Book_Publisher = (TextView)itemView.findViewById(R.id.waitlist_book_publisher);
-            WaitList_Order = (TextView)itemView.findViewById(R.id.waitlist_order);
+            //WaitList_Order = (TextView)itemView.findViewById(R.id.waitlist_order);
 
 
         }

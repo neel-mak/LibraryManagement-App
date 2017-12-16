@@ -23,6 +23,7 @@ public class Constants {
     public static final String CALL_CHECKOUT_CART_URL = "/checkout";
     public static final String CALL_RETURN_BOOKS_URL = "/return";
     public static final String CALL_GET_BOOKS_ON_HOLD_URL = "/book/holds";
+    public static final String CALL_GET_WAITLIST_BOOK_URL = "/book/waitlist";
 
     //Update UI vars
     public static final String ACTION_UPDATE_LOGIN = "ACTION_UPDATE_LOGIN";
@@ -39,6 +40,7 @@ public class Constants {
     public static final String ACTION_RETURN_BOOKS = "ACTION_RETURN_BOOKS";
     public static final String ACTION_CHECKOUT_CART = "ACTION_CHECKOUT_CART";
     public static final String ACTION_GET_BOOKS_ON_HOLD = "ACTION_GET_BOOKS_ON_HOLD";
+    public static final String ACTION_GET_BOOKS_ON_WAITLIST = "ACTION_GET_BOOKS_ON_WAITLIST";
 
     public static final String ACTION_LOAD_PATRON = "ACTION_LOAD_PATRON";
     public static final String ACTION_CHECK_AVAILABILITY = "ACTION_CHECK_AVAILABILITY";
