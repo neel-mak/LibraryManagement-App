@@ -137,7 +137,7 @@ public class CallCheckoutCart {
                                 responseData.getJSONObject(i).getJSONObject("book").getString("author"),
                                 null,null,null,
                                 responseData.getJSONObject(i).getString("checkoutDate"),
-                                responseData.getJSONObject(i).getString("dueDate")
+                                responseData.getJSONObject(i).getString("dueDate"), null
                                 );
                         LogHelper.logMessage("Apoorv","Received book in response of checkout"+pbi.Book_Title);
                         checkoutBooks.add(pbi);

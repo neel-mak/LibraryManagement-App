@@ -21,7 +21,6 @@ public class PatronListAdapter extends RecyclerView.Adapter<PatronListAdapter.Vi
 
     public PatronListAdapter(List<PatronBookItem> bookList) {
         BookList = bookList;
-
     }
 
     @Override

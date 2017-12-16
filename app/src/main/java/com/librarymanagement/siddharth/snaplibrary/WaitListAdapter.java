@@ -15,6 +15,7 @@ import java.util.List;
 public class WaitListAdapter extends RecyclerView.Adapter<WaitListAdapter.ViewHolder> {
 
     private List<WaitListItem> waitListItemList;
+    public static int listLength = 0;
 
     public WaitListAdapter(List<WaitListItem> waitListItemList) {
         this.waitListItemList = waitListItemList;

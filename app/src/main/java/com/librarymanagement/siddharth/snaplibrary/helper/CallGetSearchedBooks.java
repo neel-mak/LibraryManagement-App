@@ -189,7 +189,7 @@ public class CallGetSearchedBooks {
                     numAvailableCopies = numAvailableCopies == null || numAvailableCopies == JSONObject.NULL || "null".equalsIgnoreCase(numAvailableCopies) ? "" : numAvailableCopies;
                     currentStatus = currentStatus == null || currentStatus == JSONObject.NULL || "null".equalsIgnoreCase(currentStatus) ? "" : currentStatus;
 
-                    PatronBookItem bookItem = new PatronBookItem(id,title,author,publisher,numAvailableCopies,currentStatus, "","");
+                    PatronBookItem bookItem = new PatronBookItem(id,title,author,publisher,numAvailableCopies,currentStatus, "","", "");
 
                     PatronListFragment.bookItemList.add(bookItem);
                 }
