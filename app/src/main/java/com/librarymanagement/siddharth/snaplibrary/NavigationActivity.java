@@ -71,6 +71,7 @@ public class NavigationActivity extends AppCompatActivity
             navigationView.getMenu().removeItem(R.id.nav_cart);
             navigationView.getMenu().removeItem(R.id.nav_your_books);
             navigationView.getMenu().removeItem(R.id.nav_my_holds);
+            navigationView.getMenu().removeItem(R.id.nav_wait_list_books);
 
         }else {
             LogHelper.logMessage("onCreateOptionsMenu", "patron detected");
@@ -126,6 +127,10 @@ public class NavigationActivity extends AppCompatActivity
 
             case R.id.nav_my_holds:
                 getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new HoldFragment()).commit();
+                break;
+
+            case R.id.nav_wait_list_books:
+                getSupportFragmentManager().beginTransaction().replace(R.id.patron_main_container, new WaitListFragment()).commit();
                 break;
 
             case R.id.nav_test_screen:
