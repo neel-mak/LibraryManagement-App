@@ -3,9 +3,11 @@ package com.librarymanagement.siddharth.snaplibrary;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -77,7 +79,9 @@ public class PatronCheckoutFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 LogHelper.logMessage("Apoorv","Add to cart clicked"+bookId);
-
+                // put if condition for available copies is 0 then don't allow to add to cart instead of
+                // that call showAlert method which will add book to the waitlist
+                // at the same time also put visibility for "add to cart button" to GONE
                 if(bookId!=null) {
                     try {
                         addBookToCart(bookId);
@@ -115,6 +119,17 @@ public class PatronCheckoutFragment extends Fragment {
      getActivity().setTitle("Add to cart");
     return view;
         
+    }
+
+    public void showAlert(){
+        AlertDialog.Builder myAlert = new AlertDialog.Builder(getContext());
+        myAlert.setMessage("Sorry!! This book is currently unavailable.. would you like to add it to waitliast ?").setNegativeButton("ADD TO WAITLIST", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(getActivity(),"Book is added in waitlist",Toast.LENGTH_SHORT).show();
+            }
+        }).create();
+        myAlert.show();
     }
 
      void addBookToCart(String bookId) throws JSONException{
