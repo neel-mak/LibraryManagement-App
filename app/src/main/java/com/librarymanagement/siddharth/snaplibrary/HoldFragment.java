@@ -53,7 +53,7 @@ public class HoldFragment extends Fragment {
             String[] userDetails = SharedData.getUserDetails();
 
             jsonObject.put("patronId", Integer.valueOf(userDetails[0]));
-            jsonObject.put("email", new JSONObject().put("createdBy", userDetails[1]));
+            jsonObject.put("email", userDetails[1]);
 
             params.put(Constants.REQUEST_JSON, jsonObject);
             params.put(Constants.ACTION, Constants.ACTION_GET_BOOKS_ON_HOLD);
