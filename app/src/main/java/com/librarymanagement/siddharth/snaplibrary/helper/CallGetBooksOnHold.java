@@ -3,16 +3,17 @@ package com.librarymanagement.siddharth.snaplibrary.helper;
 import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.librarymanagement.siddharth.snaplibrary.HoldFragment;
+import com.librarymanagement.siddharth.snaplibrary.HoldListAdapter;
 import com.librarymanagement.siddharth.snaplibrary.PatronBookItem;
-import com.librarymanagement.siddharth.snaplibrary.ReturnFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,14 +21,13 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-import static com.librarymanagement.siddharth.snaplibrary.PatronListFragment.patron_no_books_found;
-import static com.librarymanagement.siddharth.snaplibrary.ReturnFragment.return_fragment_cardview0;
+import static com.librarymanagement.siddharth.snaplibrary.HoldFragment.patron_no_books_on_hold;
 
 
-public class CallGetCheckoutBooks {
+public class CallGetBooksOnHold {
 
     public void process(final HashMap<String, Object> params) throws JSONException {
-        String urlString = Constants.AWS_URL + Constants.CALL_CHECKED_OUT_BOOK_URL;
+        String urlString = Constants.AWS_URL + Constants.CALL_GET_BOOKS_ON_HOLD_URL;
         LogHelper.logMessage("URL", urlString);
 
         final Context context;
@@ -64,27 +64,13 @@ public class CallGetCheckoutBooks {
                     }else{
                         //Toast.makeText(activity, "No books checked out for return", Toast.LENGTH_SHORT).show();
 
-                        for(int j=0; j<9 ;j++){
-                            ReturnFragment.cardViews[j].setVisibility(View.GONE);
+                        if(patron_no_books_on_hold != null) {
+                            LogHelper.logMessage("Siddharth", "No books on hold!");
+                            patron_no_books_on_hold.setText("No books on hold!");
+                            patron_no_books_on_hold.setVisibility(View.VISIBLE);
                         }
-
-                        if(patron_no_books_found != null) {
-                            LogHelper.logMessage("Siddharth", "No books found");
-                            patron_no_books_found.setText("No books found");
-                            patron_no_books_found.setVisibility(View.VISIBLE);
-                        }
-
-                        if(return_fragment_cardview0 != null) {
-                            LogHelper.logMessage("Siddharth", "No books checked out for return");
-                            return_fragment_cardview0.setVisibility(View.VISIBLE);
-                        }
-
                     }
                 } else {
-
-                    for(int j=0; j<9 ;j++){
-                        ReturnFragment.cardViews[j].setVisibility(View.GONE);
-                    }
 
                     HashMap<String, Object> extraParams = new HashMap<String, Object>();
                     extraParams.put("activity", activity);
@@ -92,10 +78,6 @@ public class CallGetCheckoutBooks {
                 }
 
             } catch (JSONException e) {
-
-                for(int j=0; j<9 ;j++){
-                    ReturnFragment.cardViews[j].setVisibility(View.GONE);
-                }
 
                 HashMap<String, Object> extraParams = new HashMap<String, Object>();
                 extraParams.put("activity", activity);
@@ -108,10 +90,6 @@ public class CallGetCheckoutBooks {
             @Override
             public void onErrorResponse(VolleyError error) {
                 String errorMessage = error.getMessage();
-
-                for(int j=0; j<9 ;j++){
-                    ReturnFragment.cardViews[j].setVisibility(View.GONE);
-                }
 
                 NetworkResponse networkResponse = error.networkResponse;
                 if (networkResponse != null && networkResponse.data != null) {
@@ -138,48 +116,42 @@ public class CallGetCheckoutBooks {
     public void updateUI(Fragment fragment, Context context, String action, Activity activity, HashMap<String, Object> returnHashMap, HashMap<String,Object> extraparams) throws JSONException {
 
         switch (action) {
-            case Constants.ACTION_GET_CHECKED_OUT_BOOKS:
+            case Constants.ACTION_GET_BOOKS_ON_HOLD:
 
-                //Toast.makeText(activity, "Got books ...", Toast.LENGTH_SHORT).show();
-                LogHelper.logMessage(Constants.ACTION_GET_CHECKED_OUT_BOOKS, "Got books ...");
-                JSONArray booksArr = (JSONArray)returnHashMap.get("books");
+                LogHelper.logMessage(Constants.ACTION_GET_BOOKS_ON_HOLD, "Got books on hold ...");
+                JSONArray booksArr = ((JSONArray)returnHashMap.get("books"));
 
                 LogHelper.logMessage("Siddharth",String.valueOf((JSONArray)returnHashMap.get("books")));
 
-                if(ReturnFragment.patronBookItems != null)
-                    ReturnFragment.patronBookItems.clear();
+                if(HoldFragment.holdListItems != null)
+                    HoldFragment.holdListItems.clear();
 
-                int i=0;
-                for(i=0;i<booksArr.length();i++)
+                for(int i=0;i<booksArr.length();i++)
                 {
                     JSONObject jsonObject = booksArr.getJSONObject(i);
-
                     JSONObject jsonObject1 = jsonObject.getJSONObject("book");
+
                     String id = jsonObject1.getString("id");
                     String title = jsonObject1.getString("title");
                     String author = jsonObject1.getString("author");
-                    String checkoutDate = jsonObject.getString("checkoutDate");
-                    String dueDate = jsonObject.getString("dueDate");
+                    String publisher = jsonObject1.getString("publisher");
+                    String holdlistExpirationDate = jsonObject.getString("endDate");
 
                     id = id == null || id == JSONObject.NULL || "null".equalsIgnoreCase(id) ? "" : id;
                     title = title == null || title == JSONObject.NULL || "null".equalsIgnoreCase(title) ? "" : title;
                     author = author == null || author == JSONObject.NULL || "null".equalsIgnoreCase(author) ? "" : author;
-                    checkoutDate = checkoutDate == null || checkoutDate == JSONObject.NULL || "null".equalsIgnoreCase(checkoutDate) ? "" : checkoutDate;
-                    dueDate = dueDate == null || dueDate == JSONObject.NULL || "null".equalsIgnoreCase(dueDate) ? "" : dueDate;
+                    publisher = publisher == null || publisher == JSONObject.NULL || "null".equalsIgnoreCase(publisher) ? "" : publisher;
+                    holdlistExpirationDate = holdlistExpirationDate == null || holdlistExpirationDate == JSONObject.NULL || "null".equalsIgnoreCase(holdlistExpirationDate) ? "" : holdlistExpirationDate;
 
-                    PatronBookItem patronBookItem = new PatronBookItem(id,title,author,"","","", checkoutDate, dueDate, "");
+                    PatronBookItem bookItem = new PatronBookItem(id,title,author,publisher,"","","","", holdlistExpirationDate);
 
-                    ReturnFragment.patronBookItems.add(patronBookItem);
-                    ReturnFragment.checkBoxes[i].setChecked(false);
-                    ReturnFragment.titles[i].setText(title);
-                    ReturnFragment.authors[i].setText(author);
-                    ReturnFragment.checkOutDate[i].setText(checkoutDate);
-                    ReturnFragment.dueDate[i].setText(dueDate);
+                    HoldFragment.holdListItems.add(bookItem);
                 }
-
-                for(int j=i; j<9 ;j++){
-                    ReturnFragment.cardViews[j].setVisibility(View.GONE);
-                }
+                HoldListAdapter.listLength = booksArr.length();
+                RecyclerView recyclerView1 = (RecyclerView)extraparams.get("recyclerView");
+                recyclerView1.setAdapter(new HoldListAdapter(HoldFragment.holdListItems));
+                LogHelper.logMessage("Siddharth","Length of adapter: "+ HoldListAdapter.listLength + "BookList length: " + recyclerView1.getAdapter().getItemCount());
+                recyclerView1.getAdapter().notifyDataSetChanged();
 
                 break;
         }

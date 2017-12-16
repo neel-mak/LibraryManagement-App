@@ -7,6 +7,16 @@
     android:background="#0277bd"
     tools:context="com.librarymanagement.siddharth.snaplibrary.HoldFragment">
 
+   <TextView
+       android:id="@+id/patron_no_books_on_hold"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center"
+       android:textAlignment="center"
+       android:textSize="30dp"
+       android:textStyle="bold"
+       android:textColor="#000"/>
+
    <android.support.v7.widget.RecyclerView
        android:id="@+id/hold_fragment_recyclerView"
        android:layout_width="match_parent"

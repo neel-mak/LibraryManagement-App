@@ -14,9 +14,10 @@ import java.util.List;
 
 public class HoldListAdapter extends RecyclerView.Adapter<HoldListAdapter.ViewHolder> {
 
-    private List<HoldListItem> HoldBookList;
+    private List<PatronBookItem> HoldBookList;
+    public static int listLength = 0;
 
-    public HoldListAdapter(List<HoldListItem> holdBookList) {
+    public HoldListAdapter(List<PatronBookItem> holdBookList) {
         HoldBookList = holdBookList;
     }
 
@@ -28,11 +29,11 @@ public class HoldListAdapter extends RecyclerView.Adapter<HoldListAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final HoldListItem holdListItem = HoldBookList.get(position);
-        holder.Hold_Book_Author.setText(holdListItem.getHold_Book_Author());
-        holder.Hold_Book_Title.setText(holdListItem.getHold_Book_Title());
-        holder.Hold_Book_Publisher.setText(holdListItem.getHold_Book_Publisher());
-        holder.Hold_Book_Expiration_Date.setText(holdListItem.getHold_Book_expiratation_Date());
+        final PatronBookItem patronBookItem = HoldBookList.get(position);
+        holder.Hold_Book_Author.setText(patronBookItem.getBook_Author());
+        holder.Hold_Book_Title.setText(patronBookItem.getBook_Title());
+        holder.Hold_Book_Publisher.setText(patronBookItem.getBook_Publisher());
+        holder.Hold_Book_Expiration_Date.setText(patronBookItem.getBookExpiratationDate());
 
     }
 
