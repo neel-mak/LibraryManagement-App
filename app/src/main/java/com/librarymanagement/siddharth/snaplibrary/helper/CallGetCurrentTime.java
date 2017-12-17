@@ -111,6 +111,8 @@ public class CallGetCurrentTime {
                     currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("st")) + currentDateTimeString.substring(currentDateTimeString.indexOf("st") + 2);
                 else if(currentDateTimeString.contains("rd"))
                     currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("rd")) + currentDateTimeString.substring(currentDateTimeString.indexOf("rd") + 2);
+                else if(currentDateTimeString.contains("nd"))
+                    currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("nd")) + currentDateTimeString.substring(currentDateTimeString.indexOf("nd") + 2);
 
                 currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf(",")) + currentDateTimeString.substring(currentDateTimeString.indexOf(",") + 1);
                 LogHelper.logMessage("Time", currentDateTimeString);
