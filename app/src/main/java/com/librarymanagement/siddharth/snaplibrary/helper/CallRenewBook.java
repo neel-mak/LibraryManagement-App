@@ -1,9 +1,7 @@
 package com.librarymanagement.siddharth.snaplibrary.helper;
 
 import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.Context;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Toast;
@@ -13,19 +11,12 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.librarymanagement.siddharth.snaplibrary.AddFragment;
-import com.librarymanagement.siddharth.snaplibrary.CartFragment;
-import com.librarymanagement.siddharth.snaplibrary.PatronBookItem;
 import com.librarymanagement.siddharth.snaplibrary.R;
 import com.librarymanagement.siddharth.snaplibrary.ReturnFragment;
-import com.librarymanagement.siddharth.snaplibrary.SuccessFragment;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -45,14 +36,14 @@ public class CallRenewBook {
         final Context context;
         final String action;
         final View view;
-        final Fragment fragment;
+        final ReturnFragment fragment;
         final Activity activity;
 
         requestJSON = (JSONObject) params.get(Constants.REQUEST_JSON);
         context = (Context) params.get(Constants.CONTEXT);
         action = (String) params.get(Constants.ACTION);
         view = (View) params.get(Constants.VIEW);
-        fragment = (Fragment) params.get(Constants.FRAGMENT);
+        fragment = (ReturnFragment) params.get(Constants.FRAGMENT);
         activity = (Activity) params.get(Constants.ACTIVITY);
 
         //Now making the request
@@ -94,7 +85,6 @@ public class CallRenewBook {
                                 errorMessage = jsonError.getString("message");
 
                             } catch (JSONException e) {
-                                AddFragment.showProgress(false);
                                 ExceptionMessageHandler.handleError(context, Constants.GENERIC_ERROR_MSG, null, null);
                             }
                         }

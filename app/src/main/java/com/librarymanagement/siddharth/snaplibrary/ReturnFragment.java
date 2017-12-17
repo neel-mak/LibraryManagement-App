@@ -147,32 +147,31 @@ public class ReturnFragment extends Fragment {
         for( int i=0; i<renew_btns.length; i++){
             Button currRenewBtn = renew_btns[i];
             final int j = i;
+            final ReturnFragment returnFragment = this;
             currRenewBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                    Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
                     try {
                         PatronBookItem p = patronBookItems.get(j);
 
                         JSONArray bookArray = new JSONArray();
                         bookArray.put(p.Book_Id);
-                        LogHelper.logMessage("Siddharth","BookId to be checkout: " + p.Book_Id);
+                        LogHelper.logMessage("Siddharth","BookId to be renew: " + p.Book_Id);
 
                         JSONObject jsonObject = new JSONObject();
                         SharedData.readFromSharedInitial( getContext().getApplicationContext());
                         String[] userDetails = SharedData.getUserDetails();
                         jsonObject.put("email", userDetails[1]);
                         jsonObject.put("patronId", userDetails[0]);
-                        jsonObject.put("bookIds", bookArray);
+                        jsonObject.put("bookId", Integer.valueOf(p.Book_Id));
 
                         HashMap<String, Object> params = new HashMap<String, Object>();
                         params.put(Constants.REQUEST_JSON, jsonObject);
                         params.put(Constants.ACTION, Constants.ACTION_RENEW_BOOK);
-                        params.put(Constants.ACTIVITY, getActivity());
-                        params.put(Constants.FRAGMENT, this);
-                        params.put(Constants.VIEW, getView());
-                        params.put(Constants.CONTEXT, getContext());
+                        params.put(Constants.ACTIVITY, returnFragment.getActivity());
+                        params.put(Constants.FRAGMENT, returnFragment);
+                        params.put(Constants.VIEW, returnFragment.getView());
+                        params.put(Constants.CONTEXT, returnFragment.getContext());
 
                         RequestClass.startRequestQueue();
                         new CallRenewBook().process(params);

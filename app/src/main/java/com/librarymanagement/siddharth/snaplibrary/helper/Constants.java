@@ -26,7 +26,7 @@ public class Constants {
     public static final String CALL_GET_WAITLIST_BOOK_URL = "/book/waitlist";
     public static final String CALL_ADD_TO_WAITLIST_URL = "/checkout/addToWaitlist";
     public static final String CALL_TIME_URL = "/time";
-    public static final String CALL_RENEW_URL = "/return";
+    public static final String CALL_RENEW_URL = "/checkout/renew";
 
     //Update UI vars
     public static final String ACTION_UPDATE_LOGIN = "ACTION_UPDATE_LOGIN";
