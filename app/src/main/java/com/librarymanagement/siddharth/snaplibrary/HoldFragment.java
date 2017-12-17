@@ -31,6 +31,7 @@ public class HoldFragment extends Fragment {
 
     public static List<PatronBookItem> holdListItems = new ArrayList<>();
     RecyclerView recyclerView;
+    public static Fragment fragment;
     public static TextView patron_no_books_on_hold;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,6 +45,8 @@ public class HoldFragment extends Fragment {
         patron_no_books_on_hold = (TextView) view.findViewById(R.id.patron_no_books_on_hold);
         if(patron_no_books_on_hold != null)
             patron_no_books_on_hold.setVisibility(View.GONE);
+
+        fragment = this;
 
         //Get list from Server
         try {

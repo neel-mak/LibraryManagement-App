@@ -47,14 +47,14 @@ public class CallCheckoutCart {
         final Context context;
         final String action;
         final View view;
-        final CartFragment fragment;
+        final Fragment fragment;
         final Activity activity;
 
         requestJSON = (JSONObject) params.get(Constants.REQUEST_JSON);
         context = (Context) params.get(Constants.CONTEXT);
         action = (String) params.get(Constants.ACTION);
         view = (View) params.get(Constants.VIEW);
-        fragment = (CartFragment) params.get(Constants.FRAGMENT);
+        fragment = (Fragment) params.get(Constants.FRAGMENT);
         activity = (Activity) params.get(Constants.ACTIVITY);
 
         //Now making the request
@@ -121,7 +121,7 @@ public class CallCheckoutCart {
                 LogHelper.logMessage("Apoorv","came to update ui");
                 Toast.makeText(activity, " Checkout Transaction Successful.", Toast.LENGTH_SHORT).show();
 
-                CartFragment thisFragment = (CartFragment)fragment;
+                CartFragment thisFragment = (CartFragment)extraparams.get(Constants.FRAGMENT);
                 thisFragment.emptyCart();
 
               JSONArray responseData = (JSONArray) returnHashMap.get("response");
@@ -154,8 +154,40 @@ public class CallCheckoutCart {
                 sfr.setArguments(responseBundle);
                 fragment.getFragmentManager().beginTransaction().replace(R.id.patron_main_container,sfr).addToBackStack(null).commit();
 
-               // Fragment fr = new ListFragment();
-                //fragment.getFragmentManager().beginTransaction().replace(R.id.place_holder,fr).addToBackStack(null).commit();
+               break;
+            case Constants.ACTION_CHECKOUT_HOLD_BOOK:
+                LogHelper.logMessage("Siddharth","came to update ui");
+                Toast.makeText(activity, " Checkout Transaction Successful.", Toast.LENGTH_SHORT).show();
+
+                JSONArray responseData1 = (JSONArray) returnHashMap.get("response");
+
+                ArrayList<PatronBookItem> checkoutBooks1 = new ArrayList<PatronBookItem>();
+                try {
+                    for (int i = 0; i < responseData1.length(); i++) {
+
+
+                        PatronBookItem pbi = new PatronBookItem(
+                                responseData1.getJSONObject(i).getString("bookId"),
+                                responseData1.getJSONObject(i).getJSONObject("book").getString("title"),
+                                responseData1.getJSONObject(i).getJSONObject("book").getString("author"),
+                                null,null,null,
+                                responseData1.getJSONObject(i).getString("checkoutDate"),
+                                responseData1.getJSONObject(i).getString("dueDate"), null
+                        );
+                        LogHelper.logMessage("Apoorv","Received book in response of checkout"+pbi.Book_Title);
+                        checkoutBooks1.add(pbi);
+                    }
+
+                }
+                catch(Exception e) {
+                    e.printStackTrace();
+                }
+
+                Bundle responseBundle1 = new Bundle();
+                responseBundle1.putSerializable("checkoutbooksserial",(Serializable)checkoutBooks1);
+                SuccessFragment sfr1 = new SuccessFragment();
+                sfr1.setArguments(responseBundle1);
+                fragment.getFragmentManager().beginTransaction().replace(R.id.patron_main_container,sfr1).addToBackStack(null).commit();
         }
     }
 }

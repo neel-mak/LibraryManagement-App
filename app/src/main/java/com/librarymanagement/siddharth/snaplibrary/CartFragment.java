@@ -233,6 +233,7 @@ public class CartFragment extends Fragment {
         for (int i=0;i<booksInCart.size();i++) {
             checkoutbookids[i] = booksInCart.get(i).Book_Id;
             bookArray.put( booksInCart.get(i).Book_Id);
+            LogHelper.logMessage("cart books", String.valueOf(bookArray.get(i)));
         }
 
         JSONObject jsonObject = new JSONObject();
