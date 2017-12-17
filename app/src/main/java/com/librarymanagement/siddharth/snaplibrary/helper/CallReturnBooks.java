@@ -107,14 +107,6 @@ public class CallReturnBooks {
             case Constants.ACTION_RETURN_BOOKS:
                 Toast.makeText(activity, "Books have been returned", Toast.LENGTH_SHORT).show();
 
-//                for(int j=0; j<9 ;j++){
-//                    CheckBox c = ReturnFragment.checkBoxes[j];
-//                    if(c!= null && c.isChecked() && ReturnFragment.patronBookItems.get(j) != null){
-//                        ReturnFragment.patronBookItems.remove(j);
-//                        ReturnFragment.cardViews[j].setVisibility(View.GONE);
-//                    }
-//                }
-
                 android.support.v4.app.FragmentManager fm = fragment.getFragmentManager();
                 fm.popBackStackImmediate();
                 fm.beginTransaction().replace(R.id.patron_main_container,new ReturnFragment()).addToBackStack(null).commit();

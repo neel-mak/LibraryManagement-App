@@ -18,12 +18,6 @@
             android:orientation="horizontal"
             android:padding="4dp">
 
-            <android.support.v7.widget.AppCompatCheckBox
-                android:id="@+id/hold_list_items_checkbox"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="start"/>
-
             <ImageView
                 android:id="@+id/holdlist_book_image"
                 android:layout_width="80dp"
@@ -74,6 +68,15 @@
                     android:text=""
                     android:layout_below="@id/holdlist_book_author"
                     android:layout_toRightOf="@id/holdlist_expiration_date_text"/>
+
+                <Button
+                    android:id="@+id/holdlist_checkout_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="Checkout"
+                    android:textColor="#fff"
+                    android:background="#311b92"
+                    android:layout_below="@id/holdlist_expiration_date"/>
             </RelativeLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>

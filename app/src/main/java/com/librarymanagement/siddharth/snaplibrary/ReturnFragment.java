@@ -17,10 +17,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.librarymanagement.siddharth.snaplibrary.helper.CallCheckoutCart;
 import com.librarymanagement.siddharth.snaplibrary.helper.CallGetCheckoutBooks;
 import com.librarymanagement.siddharth.snaplibrary.helper.CallISBNLookup;
+import com.librarymanagement.siddharth.snaplibrary.helper.CallRenewBook;
 import com.librarymanagement.siddharth.snaplibrary.helper.CallReturnBooks;
 import com.librarymanagement.siddharth.snaplibrary.helper.Constants;
+import com.librarymanagement.siddharth.snaplibrary.helper.LogHelper;
 import com.librarymanagement.siddharth.snaplibrary.helper.RequestClass;
 import com.librarymanagement.siddharth.snaplibrary.helper.SharedData;
 
@@ -141,68 +144,44 @@ public class ReturnFragment extends Fragment {
         renew_btns[7]= (Button)view.findViewById(R.id.return_fragment_btn8);
         renew_btns[8]= (Button)view.findViewById(R.id.return_fragment_btn9);
 
-        renew_btns[0].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
-            }
-        });
+        for(int i=0; i<renew_btns.length; i++){
+            Button currRenewBtn = renew_btns[i];
+            final PatronBookItem p = patronBookItems.get(i);
+            currRenewBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-        renew_btns[1].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
-            }
-        });
+                    Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
+                    try {
 
-        renew_btns[2].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
-            }
-        });
+                        JSONArray bookArray = new JSONArray();
+                        bookArray.put(p.Book_Id);
+                        LogHelper.logMessage("Siddharth","BookId to be checkout: " + p.Book_Id);
 
-        renew_btns[3].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
-            }
-        });
+                        JSONObject jsonObject = new JSONObject();
+                        SharedData.readFromSharedInitial( getContext().getApplicationContext());
+                        String[] userDetails = SharedData.getUserDetails();
+                        jsonObject.put("email", userDetails[1]);
+                        jsonObject.put("patronId", userDetails[0]);
+                        jsonObject.put("bookIds", bookArray);
 
-        renew_btns[4].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
-            }
-        });
+                        HashMap<String, Object> params = new HashMap<String, Object>();
+                        params.put(Constants.REQUEST_JSON, jsonObject);
+                        params.put(Constants.ACTION, Constants.ACTION_RENEW_BOOK);
+                        params.put(Constants.ACTIVITY, getActivity());
+                        params.put(Constants.FRAGMENT, this);
+                        params.put(Constants.VIEW, getView());
+                        params.put(Constants.CONTEXT, getContext());
 
-        renew_btns[5].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        renew_btns[6].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        renew_btns[7].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        renew_btns[8].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
-            }
-        });
+                        RequestClass.startRequestQueue();
+                        new CallRenewBook().process(params);
+                    }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
 
         return_btn = (Button)view.findViewById(R.id.return_fragment_return_btn);
         return_btn.setOnClickListener(new View.OnClickListener() {
