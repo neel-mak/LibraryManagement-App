@@ -12,6 +12,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.librarymanagement.siddharth.snaplibrary.PatronSearchFragment;
 import com.librarymanagement.siddharth.snaplibrary.R;
+import com.librarymanagement.siddharth.snaplibrary.ReturnFragment;
 import com.librarymanagement.siddharth.snaplibrary.TestingAssistanceFragment;
 
 import org.json.JSONException;
@@ -105,7 +106,11 @@ public class CallUpdateCurrentTime {
                 Fragment fr = (Fragment) extraparams.get("fragment");
                 android.support.v4.app.FragmentManager fm = fr.getFragmentManager();
                 fr.getFragmentManager().beginTransaction().remove(fr).commit();
-                fm.beginTransaction().add(R.id.patron_main_container,new TestingAssistanceFragment()).addToBackStack(null).commit();
+                String[] userDetails = SharedData.getUserDetails();
+                if("patron".equalsIgnoreCase(userDetails[3]))
+                    fm.beginTransaction().replace(R.id.patron_main_container,new TestingAssistanceFragment()).addToBackStack(null).commit();
+                else if("librarian".equalsIgnoreCase(userDetails[3]))
+                    fm.beginTransaction().replace(R.id.place_holder,new TestingAssistanceFragment()).addToBackStack(null).commit();
         }
     }
 }

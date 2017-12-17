@@ -103,6 +103,29 @@ public class CallGetCurrentTime {
                 String currentTime = (String)returnHashMap.get("currentTime");
 
                 TestingAssistanceFragment.currentDateTime.setText(currentTime);
+                Calendar calendar1 = (Calendar)extraparams.get("calendar");
+                String currentDateTimeString = currentTime;
+                if(currentDateTimeString.contains("th"))
+                    currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("th")) + currentDateTimeString.substring(currentDateTimeString.indexOf("th") + 2);
+                else if(currentDateTimeString.contains("st"))
+                    currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("st")) + currentDateTimeString.substring(currentDateTimeString.indexOf("st") + 2);
+                else if(currentDateTimeString.contains("rd"))
+                    currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("rd")) + currentDateTimeString.substring(currentDateTimeString.indexOf("rd") + 2);
+                else if(currentDateTimeString.contains("nd"))
+                    currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("nd")) + currentDateTimeString.substring(currentDateTimeString.indexOf("nd") + 2);
+
+                currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf(",")) + currentDateTimeString.substring(currentDateTimeString.indexOf(",") + 1);
+                LogHelper.logMessage("Time", currentDateTimeString);
+
+                SimpleDateFormat df = new SimpleDateFormat("MMMMM dd yyyy h:mm a");
+                Date date1 = null;
+                try {
+                    date1 = df.parse(currentDateTimeString);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                calendar1.setTime(date1);
+
                 break;
             case Constants.ACTION_SET_NEW_TIME:
                 LogHelper.logMessage(Constants.ACTION_SET_NEW_TIME, "Got Time and now sending minutes ...");
@@ -111,25 +134,27 @@ public class CallGetCurrentTime {
                 TestingAssistanceFragment.currentDateTime.setText(currentTime1);
 
                 //process current date time
-                String currentDateTimeString = currentTime1;
-                if(currentDateTimeString.contains("th"))
-                    currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("th")) + currentDateTimeString.substring(currentDateTimeString.indexOf("th") + 2);
-                else if(currentDateTimeString.contains("st"))
-                    currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("st")) + currentDateTimeString.substring(currentDateTimeString.indexOf("st") + 2);
-                else if(currentDateTimeString.contains("rd"))
-                    currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("rd")) + currentDateTimeString.substring(currentDateTimeString.indexOf("rd") + 2);
+//                String currentDateTimeString = currentTime1;
+//                if(currentDateTimeString.contains("th"))
+//                    currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("th")) + currentDateTimeString.substring(currentDateTimeString.indexOf("th") + 2);
+//                else if(currentDateTimeString.contains("st"))
+//                    currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("st")) + currentDateTimeString.substring(currentDateTimeString.indexOf("st") + 2);
+//                else if(currentDateTimeString.contains("rd"))
+//                    currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("rd")) + currentDateTimeString.substring(currentDateTimeString.indexOf("rd") + 2);
+//
+//                currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf(",")) + currentDateTimeString.substring(currentDateTimeString.indexOf(",") + 1);
+//                LogHelper.logMessage("Time", currentDateTimeString);
+//
+//                SimpleDateFormat df = new SimpleDateFormat("MMMMM dd yyyy h:mm a");
+//                Date date = null;
+//                try {
+//                    date = df.parse(currentDateTimeString);
+//                } catch (ParseException e) {
+//                    e.printStackTrace();
+//                }
+//                LogHelper.logMessage("Date object", "" + date.getDate() + ":" + date.getMonth() + ":" + date.getYear() + ":" +date.getHours() + ":" + date.getMinutes());
 
-                currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf(",")) + currentDateTimeString.substring(currentDateTimeString.indexOf(",") + 1);
-                LogHelper.logMessage("Time", currentDateTimeString);
-
-                SimpleDateFormat df = new SimpleDateFormat("MMMMM dd yyyy h:mm a");
-                Date date = null;
-                try {
-                    date = df.parse(currentDateTimeString);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                LogHelper.logMessage("Date object", "" + date.getDate() + ":" + date.getMonth() + ":" + date.getYear() + ":" +date.getHours() + ":" + date.getMinutes());
+                Date date = new Date();
 
                 //process new date time
                 Calendar calendar = (Calendar) extraparams.get("calendar");
@@ -138,7 +163,7 @@ public class CallGetCurrentTime {
                 //calculating minutes
                 long timeDifference = userDateSet.getTime() - date.getTime();
                 if(timeDifference < 0 ){
-                    Toast.makeText(context, "Please a time in future", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Please select a time in future", Toast.LENGTH_SHORT).show();
                 }else {
                     long minutes = TimeUnit.MINUTES.convert(timeDifference, TimeUnit.MILLISECONDS);
                     LogHelper.logMessage("Time In minutes", minutes + "");
