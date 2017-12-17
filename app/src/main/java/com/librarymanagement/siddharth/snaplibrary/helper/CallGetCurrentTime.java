@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.widget.Toast;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
@@ -15,7 +16,12 @@ import com.librarymanagement.siddharth.snaplibrary.TestingAssistanceFragment;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 public class CallGetCurrentTime {
 
@@ -104,21 +110,55 @@ public class CallGetCurrentTime {
                 String currentTime1 = (String)returnHashMap.get("currentTime");
                 TestingAssistanceFragment.currentDateTime.setText(currentTime1);
 
+                //process current date time
+                String currentDateTimeString = currentTime1;
+                if(currentDateTimeString.contains("th"))
+                    currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("th")) + currentDateTimeString.substring(currentDateTimeString.indexOf("th") + 2);
+                else if(currentDateTimeString.contains("st"))
+                    currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("st")) + currentDateTimeString.substring(currentDateTimeString.indexOf("st") + 2);
+                else if(currentDateTimeString.contains("rd"))
+                    currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("rd")) + currentDateTimeString.substring(currentDateTimeString.indexOf("rd") + 2);
+
+                currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf(",")) + currentDateTimeString.substring(currentDateTimeString.indexOf(",") + 1);
+                LogHelper.logMessage("Time", currentDateTimeString);
+
+                SimpleDateFormat df = new SimpleDateFormat("MMMMM dd yyyy h:mm a");
+                Date date = null;
                 try {
-                    JSONObject jsonObject = new JSONObject();
-                    jsonObject.put("minutes", extraparams.get("minutes"));
-
-                    HashMap<String, Object> params = new HashMap<String, Object>();
-                    params.put(Constants.REQUEST_JSON, jsonObject);
-                    params.put(Constants.ACTION, Constants.ACTION_SET_NEW_TIME);
-                    params.put(Constants.ACTIVITY, activity);
-                    params.put(Constants.FRAGMENT, fragment);
-                    params.put(Constants.CONTEXT, context);
-
-                    RequestClass.startRequestQueue();
-                    new CallUpdateCurrentTime().process(params);
-                }catch (JSONException e){
+                    date = df.parse(currentDateTimeString);
+                } catch (ParseException e) {
                     e.printStackTrace();
+                }
+                LogHelper.logMessage("Date object", "" + date.getDate() + ":" + date.getMonth() + ":" + date.getYear() + ":" +date.getHours() + ":" + date.getMinutes());
+
+                //process new date time
+                Calendar calendar = (Calendar) extraparams.get("calendar");
+                Date userDateSet = calendar.getTime();
+
+                //calculating minutes
+                long timeDifference = userDateSet.getTime() - date.getTime();
+                if(timeDifference < 0 ){
+                    Toast.makeText(context, "Please a time in future", Toast.LENGTH_SHORT).show();
+                }else {
+                    long minutes = TimeUnit.MINUTES.convert(timeDifference, TimeUnit.MILLISECONDS);
+                    LogHelper.logMessage("Time In minutes", minutes + "");
+
+                    try {
+                        JSONObject jsonObject = new JSONObject();
+                        jsonObject.put("minutes", minutes);
+
+                        HashMap<String, Object> params = new HashMap<String, Object>();
+                        params.put(Constants.REQUEST_JSON, jsonObject);
+                        params.put(Constants.ACTION, Constants.ACTION_SET_NEW_TIME);
+                        params.put(Constants.ACTIVITY, activity);
+                        params.put(Constants.FRAGMENT, fragment);
+                        params.put(Constants.CONTEXT, context);
+
+                        RequestClass.startRequestQueue();
+                        new CallUpdateCurrentTime().process(params);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
                 break;
         }
