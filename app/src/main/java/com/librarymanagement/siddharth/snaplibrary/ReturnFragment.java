@@ -144,15 +144,16 @@ public class ReturnFragment extends Fragment {
         renew_btns[7]= (Button)view.findViewById(R.id.return_fragment_btn8);
         renew_btns[8]= (Button)view.findViewById(R.id.return_fragment_btn9);
 
-        for(int i=0; i<renew_btns.length; i++){
+        for( int i=0; i<renew_btns.length; i++){
             Button currRenewBtn = renew_btns[i];
-            final PatronBookItem p = patronBookItems.get(i);
+            final int j = i;
             currRenewBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     Toast.makeText(getContext(),"Book is renewed",Toast.LENGTH_SHORT).show();
                     try {
+                        PatronBookItem p = patronBookItems.get(j);
 
                         JSONArray bookArray = new JSONArray();
                         bookArray.put(p.Book_Id);
