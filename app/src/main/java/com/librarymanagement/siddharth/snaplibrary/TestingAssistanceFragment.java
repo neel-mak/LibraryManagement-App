@@ -87,6 +87,7 @@ public class TestingAssistanceFragment extends Fragment {
             params.put(Constants.FRAGMENT, this);
             params.put(Constants.VIEW, this.getView());
             params.put(Constants.CONTEXT, this.getContext());
+            params.put("calendar", calendar);
 
             RequestClass.startRequestQueue();
             new CallGetCurrentTime().process(params);
