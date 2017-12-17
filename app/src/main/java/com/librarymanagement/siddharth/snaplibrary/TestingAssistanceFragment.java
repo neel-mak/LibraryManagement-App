@@ -124,27 +124,6 @@ public class TestingAssistanceFragment extends Fragment {
 
     private void attemptUpdateTime() throws ParseException {
 
-        //calculating minutes
-        String currentDateTimeString = currentDateTime.getText().toString();
-        if(currentDateTimeString.contains("th"))
-            currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("th")) + currentDateTimeString.substring(currentDateTimeString.indexOf("th") + 2);
-        else if(currentDateTimeString.contains("st"))
-            currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("st")) + currentDateTimeString.substring(currentDateTimeString.indexOf("st") + 2);
-        else if(currentDateTimeString.contains("rd"))
-            currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf("rd")) + currentDateTimeString.substring(currentDateTimeString.indexOf("rd") + 2);
-
-        currentDateTimeString = currentDateTimeString.substring(0, currentDateTimeString.indexOf(",")) + currentDateTimeString.substring(currentDateTimeString.indexOf(",") + 1);
-        LogHelper.logMessage("Time", currentDateTimeString);
-
-        SimpleDateFormat df = new SimpleDateFormat("MMMMM dd yyyy h:mm a");
-        Date date = df.parse(currentDateTimeString);
-        LogHelper.logMessage("Date object", "" + date.getDate() + ":" + date.getMonth() + ":" + date.getYear() + ":" +date.getHours() + ":" + date.getMinutes());
-
-        Date userDateSet = calendar.getTime();
-        long timeDifference = userDateSet.getTime() - date.getTime();
-        long minutes = TimeUnit.MINUTES.convert(timeDifference,TimeUnit.MILLISECONDS);
-        LogHelper.logMessage("Time In minutes" , minutes + "");
-
         try {
             JSONObject jsonObject = new JSONObject();
 
@@ -155,7 +134,7 @@ public class TestingAssistanceFragment extends Fragment {
             params.put(Constants.FRAGMENT, this);
             params.put(Constants.VIEW, this.getView());
             params.put(Constants.CONTEXT, this.getContext());
-            params.put("minutes", minutes);
+            params.put("calendar", calendar);
 
             RequestClass.startRequestQueue();
             new CallGetCurrentTime().process(params);
