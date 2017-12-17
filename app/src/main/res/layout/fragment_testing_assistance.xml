@@ -48,8 +48,8 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/Final_Date"
-        android:text=""
+        android:id="@+id/current_date_time_text"
+        android:text="Current date and time"
         android:textSize="20sp"
         android:textColor="#000"
         android:layout_marginTop="15dp"
@@ -58,13 +58,13 @@
         android:layout_gravity="center"/>
 
     <TextView
+        android:id="@+id/current_date_time"
         android:text=""
-        android:id="@+id/Final_Time"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:layout_marginTop="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_marginTop="15dp"
-        android:textColor="#000"
         android:layout_gravity="center"/>
 
 
@@ -73,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_height="wrap_content"
-        android:text="Done"
+        android:text="Update Time"
         android:textStyle="bold"
         android:textColor="#b3e5fc"
         android:background="#1b68e5"

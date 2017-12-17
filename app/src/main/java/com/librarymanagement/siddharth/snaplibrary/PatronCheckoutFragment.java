@@ -20,10 +20,12 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
+import com.librarymanagement.siddharth.snaplibrary.helper.CallAddToWaitlistBook;
 import com.librarymanagement.siddharth.snaplibrary.helper.CallISearchForUpdate;
 import com.librarymanagement.siddharth.snaplibrary.helper.Constants;
 import com.librarymanagement.siddharth.snaplibrary.helper.LogHelper;
 import com.librarymanagement.siddharth.snaplibrary.helper.RequestClass;
+import com.librarymanagement.siddharth.snaplibrary.helper.SharedData;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -123,22 +125,55 @@ public class PatronCheckoutFragment extends Fragment {
 
     public void showAlert(){
         AlertDialog.Builder myAlert = new AlertDialog.Builder(getContext());
-        myAlert.setMessage("Sorry!! This book is currently unavailable.. would you like to add it to waitliast ?").setNegativeButton("ADD TO WAITLIST", new DialogInterface.OnClickListener() {
+        myAlert.setMessage("Sorry! This book is currently unavailable.. would you like to add it to waitliast ?").setPositiveButton("ADD TO WAITLIST", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getActivity(),"Book is added in waitlist",Toast.LENGTH_SHORT).show();
+
+                attemptAddToWaitlist();
             }
         }).create();
+        myAlert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //do nothing
+            }
+        });
         myAlert.show();
+    }
+
+    public void attemptAddToWaitlist(){
+        try{
+            JSONObject jsonObject = new JSONObject();
+            String[] userDetails = SharedData.getUserDetails();
+            jsonObject.put("email", userDetails[1]);
+            jsonObject.put("bookId", Integer.valueOf(currentBook.Book_Id));
+            jsonObject.put("patronId", userDetails[0]);
+
+            HashMap<String, Object> params = new HashMap<String, Object>();
+            params.put(Constants.REQUEST_JSON, jsonObject);
+            params.put(Constants.ACTION, Constants.ACTION_ADD_TO_WAITLIST);
+            params.put(Constants.ACTIVITY, this.getActivity());
+            params.put(Constants.FRAGMENT, this);
+            params.put(Constants.VIEW, this.getView());
+            params.put(Constants.CONTEXT, this.getContext());
+
+            RequestClass.startRequestQueue();
+            new CallAddToWaitlistBook().process(params);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 
      void addBookToCart(String bookId) throws JSONException{
 
          LogHelper.logMessage("Apoorv","current book"+currentBook.Book_Id+" and checking out"+bookId);
          readBooksfromCart(this.getContext());
-         if(cartItemsSet.contains(currentBook.getDelimitedString())){
+         if("Unavailable".equalsIgnoreCase(currentBook.Book_Status)){
+             showAlert();
+         }else if(cartItemsSet.contains(currentBook.getDelimitedString())){
              Toast.makeText(getActivity(), "Book already in the cart" , Toast.LENGTH_SHORT).show();
-         }else if(booksInCart.size()<3) {
+         }
+         else if(booksInCart.size()<3) {
              LogHelper.logMessage("Apoorv",currentBook.getDelimitedString());
 //             if(cartItemsSet == null) {
 //                 cartItemsSet = new HashSet<String> ();
