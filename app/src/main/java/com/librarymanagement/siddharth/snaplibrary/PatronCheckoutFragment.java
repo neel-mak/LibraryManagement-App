@@ -146,6 +146,7 @@ public class PatronCheckoutFragment extends Fragment {
             JSONObject jsonObject = new JSONObject();
             String[] userDetails = SharedData.getUserDetails();
             jsonObject.put("email", userDetails[1]);
+            LogHelper.logMessage("Book to waitlist", currentBook.Book_Id);
             jsonObject.put("bookId", Integer.valueOf(currentBook.Book_Id));
             jsonObject.put("patronId", userDetails[0]);
 
@@ -211,6 +212,7 @@ public class PatronCheckoutFragment extends Fragment {
 
         SharedPreferences sharedPref = c.getSharedPreferences("cartDataSharedPreference",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
+         editor.clear();
         editor.putStringSet("cartItemsSet",cartItemsSet);
         editor.apply();
          LogHelper.logMessage("Apoorv","Added number of Books in Cart :"+cartItemsSet.size());
