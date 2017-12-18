@@ -142,6 +142,7 @@ public class CartFragment extends Fragment {
 
         //Read current cart from sharedPreferences
         LogHelper.logMessage("Apoorv","Attempting read");
+        LogHelper.logMessage("Object2", getContext().toString());
         SharedPreferences sharedPref = getContext().getSharedPreferences("cartDataSharedPreference", Context.MODE_PRIVATE);
         cartItemsSet = sharedPref.getStringSet("cartItemsSet",new HashSet<String>());
         if(cartItemsSet!=null) {
@@ -220,11 +221,14 @@ public class CartFragment extends Fragment {
         for (PatronBookItem pbi: booksInCart) {
             cartItemsSet.add(pbi.getDelimitedString());
         }
+        LogHelper.logMessage("Object1", getContext().toString());
         SharedPreferences sharedPref = getContext().getSharedPreferences("cartDataSharedPreference",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
+        editor.clear();
         editor.putStringSet("cartItemsSet",cartItemsSet);
         editor.apply();
-        LogHelper.logMessage("Apoorv","Added number of Books in Cart :"+cartItemsSet.size());
+        LogHelper.logMessage("Object", getContext().toString());
+        LogHelper.logMessage("Apoorv","Added number of Books in Cart :"+ sharedPref.contains("cartItemsSet") + ":" + sharedPref.getStringSet("cartItemsSet", new HashSet<String>()).size());
     }
 
     void processCheckout() throws JSONException {
