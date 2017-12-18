@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class Constants {
 
     //URLs
-    public static final String AWS_URL = "http://librarymanagement-backend.us-west-1.elasticbeanstalk.com";
+    public static final String AWS_URL = "http://ec2-54-193-9-140.us-west-1.compute.amazonaws.com:8081";
     public static final String CALL_LOGIN_URL = "/user/login";
     public static final String CALL_REGISTER_URL = "/user/register";
     public static final String CALL_VERIFY_URL = "/user/verify";
