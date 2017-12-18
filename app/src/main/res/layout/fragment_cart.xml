@@ -43,8 +43,8 @@
 
                 <Button
                     android:id="@+id/cart_fragment_cancel_btn1"
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="top"
                     android:layout_alignParentRight="true"
                     android:background="@drawable/ic_clear_black_18dp"
@@ -109,8 +109,8 @@
 
                 <Button
                     android:id="@+id/cart_fragment_cancel_btn2"
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="top"
                     android:layout_alignParentRight="true"
                     android:background="@drawable/ic_clear_black_18dp"
@@ -176,8 +176,8 @@
 
                 <Button
                     android:id="@+id/cart_fragment_cancel_btn3"
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="top"
                     android:layout_alignParentRight="true"
                     android:background="@drawable/ic_clear_black_18dp"
